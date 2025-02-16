@@ -1,0 +1,284 @@
+/* Шрифты */
+@font-face {
+    font-family: 'Jost';
+    src: url('./src/fonts/Jost-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('./src/fonts/Jost-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('./src/fonts/Jost-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jost';
+    src: url('./src/fonts/Jost-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* Нормализация CSS */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+html,
+:has(:target) {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    line-height: normal;
+}
+
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+:where(ul[class]) {
+    list-style: none;
+}
+
+:where(address[class]) {
+    font-style: normal;
+}
+
+p {
+    --paragraphMarginBottom: 24px;
+    margin-block: 0;
+}
+
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+a:where([class]) {
+    display: inline-flex;
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+label {
+    cursor: pointer;
+}
+
+:where([fill]:not([fill="none"], [fill^="url"])) {
+    fill: currentColor;
+}
+
+:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+    stroke: currentColor;
+}
+
+svg * {
+    transition-property: fill, stroke;
+}
+
+
+/* Переменные */
+:root {
+    --accent: #ff8a42;
+    --placeholder: #969696;
+    --black: #222222;
+    --white: #fdfdfd;
+
+    --border-radius: 5px;
+
+    --container-width: 1280px;
+    --container-padding-x: 100px;
+}
+
+
+/* Стили */
+body {
+    font-size: 20px;
+    font-family: Jost;
+    font-weight: 400;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.container {
+    max-width: calc(var(--container-width) + (var(--container-padding-x) * 2));
+}
+
+
+.header-top {
+    max-width: calc(var(--container-width) + (var(--container-padding-x) * 2));
+    width: var(--container-width);
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: auto;
+    align-items: center;
+}
+
+.logo-icon {
+    cursor: pointer;
+    width: 100px;
+    height: 64px;
+}
+
+.logo-text {
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stroy {
+    color: var(--accent);
+}
+
+.header-contact-box {
+    display: flex;
+    column-gap: 20px;
+}
+
+.header-contact-text {
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+.icon {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+}
+
+.mail-icon {
+    margin-top: 2px;
+}
+
+.contact-phone {
+    font-size: 18px;
+}
+
+
+.login-icon {
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.login-button-text {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.header-bottom {
+    width: 100%;
+    background-color: var(--accent);
+    box-shadow: 0 8px 24px 0 rgba(86, 33, 0, 0.12);
+}
+
+.header-menu-list {
+    display: flex;
+    justify-content: center;
+}
+
+.header-menu-link {
+    position: relative;
+    color: var(--white);
+    padding: 30px;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s cubic-bezier(.17, .84, .44, 1);
+    z-index: 2;
+}
+
+.header-menu-link:active {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.header-menu-item {
+    position: relative;
+}
+
+.header-menu-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--white);
+    transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.header-menu-item:hover::before {
+    height: 10px;
+}
+
+
+.header-menu-text {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.is-current {
+    background-color: var(--white);
+    color: var(--black);
+}
