@@ -1,0 +1,12 @@
+:root {
+    --accent: #ff8a42;
+    --placeholder: #969696;
+    --black: #222222;
+    --white: #fdfdfd;
+
+    --border-radius: 5px;
+
+    --container-width: 1080px;
+    --container-padding-x: 100px;
+    --max-container-width: calc(var(--container-width) + (var(--container-padding-x) * 2));
+}

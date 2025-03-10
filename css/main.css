@@ -1,0 +1,27 @@
+/* Импорт базовых стилей */
+@import 'base/reset.css';
+@import 'base/typography.css';
+@import 'base/variables.css';
+
+
+/* Импорт стилей страниц */
+@import 'pages/index.css';
+
+/* * {
+    outline: 4px solid green;
+} */
+
+body {
+    font-size: 20px;
+    font-family: Jost;
+    font-weight: 400;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+}

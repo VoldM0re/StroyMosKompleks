@@ -1,80 +1,4 @@
-* {
-    /* outline: 4px solid green; */
-}
-
-
-/* Шрифты */
-@font-face {
-    font-family: 'Jost';
-    src: url('./src/fonts/Jost-Regular.ttf');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('./src/fonts/Jost-Medium.ttf');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('./src/fonts/Jost-SemiBold.ttf');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('./src/fonts/Jost-Bold.ttf');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Переменные */
-:root {
-    --accent: #ff8a42;
-    --placeholder: #969696;
-    --black: #222222;
-    --white: #fdfdfd;
-
-    --border-radius: 5px;
-
-    --container-width: 1080px;
-    --container-padding-x: 100px;
-    --max-container-width: calc(var(--container-width) + (var(--container-padding-x) * 2));
-}
-
-
-/* Стили */
-body {
-    font-size: 20px;
-    font-family: Jost;
-    font-weight: 400;
-    color: var(--black);
-    background-color: var(--white);
-}
-
-h1,
-h2,
-h3 {
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.container {
-    max-width: var(--max-container-width);
-    padding-inline: var(--container-padding-x);
-    margin-inline: auto;
-    margin-top: 100px;
-}
-
-.header-top {
+.header__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,12 +15,12 @@ h3 {
     column-gap: 15px;
 }
 
-.logo-icon {
+.logo__icon {
     width: 100px;
     cursor: pointer;
 }
 
-.logo-text {
+.logo__text {
     font-size: 48px;
     font-weight: 600;
     text-transform: uppercase;
@@ -106,12 +30,12 @@ h3 {
     color: var(--accent);
 }
 
-.header-contact-box {
+.header__contact-box {
     column-gap: 20px;
     display: flex;
 }
 
-.header-contact-text {
+.header__contact-text {
     font-weight: 500;
     line-height: 1.75;
     flex-shrink: 0;
@@ -123,7 +47,7 @@ h3 {
     -moz-user-select: none;
 }
 
-.mail-icon {
+.mail__icon {
     margin-top: 2px;
 }
 
@@ -131,33 +55,33 @@ h3 {
     font-size: 18px;
 }
 
-.account-button {
+.account__button {
     display: flex;
     align-items: center;
     column-gap: 5px;
 }
 
-.account-icon {
+.account__icon {
     width: 25px;
 }
 
-.account-button-text {
+.account__button-text {
     font-size: 24px;
 }
 
-.header-menu {
+.header__menu {
     display: flex;
     justify-content: center;
     background-color: var(--accent);
     box-shadow: 0 8px 24px 0 rgba(86, 33, 0, 0.12);
 }
 
-.header-menu-list {
+.header__menu-list {
     display: flex;
     justify-content: center;
 }
 
-.header-menu-link {
+.header__menu-link {
     column-gap: 10px;
     z-index: 2;
     position: relative;
@@ -170,16 +94,16 @@ h3 {
     width: max-content;
 }
 
-.header-menu-link:active {
+.header__menu-link:active {
     color: var(--black);
     background-color: var(--white);
 }
 
-.header-menu-item {
+.header__menu-item {
     position: relative;
 }
 
-.header-menu-item::before {
+.header__menu-item::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -190,11 +114,11 @@ h3 {
     transition: 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.header-menu-item:hover::before {
+.header__menu-item:hover::before {
     height: 10px;
 }
 
-.header-menu-text {
+.header__menu-text {
     flex-shrink: 0;
     font-size: 20px;
     font-weight: 500;
@@ -206,29 +130,22 @@ h3 {
     background-color: var(--white);
 }
 
-.slider-box {
-    padding-inline: 0;
-
-}
-
-
-/* Адаптив */
 @media (max-width: 1279px) {
-    .logo-text {
+    .logo__text {
         font-size: 32px;
     }
 }
 
 @media (max-width: 1024px) {
-    .logo-icon {
+    .logo__icon {
         width: 75px;
     }
 
-    .header-contact-text {
+    .header__contact-text {
         font-size: 16px;
     }
 
-    .account-button-text {
+    .account__button-text {
         font-size: 16px;
     }
 
@@ -236,61 +153,46 @@ h3 {
         font-size: 14px;
     }
 
-    .logo-text {
+    .logo__text {
         font-size: 28px;
     }
 
-    .header-menu-link {
+    .header__menu-link {
         padding: 15px 15px;
     }
 
-    .header-menu-text {
+    .header__menu-text {
         font-size: 18px;
     }
 
 }
 
 @media (max-width: 768px) {
-    .header-menu {
+    .header__menu {
         display: none;
     }
 
-    .logo-text {
+    .logo__text {
         font-size: 20px;
     }
 
-    .logo-icon {
+    .logo__icon {
         width: 50px;
     }
 
-    .account-icon {
+    .account__icon {
         min-width: 25px;
-        margin: 0;
-    }
-
-    .account-icon {
         margin: 0;
     }
 }
 
 
 @media (max-width: 660px) {
-    .account-button-text {
+    .account__button-text {
         display: none;
     }
-
-
 }
 
-@media (max-width: 480px) {
-    :root {
-        --container-width: 372px;
-        --container-padding-x: 20px;
-    }
-
-    .slider-box {
-        max-width: 100%;
-    }
-}
+@media (max-width: 480px) {}
 
 @media (max-width: 360px) {}
