@@ -1,5 +1,6 @@
 /* Импорт компонентов */
 @import '../components/header.css';
+@import '../components/footer.css';
 
 .container {
     max-width: var(--max-container-width);

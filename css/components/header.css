@@ -51,7 +51,7 @@
     margin-top: 2px;
 }
 
-.contact-phone {
+.header__contact-phone {
     font-size: 18px;
 }
 
@@ -149,7 +149,7 @@
         font-size: 16px;
     }
 
-    .contact-phone {
+    .header__contact-phone {
         font-size: 14px;
     }
 
@@ -188,7 +188,15 @@
 
 
 @media (max-width: 660px) {
+    .header__top {
+        max-width: unset;
+    }
+
     .account__button-text {
+        display: none;
+    }
+
+    .header__contacts {
         display: none;
     }
 }

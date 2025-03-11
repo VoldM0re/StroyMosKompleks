@@ -13,14 +13,16 @@
 
 <body>
     <?php require_once '../includes/components/header.php'; ?>
-    <div class='slider-wrapper container'>
-        <div class='slider'>
-            <div class='slider__item'>
-                <img src='../src/img/slider1.png' alt='Slider image 1'>
+    <main>
+        <div class='slider-wrapper container'>
+            <div class='slider'>
+                <div class='slider__item'>
+                    <img src='../src/img/slider1.png' alt='Slider image 1'>
+                </div>
             </div>
         </div>
-    </div>
-
+    </main>
+    <?php require_once '../includes/components/footer.php'; ?>
     <script src='main.js'></script>
 </body>
 

@@ -6,9 +6,10 @@
 
 /* Импорт стилей страниц */
 @import 'pages/index.css';
+@import 'pages/register.css';
 
 /* * {
-    outline: 4px solid green;
+    outline: 2px solid green;
 } */
 
 body {
@@ -17,6 +18,9 @@ body {
     font-weight: 400;
     color: var(--black);
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1,
@@ -24,4 +28,12 @@ h2,
 h3 {
     font-weight: 700;
     text-transform: uppercase;
+}
+
+svg {
+    flex-shrink: 0;
+}
+
+main {
+    flex: 1 0 auto;
 }
