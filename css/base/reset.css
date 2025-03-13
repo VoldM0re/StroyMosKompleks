@@ -91,3 +91,7 @@ input[type='radio'] {
 svg * {
     transition-property: fill, stroke;
 }
+
+svg {
+    flex-shrink: 0;
+}

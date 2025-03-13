@@ -2,12 +2,12 @@
     display: flex;
     position: relative;
     max-width: unset !important;
-    margin-top: 0 !important;
-    padding-inline: 0 !important;
+    margin-inline: auto;
     overflow: hidden;
     --progress: 0%;
     --left: 10%;
     --top-bottom: 15%;
+    box-shadow: var(--light-shadow);
 }
 
 .slider-wrapper::before {
@@ -224,6 +224,7 @@
     .slider-wrapper {
         max-width: var(--max-container-width) !important;
         max-height: 600px;
+        border-radius: var(--border-radius);
     }
 
     .slider-wrapper p {

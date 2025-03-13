@@ -103,6 +103,6 @@ dots.forEach(radio => {
 showSliderProgress()
 
 // Автопрокрутка
-// setInterval(() => {
-//     showSlide(currentSlide + 1);
-// }, 5000);
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 5000);

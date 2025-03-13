@@ -30,5 +30,6 @@
     :root {
         --container-width: 1080px;
         --container-padding-x: 100px;
+        --light-shadow: 0px 8px 30px 0px rgba(37, 21, 12, 0.096);
     }
 }

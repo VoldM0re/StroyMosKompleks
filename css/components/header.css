@@ -31,10 +31,6 @@
     text-transform: uppercase;
 }
 
-.stroy {
-    color: var(--accent);
-}
-
 .header__contact-box {
     display: flex;
     column-gap: 20px;

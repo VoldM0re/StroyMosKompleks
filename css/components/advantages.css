@@ -1,0 +1,142 @@
+.advantages__block-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.advantages__block-text {
+    display: flex;
+    row-gap: 15px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.advantage__block-text {
+    font-size: 16px;
+    text-wrap: balance;
+}
+
+#left-adv {
+    text-align: left;
+}
+
+#right-adv {
+    text-align: right;
+}
+
+.advantages {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 10px;
+}
+
+.advantage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    gap: 15px;
+    border-radius: var(--border-radius);
+    background: #fff;
+    box-shadow: var(--light-shadow);
+}
+
+.advantage-icon {
+    color: var(--accent);
+}
+
+.advantage-text {
+    align-self: stretch;
+    color: var(--black);
+    font-size: 12px;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.advantage-hr {
+    width: 42px;
+    height: 4px;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--accent);
+}
+
+@media (min-width: 359px) {
+    .advantage__block-text {
+        font-size: 18px;
+    }
+
+    .advantage-text {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 479px) {
+    .advantages {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (min-width: 659px) {
+
+
+    .advantage__block-text {
+        font-size: 20px;
+    }
+
+    .advantage-text {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 767px) {
+    .advantage__block-text {
+        font-size: 22px;
+    }
+
+    .advantage-text {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1023px) {
+    .advantage-text {
+        font-size: 20px;
+    }
+
+    .advantage__block-text {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1279px) {
+    .advantages__block-wrapper {
+        gap: 50px
+    }
+
+    .advantages {
+        gap: 50px;
+    }
+
+    .advantage {
+        padding: 30px;
+        gap: 30px;
+        transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .advantage:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 8px 50px 0px rgba(37, 21, 12, 0.05);
+    }
+
+    .advantage-hr {
+        width: 60px;
+    }
+}
