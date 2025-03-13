@@ -1,0 +1,36 @@
+.link_button {
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    background: var(--white);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: .2s cubic-bezier(.17, .84, .44, 1);
+}
+
+/* Для сенсорных устройств */
+@media (hover: none) {
+    .link_button:active {
+        transform: translate(-0.4rem, -0.4rem);
+        box-shadow: .4rem .4rem var(--accent);
+    }
+}
+
+/* Для ПК */
+@media (hover: hover) {
+    .link_button:hover {
+        transform: translate(-0.3rem, -0.3rem);
+        box-shadow: .3rem .3rem var(--accent);
+    }
+
+    .link_button:active {
+        transform: translate(0.3rem, 0.3rem);
+        box-shadow: none;
+    }
+}

@@ -1,35 +1,18 @@
 /* Импорт компонентов */
 @import '../components/header.css';
 @import '../components/footer.css';
+@import '../components/slider.css';
+@import '../components/action_button.css';
+@import '../components/link_button.css';
 
-.container {
-    max-width: var(--max-container-width);
-    padding-inline: var(--container-padding-x);
-    margin-inline: auto;
-    margin-top: 100px;
-}
+@media (min-width: 359px) {}
 
-.slider-wrapper {
-    padding-inline: 0;
-}
+@media (min-width: 479px) {}
 
-@media (max-width: 1279px) {}
+@media (min-width: 659px) {}
 
-@media (max-width: 1024px) {}
+@media (min-width: 767px) {}
 
-@media (max-width: 768px) {}
+@media (min-width: 1023px) {}
 
-@media (max-width: 660px) {}
-
-@media (max-width: 480px) {
-    :root {
-        --container-width: 372px;
-        --container-padding-x: 20px;
-    }
-
-    .slider-wrapper {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 360px) {}
+@media (min-width: 1279px) {}

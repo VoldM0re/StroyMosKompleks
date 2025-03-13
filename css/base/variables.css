@@ -4,9 +4,31 @@
     --black: #222222;
     --white: #fdfdfd;
 
-    --border-radius: 5px;
+    --light-shadow: 0px 2.5px 8px 0px rgba(86, 33, 0, 0.15);
+    --border-radius: 2px;
 
-    --container-width: 1080px;
-    --container-padding-x: 100px;
+    --container-width: 372px;
+    --container-padding-x: 20px;
     --max-container-width: calc(var(--container-width) + (var(--container-padding-x) * 2));
+}
+
+@media (min-width: 359px) {}
+
+@media (min-width: 479px) {}
+
+@media (min-width: 659px) {}
+
+@media (min-width: 767px) {
+    :root {
+        --border-radius: 5px;
+    }
+}
+
+@media (min-width: 1023px) {}
+
+@media (min-width: 1279px) {
+    :root {
+        --container-width: 1080px;
+        --container-padding-x: 100px;
+    }
 }

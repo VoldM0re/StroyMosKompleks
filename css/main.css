@@ -12,15 +12,22 @@
     outline: 2px solid green;
 } */
 
+.container {
+    max-width: var(--max-container-width);
+    margin-top: 100px;
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+}
+
 body {
-    font-size: 20px;
-    font-family: Jost;
-    font-weight: 400;
-    color: var(--black);
-    background-color: var(--white);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: 400;
+    font-size: 20px;
+    font-family: Jost;
 }
 
 h1,

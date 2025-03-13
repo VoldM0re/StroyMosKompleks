@@ -75,7 +75,8 @@ a:where([class]) {
 }
 
 button,
-label {
+label,
+input[type='radio'] {
     cursor: pointer;
 }
 

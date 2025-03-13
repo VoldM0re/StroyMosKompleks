@@ -1,31 +1,31 @@
 @font-face {
-    font-family: 'Jost';
-    src: url('../../src/fonts/Jost-Regular.ttf');
+    font-style: normal;
     font-weight: 400;
-    font-style: normal;
+    src: url('../../src/fonts/Jost-Regular.ttf');
+    font-family: 'Jost';
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('../../src/fonts/Jost-Medium.ttf');
+    font-style: normal;
     font-weight: 500;
-    font-style: normal;
+    src: url('../../src/fonts/Jost-Medium.ttf');
+    font-family: 'Jost';
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('../../src/fonts/Jost-SemiBold.ttf');
+    font-style: normal;
     font-weight: 600;
-    font-style: normal;
+    src: url('../../src/fonts/Jost-SemiBold.ttf');
+    font-family: 'Jost';
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('../../src/fonts/Jost-Bold.ttf');
-    font-weight: 700;
     font-style: normal;
+    font-weight: 700;
+    src: url('../../src/fonts/Jost-Bold.ttf');
+    font-family: 'Jost';
     font-display: swap;
 }
