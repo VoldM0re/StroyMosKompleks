@@ -7,8 +7,8 @@
     <title>СтройМосКомплекс - Главная</title>
     <meta name='description'
         content='Строительство, проектирование и дизайн под ключ в Москве и области. Профессиональные услуги промышленного альпинизма. Гарантия качества и соблюдение сроков.'>
-    <link rel='stylesheet' href='/css/main.css'>
-    <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
+    <link rel='stylesheet' href='css/main.css'>
+    <link rel='shortcut icon' href='assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 
 <body>
@@ -26,19 +26,19 @@
             <div class='slider' id='slider'>
                 <div class='slide'>
                     <p>Услуги промышленного альпинизма</p>
-                    <img class='slider__image' src='/assets/img/slider1.png' alt='Изображение слайдера' />
+                    <img class='slider__image' src='assets/img/slider1.png' alt='Изображение слайдера' />
                     <?php $link = 'prom-alpinizm.php';
                     require 'includes/components/link_button.php'; ?>
                 </div>
                 <div class='slide'>
                     <p>Профессиональные строительные и отделочные работы</p>
-                    <img class='slider__image' src='/assets/img/slider2.png' alt='Изображение слайдера' />
+                    <img class='slider__image' src='assets/img/slider2.png' alt='Изображение слайдера' />
                     <?php $link = 'katalog.php';
                     require 'includes/components/link_button.php'; ?>
                 </div>
                 <div class='slide'>
                     <p>Дизайн и проектирование</p>
-                    <img class='slider__image' src='/assets/img/slider3.png' alt='Изображение слайдера' />
+                    <img class='slider__image' src='assets/img/slider3.png' alt='Изображение слайдера' />
                     <?php $link = 'dizayn.php';
                     require 'includes/components/link_button.php'; ?>
                 </div>
@@ -137,7 +137,7 @@
 
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
-    <script src='/main.js'></script>
+    <script src='main.js'></script>
 </body>
 
 </html>

@@ -12,13 +12,6 @@
     outline: 2px solid green;
 } */
 
-/* .container {
-    max-width: var(--max-container-width);
-    margin-top: 100px;
-    margin-inline: auto;
-    padding-inline: var(--container-padding-x);
-} */
-
 .container {
     width: 100%;
     padding-inline: 20px;

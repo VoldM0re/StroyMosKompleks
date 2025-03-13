@@ -27,7 +27,6 @@ function showSliderProgress() {
 function showSlide(slideIndex) {
     if (isAnimating) return;
     isAnimating = true;
-    console.log(currentSlide);
     if (slideIndex < 0) {
         currentSlide = slidesCount - 1;
         showSliderProgress();

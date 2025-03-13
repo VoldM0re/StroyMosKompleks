@@ -8,7 +8,7 @@
             </svg></button>
 
         <a class='logo' href='index.php'>
-            <img class='logo__icon icon' src='/assets/svg/logo.svg' alt='logo' loading='eager'>
+            <img class='logo__icon icon' src='assets/svg/logo.svg' alt='logo' loading='eager'>
             <span class='logo__text'>
                 <span class='stroy'>Строй</span>МосКомплекс
             </span>
@@ -16,16 +16,16 @@
 
         <address class='header__contacts'>
             <div class='header__contact-box'>
-                <img src='/assets/svg/mail.svg' alt='mail icon' class='mail__icon icon'>
+                <img src='assets/svg/mail.svg' alt='mail icon' class='mail__icon icon'>
                 <a href='mailto:somemail@mail.ru' class='header__contact-text'>somemail@mail.ru</a>
             </div>
             <div class='header__contact-box'>
-                <img src='/assets/svg/phone.svg' alt='phone icon' class='phone__icon icon'>
+                <img src='assets/svg/phone.svg' alt='phone icon' class='phone__icon icon'>
                 <a href='tel:+71234567890' class='header__contact-text header__contact-phone'>+7 (495) 633-62-62</a>
             </div>
         </address>
         <a href='login.php' class='account__button'>
-            <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
+            <img src='assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
             <span class='account__button-text'>Войти</span>
         </a>
     </div>
