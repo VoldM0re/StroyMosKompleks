@@ -1,1 +1,11 @@
-ErrorDocument 404 /StroyMosKompleks/error_page.php
+ErrorDocument 404 /StroyMosKompleks/public/error_page.php
+ErrorDocument 403 /StroyMosKompleks/public/error_page.php
+
+Options -Indexes
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/StroyMosKompleks/public/ [NC]
+RewriteCond %{REQUEST_URI} !^/StroyMosKompleks/css/ [NC]
+RewriteCond %{REQUEST_URI} !^/StroyMosKompleks/src/ [NC]
+RewriteRule ^ - [F,L]

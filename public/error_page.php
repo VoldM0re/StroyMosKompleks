@@ -7,6 +7,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>Страница не найдена</title>
     <link rel="stylesheet" href="/StroyMosKompleks/css/base/typography.css">
+    <link rel='shortcut icon' href='/StroyMosKompleks/src/svg/favicon.svg' type='image/x-icon'>
 </head>
 
 <style>
@@ -24,13 +25,22 @@ body {
     justify-content: center;
     height: 100vh;
     font-family: 'Jost';
+    row-gap: 30px;
+}
+
+.error-page {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 </style>
 
 <body>
+    <img src="/StroyMosKompleks/src/svg/logo.svg" alt="Логотип">
     <div class='error-page'>
         <h1>404</h1>
-        <h2>Страница не найдена</h2>
+        <h2>Страница <nobr>не найдена :(</nobr>
+        </h2>
         <p>Извините, запрашиваемая вами страница не существует.<br>(Может быть, <strong>ещё</strong> не существует)</p>
         <a href="/StroyMosKompleks/public/index.php">Вернуться на главную</a>
     </div>

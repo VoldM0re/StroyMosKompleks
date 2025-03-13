@@ -44,6 +44,8 @@
     </div>
     <div class="footer__copyrights">
         <a href="#" class="privacy_policy-link">Политика конфиденциальности</a>
-        <p>© ООО «СтройМосКомплекс» 2025<br>Все права защищены.</p>
+        <p>
+            <nobr>© ООО «СтройМосКомплекс» 2025</nobr>. Все права защищены.
+        </p>
     </div>
 </footer>

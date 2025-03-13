@@ -43,6 +43,7 @@ footer h4 {
 
 .footer__copyrights>p {
     text-align: center;
+    text-wrap: balance;
 }
 
 .privacy_policy-link {
