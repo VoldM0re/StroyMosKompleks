@@ -6,7 +6,7 @@
 
 /* Импорт стилей страниц */
 @import 'pages/index.css';
-@import 'pages/register.css';
+@import 'pages/login.css';
 
 /* * {
     outline: 2px solid green;

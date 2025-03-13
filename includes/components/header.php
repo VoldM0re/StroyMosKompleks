@@ -7,9 +7,8 @@
                     fill="#222222" stroke="#222222" stroke-width="0.5" />
             </svg></button>
 
-
-        <a class='logo' href='index.html'>
-            <img class='logo__icon icon' src='../src/svg/logo.svg' alt='logo' loading='eager'>
+        <a class='logo' href='index.php'>
+            <img class='logo__icon icon' src='/assets/svg/logo.svg' alt='logo' loading='eager'>
             <span class='logo__text'>
                 <span class='stroy'>Строй</span>МосКомплекс
             </span>
@@ -17,28 +16,28 @@
 
         <address class='header__contacts'>
             <div class='header__contact-box'>
-                <img src='../src/svg/mail.svg' alt='mail icon' class='mail__icon icon'>
+                <img src='/assets/svg/mail.svg' alt='mail icon' class='mail__icon icon'>
                 <a href='mailto:somemail@mail.ru' class='header__contact-text'>somemail@mail.ru</a>
             </div>
             <div class='header__contact-box'>
-                <img src='../src/svg/phone.svg' alt='phone icon' class='phone__icon icon'>
+                <img src='/assets/svg/phone.svg' alt='phone icon' class='phone__icon icon'>
                 <a href='tel:+71234567890' class='header__contact-text header__contact-phone'>+7 (495) 633-62-62</a>
             </div>
         </address>
         <a href='login.php' class='account__button'>
-            <img src='../src/svg/profile_icon.svg' class='account__icon' alt='account icon'>
+            <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
             <span class='account__button-text'>Войти</span>
         </a>
     </div>
     <nav class='header__menu'>
         <ul class='header__menu-list'>
             <li class='header__menu-item'>
-                <a href='index.html' class='header__menu-link is-current'>
+                <a href='index.php' class='header__menu-link is-current'>
                     <span class='header__menu-text'>Главная</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='uslugi.html' class='header__menu-link'>
+                <a href='uslugi.php' class='header__menu-link'>
                     <span class='header__menu-text
                                                      is-expandable'>Услуги</span>
                     <svg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -50,22 +49,22 @@
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='o-kompanii.html' class='header__menu-link'>
+                <a href='o-kompanii.php' class='header__menu-link'>
                     <span class='header__menu-text'>О компании</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='portfolio.html' class='header__menu-link'>
+                <a href='portfolio.php' class='header__menu-link'>
                     <span class='header__menu-text'>Портфолио</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='otzyvy.html' class='header__menu-link'>
+                <a href='otzyvy.php' class='header__menu-link'>
                     <span class='header__menu-text'>Отзывы</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='faq.html' class='header__menu-link'>
+                <a href='faq.php' class='header__menu-link'>
                     <span class='header__menu-text'>FAQ</span>
                 </a>
             </li>

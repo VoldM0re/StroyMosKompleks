@@ -1,9 +1,9 @@
 /* Импорт компонентов */
-@import '../components/header.css';
-@import '../components/footer.css';
-@import '../components/slider.css';
-@import '../components/action_button.css';
-@import '../components/link_button.css';
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/slider.css';
+@import '/css/components/action_button.css';
+@import '/css/components/link_button.css';
 
 @media (min-width: 359px) {}
 

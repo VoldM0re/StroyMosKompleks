@@ -3,9 +3,10 @@ const sliderDots = document.querySelector('.slider__dots');
 const slider = document.getElementById('slider');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
+
+const slidesCount = slider.children.length;
 let currentSlide = 0;
 let isAnimating = false;
-const slidesCount = slider.children.length;
 
 for (let i = 0; i < slidesCount; i++) {
     const dot = `
