@@ -170,6 +170,47 @@
             </div>
         </div>
 
+        <div class="reviews-wrapper container">
+            <h3>Отзывы наших клиентов</h3>
+            <div class="reviews">
+                <div class="review">
+                    <div class="review-user">
+                        <img class='review-user-pfp' src="assets/img/irina.png" alt="Фото профиля">
+                        <h4>Ирина Ё.</h4>
+                    </div>
+                    <p class="review-text">
+                        "СтройМосКомплекс" провёл реконструкцию нашего загородного дома. Работа заняла 6 месяцев.
+                        Команда профессионалов учла все наши пожелания, проект был завершён в срок, результат превзошёл
+                        все ожидания!!
+                    </p>
+                </div>
+                <div class="review">
+                    <div class="review-user">
+                        <img class='review-user-pfp' src="assets/img/pavel.png" alt="Фото профиля">
+                        <h4>Павел Т.</h4>
+                    </div>
+                    <p class="review-text">
+                        Заказывал здесь редизайн офиса для нашей компании. Работали быстро, качественно, учли все
+                        детали. Доволен результатом.
+                    </p>
+                </div>
+                <div class="review">
+                    <div class="review-user">
+                        <img class='review-user-pfp' src="assets/img/default_pfp.png" alt="Фото профиля">
+                        <h4>Абдул Х.</h4>
+                    </div>
+                    <p class="review-text">
+                        Отличная работа, дом построили идеально и в срок!
+                    </p>
+                </div>
+            </div>
+            <?php
+            $color = 'w';
+            $actbtn_text = 'Показать ещё'
+            ?>
+            <?php require_once 'includes/components/action_button.php'; ?>
+        </div>
+
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
     <script src='main.js'></script>

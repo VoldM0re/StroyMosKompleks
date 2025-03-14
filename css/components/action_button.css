@@ -2,12 +2,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     padding-block: 20px;
     border: none;
     border-radius: var(--border-radius);
-    background: var(--accent);
     box-shadow: var(--shadow);
-    color: var(--white);
     font-weight: 700;
     font-size: var(--bigger-text);
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.action_button:hover {
+    transform: scale(1.1);
+}
+
+.action_button:active {
+    transform: scale(1);
+}
+
+
+.actbtn-o {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.actbtn-w {
+    background: var(--white);
+    color: var(--accent);
+}
+
+@media (min-width: 1023px) {
+    .action_button {
+        width: 230px;
+    }
 }
