@@ -135,6 +135,41 @@
             </div>
         </div>
 
+        <div class="our_projects-wrapper container">
+            <h3>Наши работы</h3>
+            <div class="our_projects__cards">
+                <div class="project__card">
+                    <img class='project__card-image' src="assets/img/proj1.png" alt="Проект офиса">
+                    <div class="project-text-wrapper">
+                        <div class="project-text">
+                            <h4 class='project-title'>Офис</h4>
+                            <p class="project-text-description">Ремонт офиса площадью 200м² в классическом стиле</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__card">
+                    <img class='project__card-image' src="assets/img/proj2.png" alt="Проект квартиры">
+                    <div class="project-text-wrapper">
+                        <div class="project-text">
+                            <h4 class='project-title'>Квартира</h4>
+                            <p class="project-text-description">Отделка квартиры в новостройке площадью 100м² в
+                                современном стиле</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__card">
+                    <img class='project__card-image' src="assets/img/proj3.png" alt="Проект дома">
+                    <div class="project-text-wrapper">
+                        <div class="project-text">
+                            <h4 class='project-title'>Дом</h4>
+                            <p class="project-text-description">Реконструкция загородного дома площадью 250 м² в стиле
+                                "прованс"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
     <script src='main.js'></script>

@@ -4,8 +4,11 @@
     --black: #222222;
     --white: #fdfdfd;
 
-    --light-shadow: 0px 2.5px 8px 0px rgba(86, 33, 0, 0.15);
-    --border-radius: 2px;
+    --shadow: 0px 2.5px 8px 0px rgba(65, 25, 0, 0.2);
+    --border-radius: 5px;
+
+    --normal-text: 16px;
+    --bigger-text: 20px;
 
     --container-width: 372px;
     --container-padding-x: 20px;
@@ -20,7 +23,7 @@
 
 @media (min-width: 767px) {
     :root {
-        --border-radius: 5px;
+        --border-radius: 7px;
     }
 }
 
@@ -30,6 +33,6 @@
     :root {
         --container-width: 1080px;
         --container-padding-x: 100px;
-        --light-shadow: 0px 8px 30px 0px rgba(37, 21, 12, 0.096);
+        --shadow: 0px 8px 30px 0px rgba(37, 21, 12, 0.096);
     }
 }

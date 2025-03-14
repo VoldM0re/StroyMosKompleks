@@ -7,7 +7,7 @@
     --progress: 0%;
     --left: 10%;
     --top-bottom: 15%;
-    box-shadow: var(--light-shadow);
+    box-shadow: var(--shadow);
 }
 
 .slider-wrapper::before {
@@ -148,7 +148,7 @@
     }
 
     .slide .link_button {
-        font-size: 20px;
+        font-size: var(--bigger-text);
     }
 }
 

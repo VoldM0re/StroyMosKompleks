@@ -6,8 +6,8 @@
     border: none;
     border-radius: var(--border-radius);
     background: var(--accent);
-    box-shadow: var(--light-shadow);
+    box-shadow: var(--shadow);
     color: var(--white);
     font-weight: 700;
-    font-size: 20px;
+    font-size: var(--bigger-text);
 }

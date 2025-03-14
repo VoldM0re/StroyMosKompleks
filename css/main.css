@@ -25,7 +25,7 @@ body {
     background-color: var(--white);
     color: var(--black);
     font-weight: 400;
-    font-size: 20px;
+    font-size: var(--normal-text);
     font-family: Jost;
 }
 
@@ -55,40 +55,40 @@ main {
 
 .inline-heading {
     font-weight: 700;
-    font-size: 20px;
+    font-size: var(--bigger-text);
 }
 
 @media (min-width: 359px) {}
 
 @media (min-width: 479px) {
     .container {
-        padding-inline: 5% !important;
+        padding-inline: 5%;
     }
 }
 
 @media (min-width: 659px) {
     .container {
-        padding-inline: 15% !important;
+        padding-inline: 10%;
     }
 
     .inline-heading {
-        font-size: 24px !important;
+        font-size: 24px;
     }
 }
 
 @media (min-width: 767px) {
     h3 {
-        font-size: 26px !important;
+        font-size: 26px;
     }
 
     .inline-heading {
-        font-size: 26px !important;
+        font-size: 26px;
     }
 }
 
 @media (min-width: 1023px) {
     h3 {
-        font-size: 28px !important;
+        font-size: 28px;
         text-transform: uppercase;
     }
 }
@@ -99,7 +99,7 @@ main {
     }
 
     h3 {
-        font-size: 48px !important;
+        font-size: 48px;
     }
 
     .container {
@@ -107,5 +107,6 @@ main {
         margin-top: 100px;
         margin-inline: auto;
         padding-inline: var(--container-padding-x) !important;
+        padding-block: 0;
     }
 }

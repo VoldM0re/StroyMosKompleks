@@ -122,7 +122,7 @@
 .header__menu-text {
     flex-shrink: 0;
     font-weight: 500;
-    font-size: 20px;
+    font-size: var(--bigger-text);
     text-transform: uppercase;
 }
 
@@ -147,11 +147,11 @@
     }
 
     .header__contact-text {
-        font-size: 16px;
+        font-size: var(--normal-text);
     }
 
     .account__button-text {
-        font-size: 16px;
+        font-size: var(--normal-text);
     }
 
     .header__contact-phone {
@@ -186,7 +186,7 @@
     }
 
     .logo__text {
-        font-size: 20px;
+        font-size: var(--bigger-text);
     }
 
     .logo__icon {
@@ -201,7 +201,7 @@
 
 @media (max-width: 659px) {
     .logo__text {
-        font-size: 16px;
+        font-size: var(--bigger-text);
     }
 
     .header__top {
@@ -217,7 +217,11 @@
     }
 }
 
-@media (max-width: 479px) {}
+@media (max-width: 479px) {
+    .logo__text {
+        font-size: 16px;
+    }
+}
 
 @media (max-width: 359px) {
     .logo__text {

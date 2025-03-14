@@ -5,11 +5,11 @@ footer {
     gap: 50px;
     background-color: var(--black);
     color: var(--white);
-    font-size: 16px;
+    font-size: var(--normal-text);
 }
 
 footer h4 {
-    font-size: 20px;
+    font-size: var(--bigger-text);
 }
 
 .footer__info {
