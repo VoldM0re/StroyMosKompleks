@@ -58,20 +58,18 @@ let touchStartX = 0;
 let touchEndX = 0;
 const minSwipeDistance = 70;
 
-slider.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
+slider.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+    touchStartY = event.changedTouches[0].screenY;
 });
 
-slider.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
+slider.addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].screenX;
     handleSwipe();
 });
 
 function handleSwipe() {
     const swipeDistance = touchEndX - touchStartX;
-
-    // Если свайп достаточно длинный
     if (Math.abs(swipeDistance) > minSwipeDistance) {
         swipeDistance > 0 ?
             showSlide(currentSlide - 1) :
@@ -80,15 +78,15 @@ function handleSwipe() {
 }
 
 // Предотвращаем прокрутку страницы при свайпе слайдера
-slider.addEventListener('touchmove', (e) => {
+slider.addEventListener('touchmove', (event) => {
     // Если движение горизонтальное, предотвращаем прокрутку страницы
-    const touchMoveX = e.touches[0].screenX;
+    const touchMoveX = event.touches[0].screenX;
     const diffX = Math.abs(touchMoveX - touchStartX);
-    const touchMoveY = e.touches[0].screenY;
+    const touchMoveY = event.touches[0].screenY;
     const diffY = Math.abs(touchMoveY - touchStartY);
 
     if (diffX > diffY) {
-        e.preventDefault();
+        event.preventDefault();
     }
 }, { passive: false });
 

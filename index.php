@@ -204,16 +204,14 @@
                     </p>
                 </div>
             </div>
-            <?php
-            $color = 'w';
-            $actbtn_text = 'Показать ещё'
-            ?>
-            <?php require_once 'includes/components/action_button.php'; ?>
+            <?php $color = 'w';
+            $actbtn_text = 'Показать все отзывы';
+            require_once 'includes/components/action_button.php'; ?>
         </div>
 
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
-    <script src='main.js'></script>
+    <script src='js/slider.js'></script>
 </body>
 
 </html>
