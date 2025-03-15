@@ -21,7 +21,7 @@
             </div>
             <div class='header__contact-box'>
                 <img src='assets/svg/phone.svg' alt='phone icon' class='phone__icon icon'>
-                <a href='tel:+71234567890' class='header__contact-text header__contact-phone'>+7 (495) 633-62-62</a>
+                <a href='tel:+71234567890' class='header__contact-text'>+7 (495) 633-62-62</a>
             </div>
         </address>
         <a href='login.php' class='account__button'>

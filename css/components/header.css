@@ -52,10 +52,6 @@
     margin-top: 2px;
 }
 
-.header__contact-phone {
-    font-size: 18px;
-}
-
 .account__button {
     display: flex;
     column-gap: 5px;
