@@ -82,6 +82,7 @@ header {
 
 .header__menu {
     display: flex;
+    visibility: hidden;
     z-index: 4;
     position: fixed;
     top: 80px;
@@ -93,14 +94,13 @@ header {
     background: var(--accent);
     box-shadow: var(--shadow);
     opacity: 0;
-    visibility: hidden;
     transition: .25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .header__menu.active {
+    visibility: visible;
     transform: translateX(0);
     opacity: 1;
-    visibility: visible;
 }
 
 .header__menu-list {
@@ -263,6 +263,7 @@ header {
     }
 
     .header__menu {
+        visibility: visible;
         position: static;
         flex-direction: row;
         justify-content: center;
