@@ -93,12 +93,14 @@ header {
     background: var(--accent);
     box-shadow: var(--shadow);
     opacity: 0;
+    visibility: hidden;
     transition: .25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .header__menu.active {
     transform: translateX(0);
     opacity: 1;
+    visibility: visible;
 }
 
 .header__menu-list {
