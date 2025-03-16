@@ -1,7 +1,7 @@
 footer {
     display: flex;
     flex-direction: column;
-    padding: 20px 30px;
+    padding: 30px;
     gap: 50px;
     background-color: var(--black);
     color: var(--white);
@@ -70,6 +70,7 @@ footer h4 {
 @media (min-width: 1279px) {
     footer {
         align-items: center;
+        padding-block: 50px;
     }
 
     .footer__info {

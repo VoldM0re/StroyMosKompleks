@@ -357,6 +357,10 @@ header {
 }
 
 @media (min-width: 1279px) {
+    .header__menu-link {
+        padding: 30px;
+    }
+
     .logo-icon {
         width: 100px;
     }
