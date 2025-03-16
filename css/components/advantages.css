@@ -66,6 +66,12 @@
     background: var(--accent);
 }
 
+@media (max-width: 360px) {
+    .advantage-icon {
+        width: 40px;
+    }
+}
+
 @media (min-width: 359px) {
     .advantage__block-text {
         font-size: 18px;
