@@ -61,12 +61,12 @@ const minSwipeDistance = 70;
 slider.addEventListener('touchstart', (event) => {
     touchStartX = event.changedTouches[0].screenX;
     touchStartY = event.changedTouches[0].screenY;
-});
+}, { passive: true });
 
 slider.addEventListener('touchend', (event) => {
     touchEndX = event.changedTouches[0].screenX;
     handleSwipe();
-});
+}, { passive: true });
 
 function handleSwipe() {
     const swipeDistance = touchEndX - touchStartX;
