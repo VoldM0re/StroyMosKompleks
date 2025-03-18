@@ -29,15 +29,14 @@ body {
     font-family: Jost;
 }
 
-h1,
-h2 {
+h1 {
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     text-wrap: balance;
 }
 
-h3 {
+h2 {
     font-weight: 700;
     font-size: 22px;
     text-align: center;
@@ -78,7 +77,7 @@ main {
 }
 
 @media (min-width: 767px) {
-    h3 {
+    h2 {
         font-size: 26px;
     }
 
@@ -88,7 +87,7 @@ main {
 }
 
 @media (min-width: 1023px) {
-    h3 {
+    h2 {
         font-size: 28px;
         text-transform: uppercase;
     }
@@ -100,7 +99,7 @@ main {
         gap: 100px;
     }
 
-    h3 {
+    h2 {
         font-size: 48px;
     }
 

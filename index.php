@@ -58,7 +58,7 @@
         </div>
 
         <div class='advantages__block-wrapper container'>
-            <h3>Почему выбирают именно нас?</h3>
+            <h2>Почему выбирают именно нас?</h2>
             <div class='advantages__block-text'>
                 <p class='advantage__block-text' id='left-adv'>
                     <span class='inline-heading'>
@@ -139,7 +139,7 @@
         </div>
 
         <div class='our_projects-wrapper container'>
-            <h3>Наши работы</h3>
+            <h2>Наши работы</h2>
             <div class='our_projects__cards'>
                 <div class='project__card'>
                     <img loading='lazy' class='project__card-image' src='assets/img/proj1.webp' alt='Проект офиса'>
@@ -174,7 +174,7 @@
         </div>
 
         <div class='reviews-wrapper container'>
-            <h3>Отзывы наших клиентов</h3>
+            <h2>Отзывы наших клиентов</h2>
             <div class='reviews'>
                 <div class='review'>
                     <div class='review-user'>
