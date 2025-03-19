@@ -62,7 +62,6 @@ footer h4 {
 @media (min-width: 1023px) {
     .footer__info {
         flex-direction: row;
-        justify-content: space-between;
         padding-inline: var(--container-padding-x);
     }
 }
@@ -74,9 +73,6 @@ footer h4 {
     }
 
     .footer__info {
-        flex-direction: row;
-        justify-content: space-between;
         width: var(--max-container-width);
-        padding-inline: var(--container-padding-x);
     }
 }

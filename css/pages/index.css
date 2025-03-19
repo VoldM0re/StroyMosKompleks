@@ -1,21 +1,12 @@
 /* Импорт компонентов */
-@import '../components/header.css';
-@import '../components/footer.css';
-@import '../components/slider.css';
-@import '../components/action_button.css';
-@import '../components/link_button.css';
-@import '../components/advantages.css';
-@import '../components/our_projects.css';
-@import '../components/reviews.css';
+@import '/css/base/base.css';
 
-@media (min-width: 359px) {}
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+@import '/css/components/link_button.css';
 
-@media (min-width: 479px) {}
-
-@media (min-width: 659px) {}
-
-@media (min-width: 767px) {}
-
-@media (min-width: 1023px) {}
-
-@media (min-width: 1279px) {}
+@import 'index/slider.css';
+@import 'index/advantages.css';
+@import 'index/our_projects.css';
+@import 'index/reviews.css';

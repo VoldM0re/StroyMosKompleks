@@ -91,8 +91,6 @@
 }
 
 @media (min-width: 659px) {
-
-
     .advantage__block-text {
         font-size: var(--bigger-text);
     }

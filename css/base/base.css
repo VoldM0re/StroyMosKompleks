@@ -1,12 +1,7 @@
 /* Импорт базовых стилей */
-@import 'base/reset.css';
-@import 'base/typography.css';
-@import 'base/variables.css';
-
-
-/* Импорт стилей страниц */
-@import 'pages/index.css';
-@import 'pages/login.css';
+@import 'reset.css';
+@import 'typography.css';
+@import 'variables.css';
 
 /* * {
     outline: 2px solid green;

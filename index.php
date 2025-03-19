@@ -7,7 +7,7 @@
     <title>СтройМосКомплекс - Главная</title>
     <meta name='description'
         content='Строительство, проектирование и дизайн под ключ в Москве и области. Профессиональные услуги промышленного альпинизма. Гарантия качества и соблюдение сроков.'>
-    <link rel='stylesheet' href='css/main.css'>
+    <link rel='stylesheet' href='css/pages/index.css'>
     <link rel='shortcut icon' href='assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 

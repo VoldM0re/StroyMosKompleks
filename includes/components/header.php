@@ -6,7 +6,7 @@
             <span></span>
         </div>
 
-        <a class='logo' href='index.php'>
+        <a class='logo' href='/'>
             <img class='logo-icon icon' src='assets/svg/logo.svg' alt='logo' loading='eager'>
             <h1 class='logo-text'>
                 <span class='stroy'>Строй</span>МосКомплекс
@@ -32,7 +32,7 @@
     <nav class='header__menu'>
         <ul class='header__menu-list'>
             <li class='header__menu-item'>
-                <a href='index.php' class='header__menu-link is-current'>
+                <a href='/' class='header__menu-link is-current'>
                     <span class='header__menu-text'>Главная</span>
                 </a>
             </li>

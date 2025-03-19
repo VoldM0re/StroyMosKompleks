@@ -44,14 +44,8 @@
     font-weight: 500;
 }
 
-@media (min-width: 359px) {}
-
-@media (min-width: 479px) {}
-
-@media (min-width: 659px) {}
-
-@media (min-width: 767px) {}
-
-@media (min-width: 1023px) {}
-
-@media (min-width: 1279px) {}
+@media (min-width: 1279px) {
+    .review-text {
+        font-size: 20px;
+    }
+}

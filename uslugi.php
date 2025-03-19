@@ -9,7 +9,7 @@
         альпинизм, строительные и отделочные работы, дизайн и проектирование. Профессиональный подход к каждому
         проекту'>
 
-    <link rel='stylesheet' href='css/main.css'>
+    <link rel='stylesheet' href='css/uslugi.css'>
     <link rel='shortcut icon' href='assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 

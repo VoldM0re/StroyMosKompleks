@@ -132,8 +132,6 @@
     background: linear-gradient(270deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.00) 100%);
 }
 
-@media (min-width: 359px) {}
-
 @media (min-width: 479px) {
     .slider-wrapper {
         --left: 15%
@@ -151,8 +149,6 @@
         font-size: var(--bigger-text);
     }
 }
-
-@media (min-width: 659px) {}
 
 @media (min-width: 767px) {
     .slider-wrapper {

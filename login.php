@@ -6,7 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>СтройМосКомплекс - Вход</title>
     <meta name='description' content='Вход на сайт СтройМосКомплекс'>
-    <link rel='stylesheet' href='css/main.css'>
+    <link rel='stylesheet' href='css/pages/login.css'>
     <link rel='shortcut icon' href='assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 
