@@ -6,8 +6,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='robots' content='noindex,nofollow'>
     <title>Страница не найдена</title>
-    <link rel='stylesheet' href='css/base/typography.css'>
-    <link rel='shortcut icon' href='assets/svg/favicon.svg' type='image/x-icon'>
+    <link rel='stylesheet' href='/css/base/typography.css'>
+    <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 
 <style>
@@ -36,13 +36,13 @@ body {
 </style>
 
 <body>
-    <img src='assets/svg/logo.svg' alt='Логотип'>
+    <img src='/assets/svg/logo.svg' alt='Логотип'>
     <div class='error-page'>
         <h1>404</h1>
         <h2>Страница <nobr>не найдена :(</nobr>
         </h2>
         <p>Извините, запрашиваемая вами страница не существует.<br>(Может быть, <strong>ещё</strong> не существует)</p>
-        <a href='index.php'>Вернуться на главную</a>
+        <a href='/'>Вернуться на главную</a>
     </div>
 </body>
 
