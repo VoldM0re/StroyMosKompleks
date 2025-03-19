@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /includes/
+Disallow: /js/
+Disallow: /.gitattributes
+Disallow: /.htaccess
+Disallow: /login.php
+Disallow: /error_page.php
