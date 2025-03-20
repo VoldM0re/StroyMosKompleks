@@ -3,12 +3,6 @@ ErrorDocument 403 /error_page.php
 
 Options -Indexes
 
-# Включение сжатия для ускорения загрузки
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript
-    application/x-javascript
-</IfModule>
-
 # Настройка кэширования статических файлов
 <IfModule mod_expires.c>
     ExpiresActive On
