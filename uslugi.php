@@ -9,8 +9,8 @@
         альпинизм, строительные и отделочные работы, дизайн и проектирование. Профессиональный подход к каждому
         проекту'>
 
-    <link rel='stylesheet' href='css/pages/uslugi.css'>
-    <link rel='shortcut icon' href='assets/svg/favicon.svg' type='image/x-icon'>
+    <link rel='stylesheet' href='/css/pages/uslugi.css'>
+    <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 
 <body>
@@ -22,28 +22,28 @@
                 <p class="service-text">Промышленный альпинизм</p>
                 <picture>
                     <source media="(min-width: 659px)" srcset="/assets/img/uslugi/PromAlp_desktop.webp">
-                    <img src="/assets/img/PromAlp_mobile.webp" alt="Услуги" width="1080">
+                    <img src="/assets/img/uslugi/PromAlp_mobile.webp" alt="Услуги" width="1080">
                 </picture>
             </a>
             <a class="service" href="#">
                 <p class="service-text">Строительные работы</p>
                 <picture>
                     <source media="(min-width: 659px)" srcset="/assets/img/uslugi/Stroy_desktop.webp">
-                    <img src="/assets/img/Stroy_mobile.webp" alt="Услуги" width="1080">
+                    <img src="/assets/img/uslugi/Stroy_mobile.webp" alt="Услуги" width="1080">
                 </picture>
             </a>
             <a class="service" href="#">
                 <p class="service-text">Отделочные работы</p>
                 <picture>
                     <source media="(min-width: 659px)" srcset="/assets/img/uslugi/Otdelka_desktop.webp">
-                    <img src="/assets/img/Otdelka_mobile.webp" alt="Услуги" width="1080">
+                    <img src="/assets/img/uslugi/Otdelka_mobile.webp" alt="Услуги" width="1080">
                 </picture>
             </a>
             <a class="service" href="#">
                 <p class="service-text">Дизайн и проектирование</p>
                 <picture>
                     <source media="(min-width: 659px)" srcset="/assets/img/uslugi/Proekt_desktop.webp">
-                    <img src="/assets/img/Proekt_mobile.webp" alt="Услуги" width="1080">
+                    <img src="/assets/img/uslugi/Proekt_mobile.webp" alt="Услуги" width="1080">
                 </picture>
             </a>
         </div>

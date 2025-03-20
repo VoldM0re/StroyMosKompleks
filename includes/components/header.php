@@ -1,3 +1,14 @@
+<?php
+function isActive($pageName)
+{
+    $currentPage = basename($_SERVER['PHP_SELF']);
+    if ($currentPage == $pageName) {
+        return 'is-current';
+    }
+    return '';
+}
+?>
+
 <header>
     <div class='header__top container'>
         <div class='burger__button'>
@@ -7,7 +18,7 @@
         </div>
 
         <a class='logo' href='/'>
-            <img class='logo-icon icon' src='assets/svg/logo.svg' alt='logo' loading='eager'>
+            <img class='logo-icon icon' src='/assets/svg/logo.svg' alt='logo' loading='eager'>
             <h1 class='logo-text'>
                 <span class='stroy'>Строй</span>МосКомплекс
             </h1>
@@ -15,16 +26,16 @@
 
         <address class='header__contacts'>
             <div class='header__contact-box'>
-                <img src='assets/svg/mail.svg' alt='mail icon' class='header__contact-icon icon'>
+                <img src='/assets/svg/mail.svg' alt='mail icon' class='header__contact-icon icon'>
                 <a href='mailto:somemail@mail.ru' class='header__contact-text'>somemail@mail.ru</a>
             </div>
             <div class='header__contact-box'>
-                <img src='assets/svg/phone.svg' alt='phone icon' class='header__contact-icon icon'>
+                <img src='/assets/svg/phone.svg' alt='phone icon' class='header__contact-icon icon'>
                 <a href='tel:+71234567890' class='header__contact-text'>+7 (495) 633-62-62</a>
             </div>
         </address>
         <a href='login.php' class='account__button'>
-            <img src='assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
+            <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
             <span class='account__button-text'>Войти</span>
         </a>
     </div>
@@ -32,12 +43,12 @@
     <nav class='header__menu'>
         <ul class='header__menu-list'>
             <li class='header__menu-item'>
-                <a href='/' class='header__menu-link is-current'>
+                <a href='/' class='header__menu-link <?= isActive('index.php'); ?>'>
                     <span class='header__menu-text'>Главная</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='uslugi.php' class='header__menu-link is-expandable'>
+                <a href='uslugi.php' class='header__menu-link is-expandable <?= isActive('uslugi.php'); ?>'>
                     <span class='header__menu-text'>Услуги</span>
                     <svg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
@@ -48,22 +59,22 @@
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='o-kompanii.php' class='header__menu-link'>
+                <a href='o-kompanii.php' class='header__menu-link <?= isActive('o-kompanii.php'); ?>'>
                     <span class='header__menu-text'>О компании</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='portfolio.php' class='header__menu-link'>
+                <a href='portfolio.php' class='header__menu-link <?= isActive('portfolio.php'); ?>'>
                     <span class='header__menu-text'>Портфолио</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='otzyvy.php' class='header__menu-link'>
+                <a href='otzyvy.php' class='header__menu-link <?= isActive('otzyvy.php'); ?>'>
                     <span class='header__menu-text'>Отзывы</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='faq.php' class='header__menu-link'>
+                <a href='faq.php' class='header__menu-link <?= isActive('aq.php'); ?>'>
                     <span class='header__menu-text'>FAQ</span>
                 </a>
             </li>

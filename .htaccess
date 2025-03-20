@@ -19,3 +19,23 @@ Options -Indexes
     Order Allow,Deny
     Deny from all
 </FilesMatch>
+
+RewriteEngine On
+RewriteBase /
+
+# Запрет запросов с PATH_INFO
+# RewriteCond %{REQUEST_URI} ^(.+\.php)/.*$
+# RewriteRule .* - [R=404,L]
+
+# Если URL содержит .php и после него идёт что-то ещё
+RewriteCond %{REQUEST_URI} ^(.+\.php)/.*$
+RewriteRule ^(.+\.php)/.*$ /$1 [R=301,L]
+
+# Удаляем конечный слеш для не-директорий
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+# Убираем .php из URL (например, uslugi.php → uslugi)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]

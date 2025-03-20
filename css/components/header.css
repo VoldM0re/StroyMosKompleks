@@ -297,7 +297,6 @@ header {
 
     .header__menu-link:active {
         background-color: var(--white);
-        color: var(--black);
     }
 
     .header__menu-item {

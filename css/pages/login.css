@@ -1,0 +1,5 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+
+@import '/css/components/header.css';
+@import '/css/components/footer.css';

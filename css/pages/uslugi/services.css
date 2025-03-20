@@ -41,7 +41,7 @@
 
 @media (min-width: 767px) {
     .service {
-        height: 40vh;
+        height: 300px;
     }
 
     .service::after {
