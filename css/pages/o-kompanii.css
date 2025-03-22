@@ -1,0 +1,85 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.about-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.about-text {
+    text-align: justify;
+    text-wrap: balance;
+}
+
+.stroymoskompleks {
+    font-weight: 700;
+}
+
+.about-img {
+    border-radius: var(--border-radius);
+}
+
+
+@media (min-width: 359px) {
+    .about-img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 479px) {}
+
+@media (min-width: 659px) {}
+
+@media (min-width: 767px) {
+    .about-text-wrapper {
+        flex-direction: row-reverse;
+        gap: 30px;
+    }
+
+    .about-text-wrapper picture {
+        flex-shrink: 0;
+        width: 150px;
+    }
+}
+
+@media (min-width: 1023px) {
+    .about-text {
+        font-size: 20px;
+    }
+
+    .about-text-wrapper picture {
+        width: 200px;
+    }
+}
+
+@media (min-width: 1279px) {
+
+    .about-text-wrapper picture {
+        width: 220px;
+    }
+
+    .about-text {
+        font-size: 24px;
+    }
+
+    .about-text-wrapper {
+        flex-direction: row-reverse;
+        gap: 50px;
+    }
+
+    .about-wrapper {
+        gap: 50px;
+    }
+}
