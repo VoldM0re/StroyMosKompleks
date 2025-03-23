@@ -3,10 +3,11 @@
 
 @import '/css/components/header.css';
 @import '/css/components/footer.css';
-@import '/css/components/action_button.css';
-@import '/css/components/link_button.css';
+
 @import '/css/components/our_projects.css';
 
-@import 'index/slider.css';
-@import 'index/advantages.css';
-@import 'index/reviews.css';
+@media (min-width: 1024px) {
+    .project__card {
+        min-width: 350px;
+    }
+}

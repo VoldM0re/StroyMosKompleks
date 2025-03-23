@@ -146,7 +146,7 @@
                         alt='Проект офиса' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
-                            <h4 class='project-title'>Офис</h4>
+                            <h3 class='project-title'>Офис</h3>
                             <p class='project-text-description'>Ремонт офиса площадью 200м² в классическом стиле</p>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                         alt='Проект квартиры' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
-                            <h4 class='project-title'>Квартира</h4>
+                            <h3 class='project-title'>Квартира</h3>
                             <p class='project-text-description'>Отделка квартиры в новостройке площадью 100м² в
                                 современном стиле</p>
                         </div>
@@ -167,9 +167,9 @@
                         width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
-                            <h4 class='project-title'>Дом</h4>
+                            <h3 class='project-title'>Дом</h3>
                             <p class='project-text-description'>Реконструкция загородного дома площадью 250 м² в стиле
-                                'прованс'</p>
+                                "прованс"</p>
                         </div>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
                             src='/assets/img/index/irina.webp' alt='Фото профиля'>
-                        <h4>Ирина Ё.</h4>
+                        <h3>Ирина Ё.</h3>
                     </div>
                     <p class='review-text'>
                         "СтройМосКомплекс" провёл реконструкцию нашего загородного дома. Работа заняла 6 месяцев.
@@ -195,7 +195,7 @@
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
                             src='/assets/img/index/pavel.webp' alt='Фото профиля'>
-                        <h4>Павел Т.</h4>
+                        <h3>Павел Т.</h3>
                     </div>
                     <p class='review-text'>
                         Заказывал здесь редизайн офиса для нашей компании. Работали быстро, качественно, учли все
@@ -206,7 +206,7 @@
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
                             src='/assets/img/index/default_pfp.webp' alt='Фото профиля'>
-                        <h4>Абдул Х.</h4>
+                        <h3>Абдул Х.</h3>
                     </div>
                     <p class='review-text'>
                         Отличная работа, дом построили идеально и в срок!

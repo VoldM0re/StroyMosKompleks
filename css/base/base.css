@@ -56,6 +56,10 @@ main {
 @media (min-width: 359px) {}
 
 @media (min-width: 479px) {
+    h2 {
+        font-size: 24px;
+    }
+
     .container {
         padding-inline: 5%;
     }
