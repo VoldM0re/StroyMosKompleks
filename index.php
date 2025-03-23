@@ -65,8 +65,9 @@
                         <span class='stroy'>Строй</span>МосКомплекс
                     </span> – <br>надежный партнер в строительстве и ремонте
                 </p>
-                <p class='advantage__block-text' id='right-adv'>Мы предлагаем комплексный подход, основанный на
-                    нескольких ключевых принципах:</p>
+                <p class='advantage__block-text' id='right-adv'>
+                    Мы предлагаем комплексный подход, основанный на нескольких ключевых принципах:
+                </p>
             </div>
             <div class='advantages'>
                 <div class='advantage'>
@@ -157,8 +158,9 @@
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Квартира</h3>
-                            <p class='project-text-description'>Отделка квартиры в новостройке площадью 100м² в
-                                современном стиле</p>
+                            <p class='project-text-description'>
+                                Отделка квартиры в новостройке площадью 100м² в современном стиле
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -168,8 +170,9 @@
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом</h3>
-                            <p class='project-text-description'>Реконструкция загородного дома площадью 250 м² в стиле
-                                "прованс"</p>
+                            <p class='project-text-description'>
+                                Реконструкция загородного дома площадью 250 м² в стиле "прованс"
+                            </p>
                         </div>
                     </div>
                 </div>
