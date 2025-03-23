@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СтройМосКомплекс - О компании</title>
-    <meta name='description' content=''>
+    <meta name='description'
+        content='Все наши выполненные работы на одной странице. Узнайте, какие задачи клиентов мы решаем и начните сотрудничество уже сегодня!'>
 
     <link rel='stylesheet' href='/css/pages/o-kompanii.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
