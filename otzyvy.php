@@ -42,17 +42,7 @@
                 <div class='review'>
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
-                        <h3>Абдул Х.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Отличная работа, дом построили идеально и в срок!
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
+                            src='/assets/img/avatars/natali.png' alt='Фото профиля'>
                         <h3>Наталья Д.</h3>
                     </div>
                     <p class='review-text'>
@@ -63,6 +53,16 @@
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
                             src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
+                        <h3>Абдул Х.</h3>
+                    </div>
+                    <p class='review-text'>
+                        Отличная работа, дом построили идеально и в срок!
+                    </p>
+                </div>
+                <div class='review'>
+                    <div class='review-user'>
+                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
+                            src='/assets/img/avatars/yasha.png' alt='Фото профиля'>
                         <h3>Яша Л.</h3>
                     </div>
                     <p class='review-text'>
