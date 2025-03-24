@@ -29,6 +29,7 @@
                     <img width="1200" class='slider__image' src='/assets/img/index/slider1.webp'
                         alt='Изображение слайдера' fetchpriority="high" />
                     <?php $link = 'prom-alpinizm.php';
+                    $linkbtn_text = 'Заказать';
                     require 'includes/components/link_button.php'; ?>
                 </div>
                 <div class='slide'>
@@ -36,6 +37,7 @@
                     <img loading='lazy' width="1200" class='slider__image' src='/assets/img/index/slider2.webp'
                         alt='Изображение слайдера' />
                     <?php $link = 'katalog.php';
+                    $linkbtn_text = 'Заказать';
                     require 'includes/components/link_button.php'; ?>
                 </div>
                 <div class='slide'>
@@ -43,6 +45,7 @@
                     <img loading='lazy' width="1200" class='slider__image' src='/assets/img/index/slider3.webp'
                         alt='Изображение слайдера' />
                     <?php $link = 'dizayn.php';
+                    $linkbtn_text = 'Заказать';
                     require 'includes/components/link_button.php'; ?>
                 </div>
             </div>
@@ -216,9 +219,7 @@
                     </p>
                 </div>
             </div>
-            <?php $color = 'w';
-            $actbtn_text = 'Показать все отзывы';
-            require_once 'includes/components/action_button.php'; ?>
+            <a class='action_button actbtn-w' href='otzyvy.php'>Все отзывы</a>
         </div>
 
     </main>

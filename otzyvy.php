@@ -73,7 +73,7 @@
                 </div>
             </div>
             <?php $color = 'w';
-            $actbtn_text = 'Показать все отзывы';
+            $actbtn_text = 'Показать больше';
             require_once 'includes/components/action_button.php'; ?>
         </div>
     </main>
