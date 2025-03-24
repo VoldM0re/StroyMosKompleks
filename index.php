@@ -185,7 +185,7 @@
                 <div class='review'>
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/index/irina.webp' alt='Фото профиля'>
+                            src='/assets/img/avatars/irina.webp' alt='Фото профиля'>
                         <h3>Ирина Ё.</h3>
                     </div>
                     <p class='review-text'>
@@ -197,7 +197,7 @@
                 <div class='review'>
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/index/pavel.webp' alt='Фото профиля'>
+                            src='/assets/img/avatars/pavel.webp' alt='Фото профиля'>
                         <h3>Павел Т.</h3>
                     </div>
                     <p class='review-text'>
@@ -208,7 +208,7 @@
                 <div class='review'>
                     <div class='review-user'>
                         <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/index/default_pfp.webp' alt='Фото профиля'>
+                            src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
                         <h3>Абдул Х.</h3>
                     </div>
                     <p class='review-text'>
