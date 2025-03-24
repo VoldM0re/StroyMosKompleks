@@ -66,7 +66,7 @@
                         <h3>Яша Л.</h3>
                     </div>
                     <p class='review-text'>
-                        Заказывали строительство загородного дома в "СтройМосКомплекс". Понравился профессиональный
+                        Заказывали строительство загородного дома в СтройМосКомплекс. Понравился профессиональный
                         подход: всё выполнено качественно, в срок, с учётом наших пожеланий. Дом получился красивым и
                         уютным, рекомендуем!
                     </p>
@@ -76,8 +76,20 @@
             $actbtn_text = 'Показать больше';
             require_once 'includes/components/action_button.php'; ?>
         </div>
+
+        <form class='leave_review container' action='' method='get'>
+            <h2>Оставьте свой отзыв</h2>
+            <div class='leave_review-block'>
+                <textarea class='leave_review-textarea' oninput="updateArea(this)" name='review' maxlength="200"
+                    placeholder='Пишите здесь, максимум 200 символов' required></textarea>
+                <small class='review-chars_counter'>0/200</small>
+            </div>
+            <button class='action_button actbtn-o'>Отправить</button>
+        </form>
+
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
+    <script src="/js/leave_review.js"></script>
 </body>
 
 </html>
