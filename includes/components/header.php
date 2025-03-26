@@ -79,7 +79,7 @@ function isActive($pageName)
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='faq.php' class='header__menu-link <?= isActive('aq.php'); ?>'>
+                <a href='chastye-voprosy.php' class='header__menu-link <?= isActive('chastye-voprosy.php'); ?>'>
                     <span class='header__menu-text'>FAQ</span>
                 </a>
             </li>

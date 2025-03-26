@@ -1,0 +1,144 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+
+.faq-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.question-block {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+    border-radius: var(--border-radius);
+    background-color: var(--accent);
+}
+
+.question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.question-icon {
+    width: 30px;
+    color: var(--white);
+}
+
+.question-text {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.answer {
+    display: none;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+}
+
+.answer-text {
+    color: var(--black);
+}
+
+.answer-icon {
+    display: none;
+    width: 30px;
+    color: var(--accent) !important;
+}
+
+.opened {
+    display: flex;
+}
+
+@media (min-width: 767px) {
+    .question-text {
+        font-size: 18px;
+    }
+
+    .answer-icon {
+        display: block;
+    }
+
+    .question-icon,
+    .answer-icon {
+        width: 40px;
+    }
+
+    .question {
+        flex-direction: row-reverse;
+        justify-content: start;
+        gap: 15px;
+    }
+}
+
+@media (min-width: 1023px) {
+
+    .question,
+    .answer {
+        gap: 20px;
+    }
+
+    .answer {
+        padding: 20px;
+    }
+
+    .question-block {
+        padding: 20px;
+    }
+
+
+    .question-text {
+        font-size: 24px;
+    }
+
+    .answer-text {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1279px) {
+
+    .question,
+    .answer {
+        gap: 30px;
+    }
+
+    .faq-wrapper {
+        gap: 30px;
+    }
+
+    .question-block {
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .question-icon,
+    .answer-icon {
+        width: 50px;
+    }
+
+    .answer {
+        padding: 20px;
+    }
+
+    .question-text {
+        font-size: 28px;
+    }
+
+    .answer-text {
+        font-size: 22px;
+    }
+}
