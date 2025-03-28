@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     border: none;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
@@ -13,7 +13,7 @@
 }
 
 .action_button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .action_button:active {
@@ -34,6 +34,7 @@
 @media (min-width: 1023px) {
     .action_button {
         width: 300px;
+        padding: 20px;
         font-size: 22px;
     }
 }
