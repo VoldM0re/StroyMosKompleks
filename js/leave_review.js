@@ -2,14 +2,19 @@ const textarea = document.querySelector('.leave_review-textarea');
 const counter = document.querySelector('.review-chars_counter');
 const maxLenght = 200
 
-function updateArea(element) {
-    element.style.height = "5px";
-    element.style.height = (element.scrollHeight + 15) + "px";
+function updateArea(elem) {
+    elem.style.height = "5px";
+    elem.style.height = (elem.scrollHeight + 15) + "px";
 
-    counter.innerHTML = (textarea.value).length + `/${maxLenght}`;
-    if ((textarea.value).length == 200) {
-        counter.classList.add('full')
+    const currentLength = (textarea.value).length;
+    counter.innerHTML = currentLength + `/${maxLenght}`;
+
+    if (currentLength === maxLenght) {
+        counter.classList.add('full');
+        counter.style.animation = 'none';
+        counter.offsetHeight; // Перерисовываем счетчик, чтобы анимация сбросилась
+        counter.style.animation = null;
     } else {
-        counter.classList.remove('full')
+        counter.classList.remove('full');
     }
 }

@@ -1,0 +1,89 @@
+.leave_review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.leave_review-block {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.leave_review-textarea {
+    width: 100%;
+    min-height: 75px;
+    padding: 10px;
+    overflow: hidden;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    box-shadow: var(--shadow);
+    resize: none;
+}
+
+.review-chars_counter {
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+    font-weight: 500;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.review-chars_counter.full {
+    color: rgb(255, 55, 55);
+    animation: shake 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media (min-width: 1023px) {
+    .leave_review-textarea {
+        font-size: 20px;
+    }
+
+    .leave_review-block {
+        padding: 30px;
+    }
+
+    .review-chars_counter {
+        right: 40px;
+        bottom: 40px;
+        font-size: 14px;
+    }
+
+    .leave_review .action_button {
+        align-self: end;
+    }
+}
+
+
+@media (min-width: 1279px) {
+    .leave_review-textarea {
+        font-size: 22px;
+    }
+
+    .review-chars_counter {
+        right: 40px;
+        bottom: 35px;
+        font-size: 16px;
+    }
+}
