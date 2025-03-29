@@ -31,13 +31,14 @@
 
 .sign__textfield-block {
     font-weight: 600;
+    position: relative;
 }
 
 .sign__textfield {
     width: 100%;
     margin-top: 10px;
     padding: 12px;
-    border: none;
+    border: 2px solid transparent;
     border-radius: var(--border-radius);
     outline: none;
     box-shadow: var(--shadow);
@@ -51,14 +52,20 @@
 }
 
 .sign__textfield:focus {
-    transform: scale(1.03);
+    transform: scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 138, 66, 0.144);
+}
+
+.sign__textfield:hover {
+    border-color: var(--accent);
 }
 
 .sign__textfield-text {
     display: flex;
     align-items: center;
     gap: 8px;
-
+    color: var(--black);
 }
 
 .sign__textfield-icon {
@@ -68,15 +75,29 @@
 .sign_other-text {
     font-weight: 500;
     text-align: center;
+    color: var(--black);
 }
 
 .sign_other-link {
     color: var(--accent);
     transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
 }
 
-.sign_other-link:hover {
-    text-decoration: underline;
+.sign_other-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transition: transform .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.sign_other-link:hover::after {
+    transform: scaleX(1);
 }
 
 @media (min-width: 659px) {

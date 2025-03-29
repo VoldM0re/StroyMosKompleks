@@ -13,12 +13,14 @@
 
 <body>
     <?php require_once 'includes/components/header.php'; ?>
+
     <main>
-        <div class='sign-wrapper container'>
+        <section class='sign-wrapper container'>
             <h2>Вход в профиль</h2>
             <form class='sign__form' action='includes/actions/login.inc.php' method='post'>
                 <div class='sign__inputs'>
                     <div class='sign__inputs-textfields'>
+
                         <div class='sign__textfield-block'>
                             <div class="sign__textfield-text"><svg class='sign__textfield-icon' viewBox="0 0 13 13"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +33,6 @@
                                 </svg>
                                 <span>Логин (Почта)</span>
                             </div>
-
                             <input class='sign__textfield' type='email' name='email' placeholder='example@mail.ru'
                                 required>
                         </div>
@@ -45,19 +46,25 @@
                                 </svg>
                                 <span>Пароль</span>
                             </div>
-
                             <input class='sign__textfield' type='password' name='pwd' placeholder='Пароль' required>
                         </div>
                     </div>
+
                     <?php $actbtn_text = 'Войти';
                     $color = 'o';
                     require_once 'includes/components/action_button.php' ?>
+
                 </div>
-                <p class='sign_other-text'>Нет аккаунта?<br><a class='sign_other-link'
-                        href='registration.php'>Зарегистрироваться</a></p>
+
+                <p class='sign_other-text'>
+                    Нет аккаунта?<br>
+                    <a class='sign_other-link' href='registration.php'>Зарегистрироваться</a>
+                </p>
+
             </form>
-        </div>
+        </section>
     </main>
+
     <?php require_once 'includes/components/footer.php'; ?>
 </body>
 
