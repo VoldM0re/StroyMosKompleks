@@ -5,8 +5,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>СтройМосКомплекс - Портфолио</title>
-    <meta name='description'
-        content='Все наши выполненные работы на одной странице. Узнайте, какие задачи клиентов мы решаем и начните сотрудничество уже сегодня!'>
+    <meta name='description' content='Все наши выполненные работы на одной странице. Узнайте, какие задачи клиентов мы решаем и начните сотрудничество уже сегодня!'>
     <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/portfolio.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
@@ -19,8 +18,7 @@
             <h2>Наши работы</h2>
             <div class='our_projects__cards'>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project1.jpg'
-                        alt='Проект офиса' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project1.jpg' alt='Проект офиса' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Офис в центре Красногорска</h3>
@@ -32,8 +30,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project2.jpg'
-                        alt='Проект квартиры' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project2.jpg' alt='Проект квартиры' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом в Барвихе</h3>
@@ -45,8 +42,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project3.jpg'
-                        alt='Проект дома' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project3.jpg' alt='Проект дома' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Современная квартира в Одинцово</h3>
@@ -58,8 +54,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project4.jpg'
-                        alt='Проект дома' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project4.jpg' alt='Проект дома' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом в Жуковке</h3>
@@ -71,8 +66,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project5.jpg'
-                        alt='Проект дома' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project5.jpg' alt='Проект дома' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом у реки в Солнечногорске</h3>
@@ -84,8 +78,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project6.jpg'
-                        alt='Проект дома' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project6.jpg' alt='Проект дома' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом в Павловской Слободе</h3>
@@ -97,8 +90,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project7.jpg'
-                        alt='Проект дома' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project7.jpg' alt='Проект дома' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом в Внукове</h3>
@@ -110,8 +102,7 @@
                     </div>
                 </div>
                 <div class='project__card'>
-                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project8.jpg'
-                        alt='Проект дома' width='320' height='250'>
+                    <img loading='lazy' class='project__card-image' src='/assets/img/projects/project8.jpg' alt='Проект дома' width='320' height='250'>
                     <div class='project-text-wrapper'>
                         <div class='project-text'>
                             <h3 class='project-title'>Дом в Пушкино</h3>

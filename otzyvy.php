@@ -19,8 +19,7 @@
             <div class='reviews'>
                 <div class='review'>
                     <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/irina.webp' alt='Фото профиля'>
+                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/irina.webp' alt='Фото профиля'>
                         <h3>Ирина Ё.</h3>
                     </div>
                     <p class='review-text'>
@@ -31,8 +30,7 @@
                 </div>
                 <div class='review'>
                     <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/pavel.webp' alt='Фото профиля'>
+                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/pavel.webp' alt='Фото профиля'>
                         <h3>Павел Т.</h3>
                     </div>
                     <p class='review-text'>
@@ -42,8 +40,7 @@
                 </div>
                 <div class='review'>
                     <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/natali.png' alt='Фото профиля'>
+                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/natali.png' alt='Фото профиля'>
                         <h3>Наталья Д.</h3>
                     </div>
                     <p class='review-text'>
@@ -52,8 +49,7 @@
                 </div>
                 <div class='review'>
                     <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
+                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
                         <h3>Абдул Х.</h3>
                     </div>
                     <p class='review-text'>
@@ -62,8 +58,7 @@
                 </div>
                 <div class='review'>
                     <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                            src='/assets/img/avatars/yasha.png' alt='Фото профиля'>
+                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/yasha.png' alt='Фото профиля'>
                         <h3>Яша Л.</h3>
                     </div>
                     <p class='review-text'>
@@ -81,8 +76,8 @@
         <form class='leave_review container' action='' method='get'>
             <h2>Оставьте свой отзыв</h2>
             <div class='leave_review-block'>
-                <textarea class='leave_review-textarea' oninput="updateArea(this)" name='review' maxlength="200"
-                    placeholder='Пишите здесь, максимум 200 символов' required></textarea>
+                <textarea class='leave_review-textarea' oninput="updateArea(this)" name='review' maxlength="200" placeholder='Пишите здесь, максимум 200 символов'
+                    required></textarea>
                 <small class='review-chars_counter'>0/200</small>
             </div>
             <button class='action_button actbtn-o'>Отправить</button>
