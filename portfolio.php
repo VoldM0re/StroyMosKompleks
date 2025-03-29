@@ -7,6 +7,7 @@
     <title>СтройМосКомплекс - Портфолио</title>
     <meta name='description'
         content='Все наши выполненные работы на одной странице. Узнайте, какие задачи клиентов мы решаем и начните сотрудничество уже сегодня!'>
+    <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/portfolio.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>

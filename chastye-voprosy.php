@@ -6,6 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>СтройМосКомплекс - Частые вопросы</title>
     <meta name='description' content='Ответы на частозадаваемые вопросы'>
+    <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/chastye-voprosy.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>

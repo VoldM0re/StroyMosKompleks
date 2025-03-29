@@ -6,6 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>СтройМосКомплекс - Отзывы</title>
     <meta name='description' content='Отзывы о компании СтройМосКомплекс'>
+    <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/otzyvy.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>

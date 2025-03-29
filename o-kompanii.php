@@ -7,6 +7,7 @@
     <title>СтройМосКомплекс - О компании</title>
     <meta name='description'
         content='СтройМосКомплекс: Многолетний стаж, более 500 завершённых проектов. Узнайте историю компании, которая строит будущее.'>
+    <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/o-kompanii.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>
