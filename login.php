@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user'])) {
+    header('Location: /profile.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang='ru'>
 
@@ -38,9 +45,15 @@
                                 </svg>
                                 <span>Пароль</span>
                             </div>
-                            <input class='sign__textfield' type='password' name='pwd' placeholder='Пароль' required>
+                            <input class='sign__textfield' type='password' name='pwd' placeholder='Пароль'>
                         </div>
                     </div>
+
+                    <?php
+                    if (isset($_SESSION['error'])) {
+                        echo "<p class='sign-error'>{$_SESSION['error']}</p>";
+                        unset($_SESSION['error']);
+                    } ?>
 
                     <?php $actbtn_text = 'Войти';
                     $color = 'o';

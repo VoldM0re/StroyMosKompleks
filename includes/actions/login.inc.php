@@ -1,2 +1,37 @@
 <?php
-header('Location: /');
+session_start();
+require_once '../helpers.php';
+require_once '../db.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = getPost('email');
+    $pwd = getPost('pwd');
+
+    if (!$email || !$pwd) {
+        $_SESSION['error'] = 'Заполните все поля';
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error'] = 'Некорректный email';
+    }
+
+    if (empty($_SESSION['error'])) {
+        $stmt = $pdo->prepare('SELECT * from `users` WHERE `email` = :email;');
+        $stmt->execute([':email' => $email]);
+        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (password_verify($pwd, $userData['password_hash'])) {
+            $_SESSION['user'] = [
+                'first_name' => $userData['first_name'],
+                'last_name' => $userData['first_name'],
+            ];
+            redirect('/profile.php');
+        } else {
+            $_SESSION['error'] = 'Неверный логин или пароль';
+            redirect('/login.php');
+        }
+    } else {
+        redirect('/login.php');
+    }
+} else {
+    redirect('/');
+}

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user'])) {
+    header('Location: /profile.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang='ru'>
 
@@ -17,7 +24,7 @@
     <main>
         <section class='sign-wrapper container'>
             <h2>Регистрация</h2>
-            <form class='sign__form' action='includes/actions/register.inc.php' method='post'>
+            <form class='sign__form' action='includes/actions/reg.inc.php' method='post'>
                 <div class='sign__inputs'>
                     <div class='sign__inputs-textfields'>
 
@@ -28,7 +35,7 @@
                                 </svg>
                                 <span>Ваше имя</span>
                             </div>
-                            <input class='sign__textfield' type='text' name='name' placeholder='Иван' required>
+                            <input class='sign__textfield' type='text' name='first_name' placeholder='Иван' required>
                         </div>
 
                         <div class='sign__textfield-block'>
@@ -71,6 +78,11 @@
                             <input class='sign__textfield' type='password' name='pwdVerify' placeholder='Пароль ещё раз' required>
                         </div>
                     </div>
+                    <?php
+                    if (isset($_SESSION['error'])) {
+                        echo "<p class='sign-error'>{$_SESSION['error']}</p>";
+                        unset($_SESSION['error']);
+                    } ?>
 
                     <?php $actbtn_text = 'Зарегистрироваться';
                     $color = 'o';

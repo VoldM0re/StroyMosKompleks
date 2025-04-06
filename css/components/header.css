@@ -235,6 +235,10 @@ header {
         display: block;
         font-size: 18px;
     }
+
+    .header__top {
+        padding-inline: 5%;
+    }
 }
 
 @media (min-width: 767px) {

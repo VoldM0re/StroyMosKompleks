@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /includes/
+RewriteCond %{REQUEST_URI} !^/includes/actions/
+RewriteRule .* - [F,L]

@@ -34,10 +34,17 @@ function isActive($pageName)
                 <a href='tel:+71234567890' class='header__contact-text'>+7 (495) 633-62-62</a>
             </div>
         </address>
-        <a href='login.php' class='account__button'>
+        <a href='<?= isset($_SESSION['user']) ? '/profile.php' : '/login.php'; ?>' class='account__button'>
             <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
-            <span class='account__button-text'>Войти</span>
+            <span class='account__button-text'><?= $_SESSION['user']['first_name'] ?? 'Войти' ?></span>
         </a>
+        <?php
+        if (isset($_SESSION['user'])) {
+            echo "
+            <a href='/includes/actions/logout.php'>
+                <img class='logout__icon' src='/assets/svg/door.svg' alt='Выход'>
+            </a>";
+        } ?>
     </div>
 
     <nav class='header__menu'>
