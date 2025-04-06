@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($pwd, $userData['password_hash'])) {
             $_SESSION['user'] = [
                 'first_name' => $userData['first_name'],
-                'last_name' => $userData['first_name'],
+                'last_name' => $userData['last_name'],
             ];
             redirect('/profile.php');
         } else {

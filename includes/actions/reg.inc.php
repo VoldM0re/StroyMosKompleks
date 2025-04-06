@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':pwd' => password_hash($pwd, PASSWORD_BCRYPT)
         ]);
 
-        $_SESSION['user'] = ['first_name' => $first_name];
+        $_SESSION['user'] = ['first_name' => $first_name, 'last_name' => $last_name,];
         redirect('/');
     } else {
         redirect('/profile.php');

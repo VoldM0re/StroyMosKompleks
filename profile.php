@@ -21,8 +21,10 @@ if (!isset($_SESSION['user'])) {
     <?php require_once 'includes/components/header.php'; ?>
 
     <main style="justify-content: center;">
-        <h2>Добро пожаловать, <?= $_SESSION['user']['first_name'] ?>!</h2>
-        <h2>Здесь должен быть ваш профиль :D</h2>
+        <section class='container' style="text-align: center;">
+            <h2>Добро пожаловать, <?= $_SESSION['user']['first_name'] . ' ' . $_SESSION['user']['last_name'] ?>!</h2>
+            <h2>Здесь будет ваш профиль :D</h2>
+        </section>
     </main>
 
     <?php require_once 'includes/components/footer.php'; ?>
