@@ -35,21 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($_SESSION['error'])) {
         $stmt = $pdo->prepare('INSERT INTO `users` (first_name, last_name, email, phone, password_hash) VALUES (:first_name, :last_name, :email, :phone, :pwd);');
-        $stmt->execute([
+        $isRegSuccessful = $stmt->execute([
             ':first_name' => $first_name,
             ':last_name' => $last_name,
             ':email' => $email,
             ':phone' => $phone,
             ':pwd' => password_hash($pwd, PASSWORD_BCRYPT)
         ]);
-
-        $_SESSION['user'] = [
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'email' => $email,
-            'phone' => $phone
-        ];
-        redirect('/');
+        if ($isRegSuccessful) {
+            $_SESSION['user'] = [
+                'id' => $pdo->lastInsertId(),
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'phone' => $phone
+            ];
+            redirect('/');
+        } else {
+            $_SESSION['error'] = 'Не удалось зарегистрировать пользователя';
+            redirect('/registration.php');
+        }
     } else {
         redirect('/registration.php');
     }
