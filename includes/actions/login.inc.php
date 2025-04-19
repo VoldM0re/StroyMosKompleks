@@ -19,10 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $pdo->prepare('SELECT * from `users` WHERE `email` = :email;');
         $stmt->execute([':email' => $email]);
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
         if (password_verify($pwd, $userData['password_hash'])) {
             $_SESSION['user'] = [
                 'first_name' => $userData['first_name'],
                 'last_name' => $userData['last_name'],
+                'email' => $userData['email'],
+                'role' => $userData['role'],
+                'patronymic' => $userData['patronymic'] ?? null,
+                'phone' => $userData['phone'] ?? null,
+                'address' => $userData['address'] ?? null,
             ];
             redirect('/profile.php');
         } else {

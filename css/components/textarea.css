@@ -1,0 +1,75 @@
+.textarea-block {
+    position: relative;
+}
+
+.textarea {
+    position: relative;
+    width: 100%;
+    min-height: 75px;
+    padding: 10px;
+    overflow: hidden;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    box-shadow: var(--shadow);
+    text-align: start;
+    resize: none;
+}
+
+.chars_counter {
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+    font-weight: 500;
+}
+
+.chars_counter.full {
+    color: var(--red);
+    animation: shake 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+
+@media (min-width: 1023px) {
+    .textarea {
+        font-size: 20px;
+    }
+
+    .leave_review-block {
+        padding: 30px;
+    }
+
+    .chars_counter {
+        right: 40px;
+        bottom: 40px;
+        font-size: 14px;
+    }
+}
+
+
+@media (min-width: 1279px) {
+    .textarea {
+        font-size: 22px;
+    }
+
+    .chars_counter {
+        right: 40px;
+        bottom: 35px;
+        font-size: 16px;
+    }
+}

@@ -60,6 +60,16 @@ if (isset($_SESSION['user'])) {
 
                         <div class='sign__textfield-block'>
                             <div class="sign__textfield-text">
+                                <svg class='sign__textfield-icon' width='14' height='15'>
+                                    <use href='/assets/svg/signForm_sprite.svg#tel'></use>
+                                </svg>
+                                <span>Телефон</span>
+                            </div>
+                            <input class='sign__textfield' type='tel' name='phone' placeholder='+71234567890' required>
+                        </div>
+
+                        <div class='sign__textfield-block'>
+                            <div class="sign__textfield-text">
                                 <svg class='sign__textfield-icon' width='12' height='15'>
                                     <use href='/assets/svg/signForm_sprite.svg#pwd'></use>
                                 </svg>

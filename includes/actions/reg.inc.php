@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = getPost('first_name');
     $last_name = getPost('last_name');
     $email = getPost('email');
+    $phone = getPost('phone');
     $pwd = getPost('pwd');
     $pwdVerify = getPost('pwdVerify');
 
@@ -28,19 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['error'] = 'Некорректный email';
     }
 
+    if (!preg_match('/^\+?[1-9]\d{1,14}$/', $phone)) {
+        $_SESSION['error'] = "Неверный формат номера!";
+    }
+
     if (empty($_SESSION['error'])) {
-        $stmt = $pdo->prepare('INSERT INTO `users` (first_name, last_name, email, password_hash) VALUES (:first_name, :last_name, :email, :pwd);');
+        $stmt = $pdo->prepare('INSERT INTO `users` (first_name, last_name, email, phone, password_hash) VALUES (:first_name, :last_name, :email, :phone, :pwd);');
         $stmt->execute([
             ':first_name' => $first_name,
             ':last_name' => $last_name,
             ':email' => $email,
+            ':phone' => $phone,
             ':pwd' => password_hash($pwd, PASSWORD_BCRYPT)
         ]);
 
-        $_SESSION['user'] = ['first_name' => $first_name, 'last_name' => $last_name,];
+        $_SESSION['user'] = [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'email' => $email,
+            'phone' => $phone
+        ];
         redirect('/');
     } else {
-        redirect('/profile.php');
+        redirect('/registration.php');
     }
 } else {
     redirect('/');

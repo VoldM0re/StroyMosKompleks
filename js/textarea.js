@@ -1,6 +1,7 @@
-const textarea = document.querySelector('.leave_review-textarea');
-const counter = document.querySelector('.review-chars_counter');
+const textarea = document.querySelector('.textarea');
+const counter = document.querySelector('.chars_counter');
 const maxLenght = 200
+window.onload = updateArea(textarea);
 
 function updateArea(elem) {
     elem.style.height = "5px";

@@ -9,12 +9,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 40px 20px;
     gap: 40px;
-    border: 4px solid var(--accent);
     border-radius: var(--border-radius);
     background: var(--white);
-    box-shadow: var(--shadow);
 }
 
 .sign__inputs {
@@ -30,7 +27,6 @@
 }
 
 .sign__textfield-block {
-    position: relative;
     font-weight: 600;
 }
 
@@ -103,12 +99,24 @@
 .sign-error {
     width: 100%;
     padding: 10px;
-    border: 3px solid #ff6464;
+    border: 3px solid var(--red);
     border-radius: var(--border-radius);
-    box-shadow: 0 6px 6px 0 #ff64642e;
-    color: #ff6464;
+    box-shadow: 0 6px 6px 0 var(--red)2e;
+    color: var(--red);
     font-weight: 500;
     text-align: center;
+}
+
+.readonly-field {
+    color: var(--placeholder);
+}
+
+.readonly-field:hover {
+    border-color: transparent !important;
+}
+
+.requred_star {
+    color: var(--red);
 }
 
 @media (min-width: 659px) {
@@ -120,6 +128,9 @@
 @media (min-width: 767px) {
     .sign__form {
         width: 400px;
+        padding: 40px 20px;
+        border: 4px solid var(--accent);
+        box-shadow: var(--shadow);
     }
 
     .action_button {

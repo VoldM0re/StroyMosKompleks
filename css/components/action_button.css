@@ -8,12 +8,14 @@
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     font-weight: 700;
-    font-size: var(--bigger-text);
+    font-size: clamp(1rem, 0.925rem + 0.375vw, 1.375rem);
+    text-align: center;
+    cursor: pointer;
     transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .action_button:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .actbtn-o:hover {
@@ -21,7 +23,7 @@
 }
 
 .actbtn-w:hover {
-    box-shadow: rgba(71, 25, 0, 0.1) 0px 10px 50px 0px;
+    box-shadow: rgba(71, 25, 0, 0.1) 0px 10px 40px 0px;
 }
 
 .action_button:active {
@@ -43,6 +45,5 @@
     .action_button {
         width: 300px;
         padding: 20px;
-        font-size: 22px;
     }
 }
