@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Добавление картинки профиля
     if (isset($_FILES['avatar_file']) && $_FILES['avatar_file']['error'] === UPLOAD_ERR_OK) {
-        $allowedExtensions = ['jpg', 'jpeg', 'png'];
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'jfif'];
         $fileExtension = strtolower(pathinfo($_FILES['avatar_file']['name'], PATHINFO_EXTENSION));
         $maxFileSize = 2 * 1024 * 1024;
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($_FILES['avatar_file']['size'] > $maxFileSize) {
             $_SESSION['error'] = 'Размер файла превышает 2 Мб';
         } else {
-            $newFilename = uniqid() . '_' . $fileExtension;
+            $newFilename = uniqid() . '.' . $fileExtension;
             $uploadFile = $_SERVER['DOCUMENT_ROOT'] . UPLOAD_DIR . $newFilename;
 
             if (move_uploaded_file($_FILES['avatar_file']['tmp_name'], $uploadFile)) {

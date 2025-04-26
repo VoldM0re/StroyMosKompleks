@@ -22,12 +22,41 @@
     gap: 20px;
 }
 
+.avatar_block-buttons {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: center;
+    gap: 30px;
+}
+
 .avatar {
     aspect-ratio: 1/1;
     width: 100px;
     overflow: hidden;
     border-radius: 50%;
     box-shadow: var(--shadow);
+    border: 4px solid var(--accent);
+}
+
+.avatar::after {
+    content: '';
+    text-align: center;
+    align-content: center;
+    font-size: .75rem;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: translateY(-100%);
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.avatar:hover::after {
+    content: 'Выбрать фото';
+    color: var(--accent);
+    background-color: var(--white);
 }
 
 .avatar img {
@@ -35,13 +64,6 @@
     object-fit: cover;
 }
 
-.avatar_block-buttons {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: column;
-    align-self: stretch;
-    justify-content: space-between;
-}
 
 .logout-button {
     display: flex;
@@ -78,6 +100,10 @@
 @media (min-width: 767px) {
     .avatar {
         width: 130px;
+    }
+
+    .avatar::after {
+        font-size: 1rem;
     }
 
     .logout-button {

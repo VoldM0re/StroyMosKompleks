@@ -35,11 +35,12 @@ if (!isset($_SESSION['user'])) {
                     unset($_SESSION['success']);
                 } ?>
                 <div class="avatar_block">
-                    <div class="avatar">
-                        <img id='profile-image' src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/img/avatars/default_pfp.png' ?>" alt="Фото профиля">
-                    </div>
                     <div class="avatar_block-buttons">
-                        <label class="action_button actbtn-w" for="avatar_file">Загрузить фото</label>
+                        <label for="avatar_file">
+                            <div class="avatar">
+                                <img id='profile-image' src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/img/avatars/default_pfp.png' ?>" alt="Фото профиля">
+                            </div>
+                        </label>
                         <input style="display: none;" name="avatar_file" id="avatar_file" type="file" accept="image/png, image/jpeg">
                         <input type="hidden" id="delete_avatar" name="delete_avatar" value="0">
 
@@ -138,8 +139,8 @@ if (!isset($_SESSION['user'])) {
         // Предварительный просмотр изображения
         document.getElementById('avatar_file').addEventListener('change', function(event) {
             const file = event.target.files[0];
-            console.log(file);
             if (file) {
+                document.getElementById('delete_avatar').value = '0';
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     document.getElementById('profile-image').src = e.target.result;
@@ -149,7 +150,8 @@ if (!isset($_SESSION['user'])) {
         });
 
         function deleteAvatar() {
-            document.getElementById('profile-image').src = '/assets/img/avatars/default_pfp.png';
+            const pfp = document.getElementById('profile-image');
+            pfp.src = '/assets/img/avatars/default_pfp.png';
             document.getElementById('avatar_file').value = '';
             document.getElementById('delete_avatar').value = '1';
         }
