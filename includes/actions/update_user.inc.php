@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_FILES['avatar_file']) && $_FILES['avatar_file']['error'] === UPLOAD_ERR_OK) {
         $allowedExtensions = ['jpg', 'jpeg', 'png', 'jfif'];
         $fileExtension = strtolower(pathinfo($_FILES['avatar_file']['name'], PATHINFO_EXTENSION));
-        $maxFileSize = 2 * 1024 * 1024;
+        $maxFileSize = 4 * 1024 * 1024;
 
         if (!in_array($fileExtension, $allowedExtensions)) {
             $_SESSION['error'] = 'Недопустимый формат файла. Разрешены: ' . implode(', ', $allowedExtensions) . '.';
         } elseif ($_FILES['avatar_file']['size'] > $maxFileSize) {
-            $_SESSION['error'] = 'Размер файла превышает 2 Мб';
+            $_SESSION['error'] = "Размер файла превышает " . $maxFileSize / 1024 / 1024 . " Мб";
         } else {
             $newFilename = uniqid() . '.' . $fileExtension;
             $uploadFile = $_SERVER['DOCUMENT_ROOT'] . UPLOAD_DIR . $newFilename;
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } elseif (isset($_FILES['avatar_file']) && $_FILES['avatar_file']['error'] !== UPLOAD_ERR_NO_FILE) {
         $_SESSION['error'] = match ($_FILES['avatar_file']['error']) {
-            UPLOAD_ERR_INI_SIZE => 'Размер загруженного файла превышает значение upload_max_filesize в php.ini',
+            UPLOAD_ERR_INI_SIZE => 'Размер файла превышает 4Мб',
             UPLOAD_ERR_FORM_SIZE => 'Размер загруженного файла превышает значение MAX_FILE_SIZE, указанное в HTML-форме',
             UPLOAD_ERR_PARTIAL => 'Файл был загружен частично',
             UPLOAD_ERR_NO_TMP_DIR => 'Отсутствует временная папка',
