@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'patronymic' => $userData['patronymic'] ?? null,
                 'phone' => $userData['phone'] ?? null,
                 'address' => $userData['address'] ?? null,
+                'profile_image_url' => $userData['profile_image_url'] ?? null,
             ];
             redirect('/profile.php');
         } else {

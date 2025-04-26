@@ -170,6 +170,9 @@ header {
 
 .account__icon {
     width: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
 }
 
 
@@ -217,10 +220,6 @@ header {
 
     .logo-text {
         font-size: 22px;
-    }
-
-    .account__icon {
-        height: 30px;
     }
 }
 
@@ -399,7 +398,7 @@ header {
     }
 
     .account__icon {
-        width: 50px;
+        width: 25px;
     }
 
     .account__button-text {
@@ -419,9 +418,5 @@ header {
 
     .logo-text {
         font-size: 48px;
-    }
-
-    .account__icon {
-        width: 25px;
     }
 }

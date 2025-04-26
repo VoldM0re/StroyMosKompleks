@@ -23,18 +23,30 @@ if (!isset($_SESSION['user'])) {
     <main>
         <section class='profile-wrapper container'>
             <h2>Ваш профиль</h2>
-            <div class="profile__card sign__form">
+            <form class="profile__card sign__form" method="post" action='includes/actions/update_user.inc.php' enctype='multipart/form-data'>
+                <?php
+                if (isset($_SESSION['error'])) {
+                    echo "<p class='sign-error'>{$_SESSION['error']}</p>";
+                    unset($_SESSION['error']);
+                }
+
+                if (isset($_SESSION['success'])) {
+                    echo "<p class='sign-success'>{$_SESSION['success']}</p>";
+                    unset($_SESSION['success']);
+                } ?>
                 <div class="avatar_block">
                     <div class="avatar">
-                        <img src="/assets/img/avatars/default_pfp.png" alt="Фото профиля">
+                        <img id='profile-image' src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/img/avatars/default_pfp.png' ?>" alt="Фото профиля">
                     </div>
                     <div class="avatar_block-buttons">
                         <label class="action_button actbtn-w" for="avatar_file">Загрузить фото</label>
-                        <input style="display: none;" id="avatar_file" type="file" accept="image/png, image/jpeg">
-                        <input type="button" class="action_button actbtn-w" value="Удалить фото">
+                        <input style="display: none;" name="avatar_file" id="avatar_file" type="file" accept="image/png, image/jpeg">
+                        <input type="hidden" id="delete_avatar" name="delete_avatar" value="0">
+
+                        <input type="button" class="action_button actbtn-w" value="Удалить фото" onclick="deleteAvatar()">
                     </div>
                 </div>
-                <form class="sign__inputs" method="post" action='includes/actions/update_user.inc.php'>
+                <div class="sign__inputs">
                     <div class="sign__inputs-textfields">
                         <div class='sign__textfield-block'>
                             <div class="sign__textfield-text">
@@ -103,12 +115,6 @@ if (!isset($_SESSION['user'])) {
                             </div>
                         </div>
 
-                        <?php
-                        if (isset($_SESSION['error'])) {
-                            echo "<p class='sign-error'>{$_SESSION['error']}</p>";
-                            unset($_SESSION['error']);
-                        } ?>
-
                         <button class="action_button actbtn-w">Сохранить</button>
 
                         <a class='logout-button' href='/includes/actions/logout.inc.php'>
@@ -121,13 +127,33 @@ if (!isset($_SESSION['user'])) {
                             <span>Выйти из аккаунта</span>
                         </a>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
     </main>
 
     <?php require_once 'includes/components/footer.php'; ?>
     <script src="/js/textarea.js"></script>
+    <script>
+        // Предварительный просмотр изображения
+        document.getElementById('avatar_file').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            console.log(file);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-image').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function deleteAvatar() {
+            document.getElementById('profile-image').src = '/assets/img/avatars/default_pfp.png';
+            document.getElementById('avatar_file').value = '';
+            document.getElementById('delete_avatar').value = '1';
+        }
+    </script>
 </body>
 
 </html>

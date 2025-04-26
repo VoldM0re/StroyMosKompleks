@@ -35,16 +35,10 @@ function isActive($pageName)
             </div>
         </address>
         <a href='<?= isset($_SESSION['user']) ? '/profile.php' : '/login.php'; ?>' class='account__button'>
-            <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'>
+            <!-- <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'> -->
+            <img src='/assets/<?= isset($_SESSION['user']['profile_image_url']) ? 'uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : 'svg/profile_icon.svg' ?>' class='account__icon' alt='account icon'>
             <span class='account__button-text'><?= $_SESSION['user']['first_name'] ?? 'Войти' ?></span>
         </a>
-        <!-- <?php
-                if (isset($_SESSION['user'])) {
-                    echo "
-            <a href='/includes/actions/logout.inc.php'>
-                <img class='logout__icon' src='/assets/svg/door.svg' alt='Выход'>
-            </a>";
-                } ?> -->
     </div>
 
     <nav class='header__menu'>

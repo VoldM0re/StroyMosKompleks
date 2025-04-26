@@ -30,6 +30,11 @@
     box-shadow: var(--shadow);
 }
 
+.avatar img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .avatar_block-buttons {
     display: flex;
     flex: 1 0 auto;
