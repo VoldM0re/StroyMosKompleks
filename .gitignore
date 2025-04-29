@@ -1,1 +1,3 @@
 config.php
+assets/uploads/profile_pictures/
+!assets/uploads/profile_pictures/default_pfp.png
