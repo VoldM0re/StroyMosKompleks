@@ -80,7 +80,7 @@
                 <div class='leave_review-block'>
                     <p class='leave_review-text'>Чтобы оставить отзыв, войдите в аккаунт или зарегистрируйтесь</p>
                 </div>
-                <a class='action_button actbtn-o' href='login.php?referer=" . urlencode($_SERVER[' REQUEST_URI']) . "'>Войти</a>
+                <a class='action_button actbtn-o' href='login.php?referer=" . urlencode($_SERVER['REQUEST_URI']) . "'>Войти</a>
                 <a class='action_button actbtn-w' href='registration.php?referer=" . $_SERVER["REQUEST_URI"] . "'>Зарегистрироваться</a>
             </div> ";
         } ?>
