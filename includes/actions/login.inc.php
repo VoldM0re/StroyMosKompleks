@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../helpers.php';
-require_once '../db.php';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require_once '../helpers.php';
+    require_once '../db.php';
+
     $email = getPost('email');
     $pwd = getPost('pwd');
 
@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'address' => $userData['address'] ?? null,
                 'profile_image_url' => $userData['profile_image_url'] ?? null,
             ];
-            redirect('/profile.php');
+
+            redirect('/');
         } else {
             $_SESSION['error'] = 'Неверный логин или пароль';
             redirect('/login.php');

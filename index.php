@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang='ru'>
 
@@ -28,23 +26,17 @@ session_start();
                 <div class='slide'>
                     <p>Услуги промышленного альпинизма</p>
                     <img width="1200" class='slider__image' src='/assets/img/index/slider1.webp' alt='Изображение слайдера' fetchpriority="high" />
-                    <?php $link = 'prom-alpinizm.php';
-                    $linkbtn_text = 'Заказать';
-                    require 'includes/components/link_button.php'; ?>
+                    <a class='link_button' href='prom-alpinizm.php'>Заказать</a>
                 </div>
                 <div class='slide'>
                     <p>Профессиональные строительные и отделочные работы</p>
                     <img loading='lazy' width="1200" class='slider__image' src='/assets/img/index/slider2.webp' alt='Изображение слайдера' />
-                    <?php $link = 'katalog.php';
-                    $linkbtn_text = 'Заказать';
-                    require 'includes/components/link_button.php'; ?>
+                    <a class='link_button' href='uslugi.php'>Заказать</a>
                 </div>
                 <div class='slide'>
                     <p>Дизайн и проектирование</p>
                     <img loading='lazy' width="1200" class='slider__image' src='/assets/img/index/slider3.webp' alt='Изображение слайдера' />
-                    <?php $link = 'dizayn.php';
-                    $linkbtn_text = 'Заказать';
-                    require 'includes/components/link_button.php'; ?>
+                    <a class='link_button' href='dizayn.php'>Заказать</a>
                 </div>
             </div>
             <button id='next' class='slider__button'>
@@ -153,36 +145,33 @@ session_start();
         <div class='reviews-wrapper container'>
             <h2>Отзывы наших клиентов</h2>
             <div class='reviews'>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/irina.webp' alt='Фото профиля'>
-                        <h3>Ирина Ё.</h3>
-                    </div>
-                    <p class='review-text'>
-                        "СтройМосКомплекс" провёл реконструкцию нашего загородного дома. Работа заняла 6 месяцев.
-                        Команда профессионалов учла все наши пожелания, проект был завершён в срок, результат превзошёл
-                        все ожидания!!
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/pavel.webp' alt='Фото профиля'>
-                        <h3>Павел Т.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Заказывал здесь редизайн офиса для нашей компании. Работали быстро, качественно, учли все
-                        детали. Доволен результатом.
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
-                        <h3>Абдул Х.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Отличная работа, дом построили идеально и в срок!
-                    </p>
-                </div>
+                <?php
+                require_once 'includes/db.php';
+                $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id ORDER BY reviews.created_at DESC LIMIT 3;");
+                $stmt->execute();
+                $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                if ($reviews) {
+                    foreach ($reviews as $review) {
+                        echo /*htmls*/ "
+                        <div class='review'>
+                            <div class='review-user'>
+                                <img loading='lazy' width='40' height='40' class='review-user-pfp'
+                                    src='/assets/uploads/profile_pictures/" . (isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png') . "' alt='Фото профиля'>
+                                <h3>" . (isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён') . "</h3>
+                            </div>
+                            <p class='review-text'>" . $review['review_text'] . "</p>
+                        </div> ";
+                    }
+                } else {
+                    echo /*html*/ "
+                    <div class='review'>
+                        <div class='review-user'>
+                            <h3>Отзывов пока нет</h3>
+                        </div>
+                    </div> ";
+                } ?>
+
             </div>
             <a class='action_button actbtn-w' href='otzyvy.php'>Все отзывы</a>
         </div>

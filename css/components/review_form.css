@@ -15,6 +15,17 @@
     box-shadow: var(--shadow);
 }
 
+.leave_review-text {
+    width: 100%;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    background-color: var(--white);
+    text-wrap-style: balance;
+}
+
 @media (min-width: 1023px) {
     .leave_review .action_button {
         align-self: end;

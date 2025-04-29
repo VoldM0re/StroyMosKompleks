@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['user'])) {
-    header('Location: /profile.php');
-}
+if (isset($_GET['referer'])) $_SESSION['referer'] = $_GET['referer'];
+if (isset($_SESSION['user'])) header('Location: /profile.php');
 ?>
 
 <!DOCTYPE html>
@@ -94,9 +93,7 @@ if (isset($_SESSION['user'])) {
                         unset($_SESSION['error']);
                     } ?>
 
-                    <?php $actbtn_text = 'Зарегистрироваться';
-                    $color = 'o';
-                    require_once 'includes/components/action_button.php' ?>
+                    <button class='action_button actbtn-o'>Зарегистрироваться</button>
 
                 </div>
 

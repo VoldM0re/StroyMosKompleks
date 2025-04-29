@@ -14,6 +14,7 @@
     box-shadow: var(--shadow);
     text-align: start;
     resize: none;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 }
 
 .chars_counter {
@@ -46,10 +47,6 @@
 
 
 @media (min-width: 1023px) {
-    .textarea {
-        font-size: 20px;
-    }
-
     .leave_review-block {
         padding: 30px;
     }
@@ -63,10 +60,6 @@
 
 
 @media (min-width: 1279px) {
-    .textarea {
-        font-size: 22px;
-    }
-
     .chars_counter {
         right: 40px;
         bottom: 35px;

@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang='ru'>
 
@@ -20,71 +18,72 @@ session_start();
         <div class='reviews-wrapper container'>
             <h2>Отзывы наших клиентов</h2>
             <div class='reviews'>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/irina.webp' alt='Фото профиля'>
-                        <h3>Ирина Ё.</h3>
-                    </div>
-                    <p class='review-text'>
-                        "СтройМосКомплекс" провёл реконструкцию нашего загородного дома. Работа заняла 6 месяцев.
-                        Команда профессионалов учла все наши пожелания, проект был завершён в срок, результат превзошёл
-                        все ожидания!!
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/pavel.webp' alt='Фото профиля'>
-                        <h3>Павел Т.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Заказывал здесь редизайн офиса для нашей компании. Работали быстро, качественно, учли все
-                        детали. Доволен результатом.
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/natali.png' alt='Фото профиля'>
-                        <h3>Наталья Д.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Мне очень понравилось!! Спасибо за качественный сервис!!!
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/default_pfp.webp' alt='Фото профиля'>
-                        <h3>Абдул Х.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Отличная работа, дом построили идеально и в срок!
-                    </p>
-                </div>
-                <div class='review'>
-                    <div class='review-user'>
-                        <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/img/avatars/yasha.png' alt='Фото профиля'>
-                        <h3>Яша Л.</h3>
-                    </div>
-                    <p class='review-text'>
-                        Заказывали строительство загородного дома в СтройМосКомплекс. Понравился профессиональный
-                        подход: всё выполнено качественно, в срок, с учётом наших пожеланий. Дом получился красивым и
-                        уютным, рекомендуем!
-                    </p>
-                </div>
+
+                <?php
+                require_once 'includes/db.php';
+                $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id ORDER BY reviews.created_at DESC;");
+                $stmt->execute();
+                $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                if ($reviews) {
+                    foreach ($reviews as $review) {
+                        echo /*html*/ "
+                        <div class='review'>
+                            <div class='review-user'>
+                                <img loading='lazy' width='40' height='40' class='review-user-pfp'
+                                    src='/assets/uploads/profile_pictures/" . (isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png') . "' alt='Фото профиля'>
+                                <h3>" . (isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён') . "</h3>
+                            </div>
+                            <p class='review-text'>" . $review['review_text'] . "</p>
+                            <small>" . explode(' ', $review['created_at'])[0] . "</small>
+                        </div> ";
+                    }
+                } else {
+                    echo "
+                    <div class='review'>
+                        <div class='review-user'>
+                            <h3>Отзывов пока нет</h3>
+                        </div>
+                    </div> ";
+                } ?>
             </div>
-            <?php $color = 'w';
-            $actbtn_text = 'Показать больше';
-            require_once 'includes/components/action_button.php'; ?>
         </div>
 
-        <form class='leave_review container' action='' method='get'>
-            <h2>Оставьте свой отзыв</h2>
-            <div class='leave_review-block'>
-                <textarea class='textarea' oninput="updateArea(this)" name='review' maxlength="200" placeholder='Пишите здесь, максимум 200 символов'
-                    required></textarea>
-                <small class='chars_counter'>0/200</small>
-            </div>
-            <button class='action_button actbtn-o'>Отправить</button>
-        </form>
+        <?php
+        if (isset($_SESSION['user'])) {
+            $userIds = array_column($reviews, 'user_id');
+            if (in_array($_SESSION['user']['id'], $userIds)) {
+                echo "
+                <div class='leave_review container'>
+                    <h2>Оставьте свой отзыв</h2>
+                    <div class='leave_review-block'>
+                        <p class='leave_review-text'>Вы уже оставили свой отзыв.</p>
+                    </div>
+                </div> ";
+            } else {
+                echo "
+                <form class='leave_review container' action='includes/actions/add_review.inc.php' method='post'>
+                    <h2>Оставьте свой отзыв</h2>
+                    <div class='leave_review-block'>
+                        <input type='hidden' name='redirect_url' value=" . $_SERVER['REQUEST_URI'] . ">
+                        <textarea class='textarea' oninput='updateArea(this)' name='review_text' maxlength='200'
+                            placeholder='Пишите здесь, максимум 200 символов' required></textarea>
+                        <small class='chars_counter'>0/200</small>
+                    </div>
+                    <button class='action_button actbtn-o'>Отправить</button>
+                </form> ";
+            }
+        } else {
+            echo "
+            <div class='leave_review container'>
+                <h2>Оставьте свой отзыв</h2>
+                <div class='leave_review-block'>
+                    <p class='leave_review-text'>Чтобы оставить отзыв, войдите в аккаунт или зарегистрируйтесь</p>
+                </div>
+                <a class='action_button actbtn-o' href='login.php?referer=" . urlencode($_SERVER[' REQUEST_URI']) . "'>Войти</a>
+                <a class='action_button actbtn-w' href='registration.php?referer=" . $_SERVER["REQUEST_URI"] . "'>Зарегистрироваться</a>
+            </div> ";
+        } ?>
 
     </main>
     <?php require_once 'includes/components/footer.php'; ?>

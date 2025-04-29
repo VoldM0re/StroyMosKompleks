@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'email' => $email,
                 'phone' => $phone
             ];
+            // unset($_SESSION['referer']);
             redirect('/');
         } else {
             $_SESSION['error'] = 'Не удалось зарегистрировать пользователя';
