@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'email' => $email,
-                'phone' => $phone
+                'phone' => $phone,
+                'role' => 'user'
             ];
-            // unset($_SESSION['referer']);
             redirect('/');
         } else {
             $_SESSION['error'] = 'Не удалось зарегистрировать пользователя';

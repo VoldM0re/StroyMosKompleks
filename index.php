@@ -147,7 +147,7 @@
             <div class='reviews'>
                 <?php
                 require_once 'includes/db.php';
-                $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id ORDER BY reviews.created_at DESC LIMIT 3;");
+                $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.review_status = 'accepted' ORDER BY reviews.created_at DESC LIMIT 3;");
                 $stmt->execute();
                 $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -164,11 +164,9 @@
                         </div> ";
                     }
                 } else {
-                    echo /*html*/ "
-                    <div class='review'>
-                        <div class='review-user'>
-                            <h3>Отзывов пока нет</h3>
-                        </div>
+                    echo "
+                    <div class='review' style='text-align: center;'>
+                        <h3>Отзывов пока нет</h3>
                     </div> ";
                 } ?>
 

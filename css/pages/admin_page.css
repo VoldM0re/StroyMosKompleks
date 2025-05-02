@@ -1,0 +1,122 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+@import '/css/components/reviews.css';
+
+.admin_page-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin_page-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.review-admin-block {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+    border-radius: var(--border-radius);
+
+}
+
+.review-admin-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.review-action {
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    box-shadow: var(--shadow);
+    color: var(--white);
+    font-weight: 500;
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.review-action::before {
+    content: attr(data-full-text);
+}
+
+.accept {
+    background-color: var(--green);
+}
+
+.reject {
+    background-color: var(--red);
+}
+
+@media (min-width: 359px) {}
+
+@media (min-width: 479px) {}
+
+@media (min-width: 659px) {}
+
+@media (min-width: 767px) {}
+
+@media (min-width: 1023px) {
+
+    .review-admin-block {
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+
+    .admin_page-block-title {
+        font-size: clamp(1.125rem, 0.95rem + 0.875vw, 2rem);
+    }
+
+    .review-admin-block:hover .review-admin-actions {
+        visibility: visible;
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    .review-admin-actions {
+        visibility: hidden;
+        position: absolute;
+        right: 0;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        width: 60px;
+        height: 100%;
+        gap: 0;
+        transform: translateX(100%);
+        box-shadow: 0 0 20px 0px #22222260;
+        opacity: 0;
+    }
+
+    .review-action {
+        overflow-y: hidden;
+        border-radius: 0;
+        box-shadow: none;
+        filter: grayscale(1);
+    }
+
+    .review-action:hover {
+        filter: grayscale(0);
+    }
+
+    .review-admin-block {
+        flex-direction: row;
+    }
+
+    .review-action::before {
+        content: attr(data-short-text);
+    }
+}
+
+@media (min-width: 1279px) {}

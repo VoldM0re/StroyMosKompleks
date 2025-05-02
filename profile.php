@@ -38,7 +38,9 @@ if (!isset($_SESSION['user'])) {
                     <div class="avatar_block-buttons">
                         <label for="avatar_file">
                             <div class="avatar">
-                                <img id='profile-image' src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/img/avatars/default_pfp.png' ?>" alt="Фото профиля">
+                                <img id='profile-image'
+                                    src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/img/avatars/default_pfp.png' ?>"
+                                    alt="Фото профиля">
                             </div>
                         </label>
                         <input style="display: none;" name="avatar_file" id="avatar_file" type="file" accept="image/png, image/jpeg">
@@ -117,6 +119,13 @@ if (!isset($_SESSION['user'])) {
                         </div>
 
                         <button class="action_button actbtn-w">Сохранить</button>
+
+                        <?php if ($_SESSION['user']['role'] == 'admin') {
+                            echo "
+                            <a class='action_button actbtn-o' href='/admin_page.php'>
+                                <span>На страницу админа</span>
+                            </a>";
+                        } ?>
 
                         <a class='logout-button' href='/includes/actions/logout.inc.php'>
                             <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">

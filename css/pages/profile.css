@@ -10,6 +10,7 @@
 .profile-wrapper {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
 }
@@ -26,8 +27,8 @@
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-    align-self: stretch;
     align-items: center;
+    align-self: stretch;
     gap: 30px;
 }
 
@@ -35,34 +36,34 @@
     aspect-ratio: 1/1;
     width: 100px;
     overflow: hidden;
+    border: 4px solid var(--accent);
     border-radius: 50%;
     box-shadow: var(--shadow);
-    border: 4px solid var(--accent);
 }
 
 .avatar::after {
-    content: '';
-    text-align: center;
+    display: block;
     align-content: center;
-    font-size: .75rem;
-    font-weight: 500;
     width: 100%;
     height: 100%;
-    display: block;
     transform: translateY(-100%);
+    content: '';
+    font-weight: 500;
+    font-size: .75rem;
+    text-align: center;
     transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .avatar:hover::after {
+    background-color: var(--white);
     content: 'Выбрать фото';
     color: var(--accent);
-    background-color: var(--white);
 }
 
 .avatar img {
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 
@@ -87,8 +88,8 @@
 
 .chars_counter {
     position: absolute;
-    right: 15px;
-    bottom: 5px;
+    right: 4%;
+    bottom: 15%;
     font-weight: 500;
 }
 

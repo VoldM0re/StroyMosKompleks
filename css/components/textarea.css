@@ -3,24 +3,23 @@
 }
 
 .textarea {
-    position: relative;
     width: 100%;
     min-height: 75px;
-    padding: 10px;
+    padding: 15px;
     overflow: hidden;
     border: none;
     border-radius: var(--border-radius);
     outline: none;
     box-shadow: var(--shadow);
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
     text-align: start;
     resize: none;
-    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 }
 
 .chars_counter {
     position: absolute;
-    right: 25px;
-    bottom: 20px;
+    right: 3%;
+    bottom: 10%;
     font-weight: 500;
 }
 
@@ -52,8 +51,8 @@
     }
 
     .chars_counter {
-        right: 40px;
-        bottom: 40px;
+        right: 2%;
+        bottom: 10%;
         font-size: 14px;
     }
 }
@@ -61,8 +60,8 @@
 
 @media (min-width: 1279px) {
     .chars_counter {
-        right: 40px;
-        bottom: 35px;
+        right: 1%;
+        bottom: 10%;
         font-size: 16px;
     }
 }
