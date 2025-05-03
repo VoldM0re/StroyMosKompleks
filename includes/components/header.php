@@ -35,8 +35,18 @@ function isActive($pageName)
             </div>
         </address>
         <a href='<?= isset($_SESSION['user']) ? '/profile.php' : '/login.php'; ?>' class='account__button'>
-            <!-- <img src='/assets/svg/profile_icon.svg' class='account__icon' alt='account icon'> -->
-            <img src='/assets/<?= isset($_SESSION['user']['profile_image_url']) ? 'uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : 'svg/profile_icon.svg' ?>' class='account__icon' alt='account icon'>
+            <?php
+            $profileImageUrl = '/assets/svg/profile_icon.svg';
+
+            if (isset($_SESSION['user']['profile_image_url'])) {
+                if ($_SESSION['user']['profile_image_url'] === 'default_pfp.png') {
+                    $profileImageUrl = '/assets/svg/profile_icon.svg';
+                } else {
+                    $profileImageUrl = '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'];
+                }
+            }
+            ?>
+            <img src='<?= $profileImageUrl ?>' class='account__icon' alt='account icon'>
             <span class='account__button-text'><?= $_SESSION['user']['first_name'] ?? 'Войти' ?></span>
         </a>
     </div>
