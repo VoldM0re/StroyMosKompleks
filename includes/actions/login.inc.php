@@ -7,15 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = getPost('email');
     $pwd = getPost('pwd');
 
-    if (!$email || !$pwd) {
-        $_SESSION['error'] = 'Заполните все поля';
-    }
+    if (!$email || !$pwd) setMessage('Заполните все поля');
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) setMessage('Некорректный email');
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['error'] = 'Некорректный email';
-    }
-
-    if (empty($_SESSION['error'])) {
+    if (empty($_SESSION['message'])) {
         $stmt = $pdo->prepare('SELECT * from `users` WHERE `email` = :email;');
         $stmt->execute([':email' => $email]);
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -32,10 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'address' => $userData['address'] ?? null,
                 'profile_image_url' => $userData['profile_image_url'] ?? null,
             ];
-
             redirect('/');
         } else {
-            $_SESSION['error'] = 'Неверный логин или пароль';
+            setMessage('Неверный логин или пароль');
             redirect('/login.php');
         }
     } else {

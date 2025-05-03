@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../helpers.php';
-require_once '../db.php';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require_once '../helpers.php';
+    require_once '../db.php';
+
     $first_name = getPost('first_name');
     $last_name = getPost('last_name');
     $email = getPost('email');
@@ -11,38 +11,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pwd = getPost('pwd');
     $pwdVerify = getPost('pwdVerify');
 
-    if (!$first_name || !$last_name || !$email || !$pwd || !$pwdVerify) {
-        $_SESSION['error'] = 'Заполните все поля';
-    }
+    $checkEmail = $pdo->prepare('SELECT `first_name` FROM `users` WHERE `email` = :email;');
+    $checkEmail->execute([':email' => $email]);
 
-    $stmt = $pdo->prepare('SELECT * FROM `users` WHERE email = :email');
-    $stmt->execute([':email' => $email]);
-    if ($stmt->fetch()) {
-        $_SESSION['error'] = 'Пользователь с таким email уже существует';
-    }
+    $checkPhone = $pdo->prepare('SELECT `first_name` FROM `users` WHERE `phone` = :phone;');
+    $checkPhone->execute([':phone' => $phone]);
 
-    if ($pwd !== $pwdVerify) {
-        $_SESSION['error'] = 'Пароли не совпадают';
-    }
+    if (!$first_name || !$last_name || !$email || !$pwd || !$pwdVerify) setMessage('Заполните все поля');
+    if ($checkEmail->fetch()) setMessage('Пользователь с таким email уже существует');
+    if ($checkPhone->fetch()) setMessage('Пользователь с таким номером телефона уже существует!');
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) setMessage('Некорректный email');
+    if (!preg_match('/^\+?[1-9]\d{1,14}$/', $phone)) setMessage('Неверный формат номера');
+    if ($pwd !== $pwdVerify) setMessage('Пароли не совпадают');
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['error'] = 'Некорректный email';
-    }
+    if (empty($_SESSION['message'])) {
+        try {
+            $stmt = $pdo->prepare('INSERT INTO `users` (first_name, last_name, email, phone, password_hash) VALUES (:first_name, :last_name, :email, :phone, :pwd);');
+            $stmt->execute([
+                ':first_name' => $first_name,
+                ':last_name' => $last_name,
+                ':email' => $email,
+                ':phone' => $phone,
+                ':pwd' => password_hash($pwd, PASSWORD_BCRYPT)
+            ]);
 
-    if (!preg_match('/^\+?[1-9]\d{1,14}$/', $phone)) {
-        $_SESSION['error'] = "Неверный формат номера!";
-    }
-
-    if (empty($_SESSION['error'])) {
-        $stmt = $pdo->prepare('INSERT INTO `users` (first_name, last_name, email, phone, password_hash) VALUES (:first_name, :last_name, :email, :phone, :pwd);');
-        $isRegSuccessful = $stmt->execute([
-            ':first_name' => $first_name,
-            ':last_name' => $last_name,
-            ':email' => $email,
-            ':phone' => $phone,
-            ':pwd' => password_hash($pwd, PASSWORD_BCRYPT)
-        ]);
-        if ($isRegSuccessful) {
             $_SESSION['user'] = [
                 'id' => $pdo->lastInsertId(),
                 'first_name' => $first_name,
@@ -52,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'role' => 'user'
             ];
             redirect('/');
-        } else {
-            $_SESSION['error'] = 'Не удалось зарегистрировать пользователя';
+        } catch (\Throwable $th) {
+            setMessage('Не удалось зарегистрировать пользователя');
             redirect('/registration.php');
         }
     } else {

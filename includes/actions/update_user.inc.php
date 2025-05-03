@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $maxFileSize = 4 * 1024 * 1024;
 
         if (!in_array($fileExtension, $allowedExtensions)) {
-            $_SESSION['error'] = 'Недопустимый формат файла. Разрешены: ' . implode(', ', $allowedExtensions) . '.';
+            setMessage('Недопустимый формат файла. Разрешены: ' . implode(', ', $allowedExtensions) . '.');
         } elseif ($_FILES['avatar_file']['size'] > $maxFileSize) {
-            $_SESSION['error'] = "Размер файла превышает " . $maxFileSize / 1024 / 1024 . " Мб";
+            setMessage("Размер файла превышает " . $maxFileSize / 1024 / 1024 . " Мб");
         } else {
             $newFilename = uniqid() . '.' . $fileExtension;
             $uploadFile = $_SERVER['DOCUMENT_ROOT'] . UPLOAD_DIR . $newFilename;
@@ -49,11 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 deletePicture($_SESSION['user']['profile_image_url'] ?? ''); // Передаем текущий URL для удаления
                 $profile_image_url = $newFilename;
             } else {
-                $_SESSION['error'] = 'Ошибка при загрузке файла на сервер';
+                setMessage('Ошибка при загрузке файла на сервер');
             }
         }
     } elseif (isset($_FILES['avatar_file']) && $_FILES['avatar_file']['error'] !== UPLOAD_ERR_NO_FILE) {
-        $_SESSION['error'] = match ($_FILES['avatar_file']['error']) {
+        setMessage(match ($_FILES['avatar_file']['error']) {
             UPLOAD_ERR_INI_SIZE => 'Размер файла превышает 4Мб',
             UPLOAD_ERR_FORM_SIZE => 'Размер загруженного файла превышает значение MAX_FILE_SIZE, указанное в HTML-форме',
             UPLOAD_ERR_PARTIAL => 'Файл был загружен частично',
@@ -61,22 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             UPLOAD_ERR_CANT_WRITE => 'Не удалось записать файл на диск',
             UPLOAD_ERR_EXTENSION => 'Загрузка файла прервана расширением PHP',
             default => 'Произошла неизвестная ошибка при загрузке файла'
-        };
+        });
     }
 
-    if (!$first_name) {
-        $_SESSION['error'] = 'Имя не может быть пустым!';
-    }
-
-    if (!$last_name) {
-        $_SESSION['error'] = 'Фамилия не может быть пустой!';
-    }
-
+    if (!$first_name) setMessage('Имя не может быть пустым!');
+    if (!$last_name) setMessage('Фамилия не может быть пустой!');
     if (!$phone) {
-        $_SESSION['error'] = "Номер не может быть пустым!";
+        setMessage('Номер не может быть пустым!');
     } else {
         if (!preg_match('/^\+?[1-9]\d{1,14}$/', $phone)) {
-            $_SESSION['error'] = "Неверный формат номера!";
+            setMessage('Неверный формат номера!');
         }
     }
 
@@ -86,11 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ':email' => $_SESSION['user']['email'],
     ]);
 
-    if ($stmt->fetch()) {
-        $_SESSION['error'] = 'Пользователь с таким номером телефона уже существует!';
-    }
+    if ($stmt->fetch()) setMessage('Пользователь с таким номером телефона уже существует!');
 
-    if (empty($_SESSION['error'])) {
+    if (empty($_SESSION['message'])) {
         try {
             $stmt = $pdo->prepare('UPDATE `users` SET `first_name` = :first_name, `last_name` = :last_name, `patronymic` = :patronymic, `phone` = :phone, `address` = :address, `profile_image_url` = :profile_image_url WHERE `email` = :email;');
             $stmt->execute([
@@ -110,9 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user']['address'] = $address;
             $_SESSION['user']['profile_image_url'] = $profile_image_url;
 
-            $_SESSION['success'] = 'Данные профиля обновлены!';
+            setMessage('Данные профиля обновлены!', 'success');
         } catch (\Throwable $th) {
-            $_SESSION['error'] = $th;
+            setMessage($th);
         }
         redirect('/profile.php');
     } else {

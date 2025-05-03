@@ -19,12 +19,16 @@ if (isset($_SESSION['user'])) header('Location: /profile.php');
 
 <body>
     <?php require_once 'includes/components/header.php'; ?>
-
     <main>
         <section class='sign-wrapper container'>
             <h2>Регистрация</h2>
             <form class='sign__form' action='includes/actions/reg.inc.php' method='post'>
                 <div class='sign__inputs'>
+                    <?php
+                    if (isset($_SESSION['message'])) {
+                        echo "<p class='sign-error'>{$_SESSION['message']['text']}</p>";
+                        unset($_SESSION['message']);
+                    } ?>
                     <div class='sign__inputs-textfields'>
 
                         <div class='sign__textfield-block'>
@@ -87,25 +91,15 @@ if (isset($_SESSION['user'])) header('Location: /profile.php');
                             <input class='sign__textfield' type='password' name='pwdVerify' placeholder='Пароль ещё раз' required>
                         </div>
                     </div>
-                    <?php
-                    if (isset($_SESSION['error'])) {
-                        echo "<p class='sign-error'>{$_SESSION['error']}</p>";
-                        unset($_SESSION['error']);
-                    } ?>
-
                     <button class='action_button actbtn-o'>Зарегистрироваться</button>
-
                 </div>
-
                 <p class='sign_other-text'>
                     Уже зарегистрированы?<br>
                     <a class='sign_other-link' href='login.php'>Войти в аккаунт</a>
                 </p>
-
             </form>
         </section>
     </main>
-
     <?php require_once 'includes/components/footer.php'; ?>
 </body>
 

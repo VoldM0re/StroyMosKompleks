@@ -18,3 +18,8 @@ function getPost($key)
     }
     return null;
 }
+
+function setMessage($text, $type = 'error')
+{
+    $_SESSION['message'] = ['type' => $type, 'text' => $text];
+}

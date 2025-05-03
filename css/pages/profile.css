@@ -6,6 +6,7 @@
 @import '/css/components/action_button.css';
 @import '/css/components/sign_form.css';
 @import '/css/components/textarea.css';
+@import '/css/components/message.css';
 
 .profile-wrapper {
     display: flex;
