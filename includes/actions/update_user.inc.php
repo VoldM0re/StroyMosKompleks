@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = getPost('phone');
     $address = getPost('address');
 
-    $profile_image_url = $_SESSION['user']['profile_image_url'] ?? null;
+    $profile_image_url = $_SESSION['user']['profile_image_url'] ?? 'default_pfp.png';
 
     function deletePicture($filenameToDelete)
     {
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Удаление картинки профиля
     if (isset($_POST['delete_avatar']) && $_POST['delete_avatar'] == '1' && isset($_SESSION['user']['profile_image_url'])) {
         deletePicture($_SESSION['user']['profile_image_url']);
-        $profile_image_url = null;
+        $profile_image_url = 'default_pfp.png';
     }
 
     // Добавление картинки профиля
