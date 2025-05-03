@@ -1,6 +1,7 @@
 .message-block {
     display: flex;
     visibility: hidden;
+    z-index: 3;
     position: fixed;
     align-items: center;
     justify-content: center;
