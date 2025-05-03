@@ -1,7 +1,9 @@
 const textarea = document.querySelector('.textarea');
 const counter = document.querySelector('.chars_counter');
 const maxLenght = 200
-window.onload = updateArea(textarea);
+if (textarea) {
+    window.onload = updateArea(textarea);
+}
 
 function updateArea(elem) {
     elem.style.height = "5px";
