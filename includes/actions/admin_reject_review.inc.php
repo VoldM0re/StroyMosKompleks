@@ -3,7 +3,6 @@ require_once '../db.php';
 
 if (isset($_POST['review_id'])) {
     $review_id = filter_var($_POST['review_id'], FILTER_SANITIZE_NUMBER_INT);
-
     $stmt = $pdo->prepare("DELETE FROM reviews WHERE user_id = :user_id");
     $stmt->bindParam(':user_id', $review_id, PDO::PARAM_INT);
 
