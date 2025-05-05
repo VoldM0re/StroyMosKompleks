@@ -18,8 +18,16 @@ function getPost($key)
     }
     return null;
 }
-
+// Добавление сообщения об ошибке/успехе в сессию
 function setMessage($text, $type = 'error')
 {
     $_SESSION['message'] = ['type' => $type, 'text' => $text];
+}
+
+// Запрос к БД
+function query($pdo, $sql, $params = [])
+{
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

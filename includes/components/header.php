@@ -68,10 +68,10 @@ function isActive($pageName)
                     </svg>
                 </a>
                 <div class="expanded">
-                    <a href="#" class='header__menu-link'>Промышленный альпинизм</a>
-                    <a href="#" class='header__menu-link'>Строительные работы</a>
-                    <a href="#" class='header__menu-link'>Отделочные работы</a>
-                    <a href="#" class='header__menu-link'>Дизайн и проектирование</a>
+                    <a href="/promyshlennyy-alpinizm.php" class='header__menu-link'>Промышленный альпинизм</a>
+                    <a href="/" class='header__menu-link'>Строительные работы</a>
+                    <a href="/" class='header__menu-link'>Отделочные работы</a>
+                    <a href="/" class='header__menu-link'>Дизайн и проектирование</a>
                 </div>
             </li>
             <li class='header__menu-item'>

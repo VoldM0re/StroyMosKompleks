@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang='ru'>
 
@@ -21,7 +19,7 @@ session_start();
     <main>
         <div class='services-wrapper container'>
             <h2>Каталог услуг</h2>
-            <a class='service' href='#'>
+            <a class='service' href='promyshlennyy-alpinizm.php'>
                 <p class='service-text'>Промышленный альпинизм</p>
                 <picture>
                     <source media='(min-width: 659px)' srcset='/assets/img/uslugi/PromAlp_desktop.webp'>

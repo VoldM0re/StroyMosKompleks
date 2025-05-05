@@ -1,0 +1,102 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+
+.service_info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service_info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service_info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.service_info-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.service_info-img {
+    aspect-ratio: 16/9;
+}
+
+.service_info-main-text {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+    background: #FFF;
+}
+
+.service_info_title {
+    color: var(--accent, #FF8A42);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.service_info_price {
+    color: var(--black, #222);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.service_info_description {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: var(--border-radius);
+    background: #FFF;
+    box-shadow: var(--shadow);
+}
+
+.service_info_description-text {
+    color: var(--black, #222);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.service_info_price_info {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: var(--shadow);
+}
+
+.service_info_price_info-text {
+    color: var(--black, #222);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.service_info-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (min-width: 1023px) {
+    .service_info {
+        flex-direction: row;
+    }
+}

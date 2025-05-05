@@ -38,10 +38,6 @@
     }
 }
 
-@media (min-width: 479px) {}
-
-@media (min-width: 659px) {}
-
 @media (min-width: 767px) {
     .about-text-wrapper {
         flex-direction: row-reverse;

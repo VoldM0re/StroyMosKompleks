@@ -26,7 +26,7 @@
                 <div class='slide'>
                     <p>Услуги промышленного альпинизма</p>
                     <img width="1200" class='slider__image' src='/assets/img/index/slider1.webp' alt='Изображение слайдера' fetchpriority="high" />
-                    <a class='link_button' href='prom-alpinizm.php'>Заказать</a>
+                    <a class='link_button' href='/promyshlennyy-alpinizm.php'>Заказать</a>
                 </div>
                 <div class='slide'>
                     <p>Профессиональные строительные и отделочные работы</p>
