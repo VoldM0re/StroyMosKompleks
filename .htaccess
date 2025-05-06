@@ -3,7 +3,6 @@ ErrorDocument 403 /error_page.php
 
 Options -Indexes
 
-# Запретить доступ к конкретным файлам
 <FilesMatch "^(\.htaccess|\.gitattributes)$">
     Order Allow,Deny
     Deny from all
@@ -12,7 +11,7 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
-# Если URL содержит .php и после него идёт что-то ещё
+# Если URL содержит .php и после него идёт что-то ещё — редиректим на корректный
 RewriteCond %{REQUEST_URI} ^(.+\.php)/.*$
 RewriteRule ^(.+\.php)/.*$ /$1 [R=301,L]
 
@@ -21,18 +20,23 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [L,R=301]
 
-# Убираем .php из URL (например, uslugi.php → uslugi)
-# 1. Редирект с .php на URL без .php (убираем расширение из URL)
+# Убираем .php из URL (редирект)
 RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^.]+)\.php[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# 2. Внутреннее перенаправление: обрабатываем URL без .php как .php-файлы
+# Внутреннее перенаправление: файл.php → по URL без .php (1 уровень)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L]
 
-# Обработка 404 ошибок для подкаталогов
+# Внутреннее перенаправление: /dir/file → /dir/file.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)/(.+)$ /error_page.php [L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# Последняя проверка: 404 для несуществующих файлов
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /error_page.php [L]
