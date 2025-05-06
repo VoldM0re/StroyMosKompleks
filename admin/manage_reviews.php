@@ -116,7 +116,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                                 targetContainer = document.querySelector('#accepted-reviews');
                                 actionButtons =
                                     `<button class='review-action pend' id='review-action-pend' data-action='pend' data-full-text='Снять с публикации' data-short-text='🕙︎' title='Снять с публикации'></button>`;
-                                url = 'includes/actions/admin_accept_review.inc.php';
+                                url = '/includes/actions/admin_accept_review.inc.php';
                                 confirmationMessage = 'Принять этот отзыв?';
                             } else if (action === 'pend') {
                                 actionButtons = `
@@ -124,10 +124,10 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                                     <button class='review-action accept' id='review-action-accept' data-action='accept' data-full-text='Принять' data-short-text='✔' title='Опубликовать'></button>
                                 `;
                                 targetContainer = document.querySelector('#pending-reviews');
-                                url = 'includes/actions/admin_pend_review.inc.php';
+                                url = '/includes/actions/admin_pend_review.inc.php';
                                 confirmationMessage = 'Снять с публикации этот отзыв?';
                             } else if (action === 'reject') {
-                                url = 'includes/actions/admin_reject_review.inc.php';
+                                url = '/includes/actions/admin_reject_review.inc.php';
                                 confirmationMessage = 'Удалить этот отзыв?';
                             }
 
