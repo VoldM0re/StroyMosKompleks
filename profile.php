@@ -110,12 +110,14 @@ if (!isset($_SESSION['user'])) {
 
                         <button class="action_button actbtn-w">Сохранить</button>
 
-                        <?php if ($_SESSION['user']['role'] == 'admin') {
-                            echo "
-                            <a class='action_button actbtn-o' href='/admin_page.php'>
-                                <span>На страницу админа</span>
-                            </a>";
-                        } ?>
+                        <?php if ($_SESSION['user']['role'] == 'admin'): ?>
+                            <a class='action_button actbtn-o' href='/admin/manage_reviews.php'>
+                                <span>Управление отзывами</span>
+                            </a>
+                            <a class='action_button actbtn-o' href='/admin/manage_services.php'>
+                                <span>Управление услугами</span>
+                            </a>
+                        <?php endif; ?>
 
                         <a class='logout-button' href='/includes/actions/logout.inc.php'>
                             <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">

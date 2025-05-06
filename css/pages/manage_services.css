@@ -1,0 +1,52 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+@import '/css/components/message.css';
+@import '/css/components/services_cards.css';
+
+.service_price {
+    display: flex;
+    gap: 10px;
+}
+
+.service_card {
+    width: 100%;
+}
+
+.block-title {
+    text-align: center;
+}
+
+.service_price>input {
+    width: 100%;
+}
+
+select {
+    padding: 5px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    border: 1px solid #cccccc;
+    width: 100%;
+}
+
+input,
+textarea {
+    background-color: var(--white);
+    padding: 5px;
+    border-radius: var(--border-radius);
+    border: 1px solid #cccccc;
+    outline: none;
+    width: 100%;
+}
+
+.service_description {
+    font-weight: 400;
+    height: auto;
+}
+
+.action_buttons {
+    display: flex;
+    gap: 10px;
+}

@@ -6,13 +6,13 @@
 @import '/css/components/action_button.css';
 @import '/css/components/reviews.css';
 
-.admin_page-wrapper {
+.manage_reviews-wrapper {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.admin_page-block {
+.manage_reviews-block {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +71,7 @@
         box-shadow: var(--shadow);
     }
 
-    .admin_page-block-title {
+    .manage_reviews-block-title {
         font-size: clamp(1.125rem, 0.95rem + 0.875vw, 2rem);
     }
 

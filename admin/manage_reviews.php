@@ -3,29 +3,28 @@ session_start();
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     header('Location: /error_page.php');
     exit();
-}
-?>
+} ?>
 <!DOCTYPE html>
 <html lang='ru'>
 
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>СтройМосКомплекс - Страница админа</title>
+    <title>Управление отзывами - СтройМосКомплекс</title>
     <meta name='robots' content='noindex, nofollow'>
-    <link rel='stylesheet' href='/css/pages/admin_page.css'>
+    <link rel='stylesheet' href='/css/pages/manage_reviews.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
 </head>
 
 <body>
-    <?php require_once 'includes/components/header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/header.php'; ?>
     <main>
-        <section class='admin_page-wrapper container'>
+        <section class='manage_reviews-wrapper container'>
             <h2>Добро пожаловать, <?= $_SESSION['user']['first_name'] ?></h2>
-            <section class='admin_page-block'>
-                <h3 class='admin_page-block-title'>Отзывы на рассмотрении</h3>
+            <section class='manage_reviews-block'>
+                <h3 class='manage_reviews-block-title'>Отзывы на рассмотрении</h3>
                 <div class='reviews' id='pending-reviews'>
-                    <?php require_once 'includes/db.php';
+                    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
                     $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.review_status = 'pending' ORDER BY reviews.created_at DESC;");
                     $stmt->execute();
                     $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -60,8 +59,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                 </div>
             </section>
 
-            <section class='admin_page-block'>
-                <h3 class='admin_page-block-title'>Опубликованные отзывы</h3>
+            <section class='manage_reviews-block'>
+                <h3 class='manage_reviews-block-title'>Опубликованные отзывы</h3>
                 <div class='reviews' id='accepted-reviews'>
                     <?php
                     $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.review_status = 'accepted' ORDER BY reviews.created_at DESC;");
@@ -96,7 +95,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
             </section>
         </section>
     </main>
-    <?php require_once 'includes/components/footer.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const reviewsContainers = document.querySelectorAll('.reviews');

@@ -59,7 +59,7 @@ function isActive($pageName)
                 </a>
             </li>
             <li class='header__menu-item is-expandable'>
-                <a href='uslugi.php' class='header__menu-link <?= isActive('uslugi.php'); ?>'>
+                <a href='/uslugi.php' class='header__menu-link <?= isActive('uslugi.php'); ?>'>
                     <span class='header__menu-text'>Услуги</span>
                     <svg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
@@ -75,22 +75,22 @@ function isActive($pageName)
                 </div>
             </li>
             <li class='header__menu-item'>
-                <a href='o-kompanii.php' class='header__menu-link <?= isActive('o-kompanii.php'); ?>'>
+                <a href='/o-kompanii.php' class='header__menu-link <?= isActive('o-kompanii.php'); ?>'>
                     <span class='header__menu-text'>О компании</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='portfolio.php' class='header__menu-link <?= isActive('portfolio.php'); ?>'>
+                <a href='/portfolio.php' class='header__menu-link <?= isActive('portfolio.php'); ?>'>
                     <span class='header__menu-text'>Портфолио</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='otzyvy.php' class='header__menu-link <?= isActive('otzyvy.php'); ?>'>
+                <a href='/otzyvy.php' class='header__menu-link <?= isActive('otzyvy.php'); ?>'>
                     <span class='header__menu-text'>Отзывы</span>
                 </a>
             </li>
             <li class='header__menu-item'>
-                <a href='chastye-voprosy.php' class='header__menu-link <?= isActive('chastye-voprosy.php'); ?>'>
+                <a href='/chastye-voprosy.php' class='header__menu-link <?= isActive('chastye-voprosy.php'); ?>'>
                     <span class='header__menu-text'>FAQ</span>
                 </a>
             </li>
