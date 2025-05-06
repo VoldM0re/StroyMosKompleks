@@ -9,8 +9,12 @@ function services_list($title, $caregory)
 { ?>
     <h2 class="block-title"><?= $title ?></h2>
     <div class='services_cards'>
-        <form action='/includes/actions/add_service.inc.php' method='POST' class='service_card new_service'>
-            <img class='service-img' src='' alt='Изображение услуги' />
+        <form action='/includes/actions/add_service.inc.php' method='POST' class='service_card new_service' enctype='multipart/form-data'>
+            <label>
+                <img id="service_img" class='service-img' src="/assets/uploads/services_images/default_service_image.jpg" alt="Изображение услуги">
+                <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg" required>
+            </label>
+
             <div class='service_card-text-block'>
                 <h3>Категория</h3>
                 <select name="category">
@@ -45,8 +49,12 @@ function services_list($title, $caregory)
 
         if ($services):
             foreach ($services as $service): ?>
-                <form action='/includes/actions/update_service.inc.php' method='POST' class='service_card'>
-                    <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
+                <form action='/includes/actions/update_service.inc.php' method='POST' class='service_card' enctype='multipart/form-data'>
+                    <label>
+                        <img id="service_img" class='service-img' src="/assets/uploads/services_images/<?= $service['image_url'] ?>" alt="Изображение услуги">
+                        <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg" required>
+                        <input type="hidden" name="old_image_url" value="<?= $service['image_url'] ?>">
+                    </label>
                     <div class='service_card-text-block'>
                         <input type="hidden" name="id" value="<?= $service['id'] ?>">
                         <h3>Категория</h3>
@@ -75,7 +83,7 @@ function services_list($title, $caregory)
                         <p class='service_price'>от <input type="text" name="price" value="<?= $service['price'] ?>" required>₽</p>
                     </div>
                     <div class="action_buttons">
-                        <button class='action_button actbtn-w' type="button" onclick="deleteService(<?= $service['id'] ?>)">Удалить</button>
+                        <button class='action_button actbtn-w' type="button" onclick="deleteService(<?= $service['id'] ?>, '<?= $service['image_url'] ?>')">Удалить</button>
                         <button class='action_button actbtn-o'>Сохранить</button>
                     </div>
                 </form>
@@ -129,11 +137,25 @@ function services_list($title, $caregory)
             });
         });
 
-        function deleteService(serviceId) {
+        function deleteService(serviceId, imageUrl) {
             if (confirm("Вы уверены, что хотите удалить эту услугу?")) {
-                window.location.href = '/includes/actions/delete_service.inc.php?id=' + serviceId;
+                window.location.href = `/includes/actions/delete_service.inc.php?id=${serviceId}&image_url=${imageUrl}`;
             }
         }
+
+        document.querySelectorAll('.service_img-input').forEach((input) => {
+            input.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                console.log(event.target);
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        input.parentNode.querySelector('.service-img').src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
     </script>
 </body>
 
