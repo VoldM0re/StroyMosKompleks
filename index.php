@@ -26,12 +26,12 @@
                 <div class='slide'>
                     <p>Услуги промышленного альпинизма</p>
                     <img width="1200" class='slider__image' src='/assets/img/index/slider1.webp' alt='Изображение слайдера' fetchpriority="high" />
-                    <a class='link_button' href='/promyshlennyy-alpinizm.php'>Заказать</a>
+                    <a class='link_button' href='/uslugi/promyshlennyy-alpinizm.php'>Заказать</a>
                 </div>
                 <div class='slide'>
                     <p>Профессиональные строительные и отделочные работы</p>
                     <img loading='lazy' width="1200" class='slider__image' src='/assets/img/index/slider2.webp' alt='Изображение слайдера' />
-                    <a class='link_button' href='uslugi.php'>Заказать</a>
+                    <a class='link_button' href='/uslugi/index.php'>Заказать</a>
                 </div>
                 <div class='slide'>
                     <p>Дизайн и проектирование</p>
@@ -152,21 +152,20 @@
                 $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($reviews): ?>
-                    <?php foreach ($reviews as $review): ?>
-                        <div class="review">
-                            <div class="review-user">
-                                <img loading="lazy" width="40" height="40" class="review-user-pfp"
-                                    src="/assets/uploads/profile_pictures/<?= isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png'; ?>"
-                                    alt="Фото профиля">
-                                <h3><?= isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён'; ?></h3>
-                            </div>
-                            <p class="review-text"><?= htmlspecialchars($review['review_text']); ?></p>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <div class="review" style="text-align: center;">
-                        <h3>Отзывов пока нет</h3>
+                <?php foreach ($reviews as $review): ?>
+                <div class="review">
+                    <div class="review-user">
+                        <img loading="lazy" width="40" height="40" class="review-user-pfp"
+                            src="/assets/uploads/profile_pictures/<?= isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png'; ?>" alt="Фото профиля">
+                        <h3><?= isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён'; ?></h3>
                     </div>
+                    <p class="review-text"><?= htmlspecialchars($review['review_text']); ?></p>
+                </div>
+                <?php endforeach; ?>
+                <?php else: ?>
+                <div class="review" style="text-align: center;">
+                    <h3>Отзывов пока нет</h3>
+                </div>
                 <?php endif; ?>
 
             </div>

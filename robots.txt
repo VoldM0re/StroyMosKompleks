@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 Allow: /index.php
-Allow: /uslugi.php
+Allow: /uslugi/index.php
 Allow: /portfolio.php
 Allow: /o-kompanii.php
 Allow: /chastye-voprosy.php

@@ -13,38 +13,38 @@
 </head>
 
 <body>
-    <?php include 'includes/components/header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/header.php'; ?>
     <main>
         <section class='services_cards-wrapper container'>
             <h2>Промышленный альпинизм</h2>
             <div class='services_cards'>
-                <?php require_once 'includes/db.php';
+                <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
                 $stmt = $pdo->prepare("SELECT * FROM `services` WHERE `category` = 'alpinism';");
                 $stmt->execute();
                 $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($services):
                     foreach ($services as $service): ?>
-                        <div class='service_card'>
-                            <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
-                            <div class='service_card-text-block'>
-                                <h3 class='service_title'><?= $service['name'] ?></h3>
-                                <p class='service_description'><?= $service['short_description'] ?></p>
-                                <?php if ($service['price'] != null): ?>
-                                    <p class='service_price'>от <?= $service['price'] ?> ₽/<?= match ($service['price_units']) {
+                <div class='service_card'>
+                    <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
+                    <div class='service_card-text-block'>
+                        <h3 class='service_title'><?= $service['name'] ?></h3>
+                        <p class='service_description'><?= $service['short_description'] ?></p>
+                        <?php if ($service['price'] != null): ?>
+                        <p class='service_price'>от <?= $service['price'] ?> ₽/<?= match ($service['price_units']) {
                                                                                                 'm2' => 'м²',
                                                                                                 'pog_m' => 'пог. м'
                                                                                             } ?>
-                                    </p>
-                                <?php else: ?>
-                                    <p class='service_price'>Цена договорная</p>
-                                <?php endif; ?>
-                            </div>
-                            <a href='/service_page.php' class='action_button actbtn-o'>Подробнее</a>
-                        </div>
-                    <?php endforeach;
+                        </p>
+                        <?php else: ?>
+                        <p class='service_price'>Цена договорная</p>
+                        <?php endif; ?>
+                    </div>
+                    <a href='/service_page.php' class='action_button actbtn-o'>Подробнее</a>
+                </div>
+                <?php endforeach;
                 else: ?>
-                    <h3>Услуг в этой категории пока нет</h3>
+                <h3>Услуг в этой категории пока нет</h3>
                 <?php endif; ?>
                 <div class='service_card'>
                     <img class='service-img' src='https://dummyimage.com/600x400.jpg' alt='Изображение услуги' />
@@ -126,7 +126,7 @@
             </div>
         </section>
     </main>
-    <?php include 'includes/components/footer.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
 </body>
 
 </html>

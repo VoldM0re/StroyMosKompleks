@@ -15,11 +15,11 @@
 </head>
 
 <body>
-    <?php require_once 'includes/components/header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/header.php'; ?>
     <main>
         <div class='services-wrapper container'>
             <h2>Каталог услуг</h2>
-            <a class='service' href='promyshlennyy-alpinizm.php'>
+            <a class='service' href='/uslugi/promyshlennyy-alpinizm.php'>
                 <p class='service-text'>Промышленный альпинизм</p>
                 <picture>
                     <source media='(min-width: 659px)' srcset='/assets/img/uslugi/PromAlp_desktop.webp'>
@@ -49,7 +49,7 @@
             </a>
         </div>
     </main>
-    <?php require_once 'includes/components/footer.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
 </body>
 
 </html>

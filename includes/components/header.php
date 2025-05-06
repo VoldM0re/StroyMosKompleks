@@ -59,7 +59,7 @@ function isActive($pageName)
                 </a>
             </li>
             <li class='header__menu-item is-expandable'>
-                <a href='/uslugi.php' class='header__menu-link <?= isActive('uslugi.php'); ?>'>
+                <a href='/uslugi/index.php' class='header__menu-link <?= isActive('/uslugi/index.php'); ?>'>
                     <span class='header__menu-text'>Услуги</span>
                     <svg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <path
@@ -68,7 +68,7 @@ function isActive($pageName)
                     </svg>
                 </a>
                 <div class="expanded">
-                    <a href="/promyshlennyy-alpinizm.php" class='header__menu-link'>Промышленный альпинизм</a>
+                    <a href="/uslugi/promyshlennyy-alpinizm.php" class='header__menu-link'>Промышленный альпинизм</a>
                     <a href="/" class='header__menu-link'>Строительные работы</a>
                     <a href="/" class='header__menu-link'>Отделочные работы</a>
                     <a href="/" class='header__menu-link'>Дизайн и проектирование</a>

@@ -40,3 +40,12 @@ RewriteRule ^(.+)$ $1.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /error_page.php [L]
+
+# Правило для удаления index.php из URL-адресов подкаталогов
+RewriteCond %{REQUEST_URI} ^/([^/]+)/index\.php$ [NC]
+RewriteRule ^([^/]+)/index\.php$ /$1/ [R=301,L]
+
+# Правило для внутреннего перенаправления запросов к каталогу на index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/?$ /$1/index.php [L]
