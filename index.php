@@ -105,6 +105,43 @@
             </div>
         </div>
 
+        <section class='services_cards-wrapper container'>
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'; ?>
+            <h2>Новые предложения</h2>
+            <div class='services_cards'>
+                <?php global $pdo;
+                $stmt = $pdo->prepare("SELECT * FROM `services` ORDER BY `id` DESC LIMIT 3 ");
+                $stmt->execute();
+                $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                if ($services):
+                    foreach ($services as $service):
+                        $price_units = match ($service['price_units']) {
+                            'noUnits' => '',
+                            'm2' => '/м²',
+                            'pog_m' => '/пог. м',
+                            default => ''
+                        }; ?>
+                        <div class='service_card'>
+                            <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
+                            <div class='service_card-text-block'>
+                                <h3 class='service_title'><?= $service['name'] ?></h3>
+                                <p class='service_description'><?= $service['short_description'] ?></p>
+                                <?php if ($service['price'] != null): ?>
+                                    <p class='service_price'>от <?= $service['price'] ?> ₽<?= $price_units ?> </p>
+                                <?php else: ?>
+                                    <p class='service_price'>Цена договорная</p>
+                                <?php endif; ?>
+                            </div>
+                            <a href='/service.php?service_id=<?= $service['id'] ?>' class='action_button actbtn-o'>Подробнее</a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h3>Услуг в этой категории пока нет</h3>
+                <?php endif; ?>
+            </div>
+        </section>
+
         <div class='our_projects-wrapper container'>
             <h2>Наши работы</h2>
             <div class='our_projects__cards'>
@@ -152,20 +189,20 @@
                 $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($reviews): ?>
-                <?php foreach ($reviews as $review): ?>
-                <div class="review">
-                    <div class="review-user">
-                        <img loading="lazy" width="40" height="40" class="review-user-pfp"
-                            src="/assets/uploads/profile_pictures/<?= isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png'; ?>" alt="Фото профиля">
-                        <h3><?= isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён'; ?></h3>
-                    </div>
-                    <p class="review-text"><?= htmlspecialchars($review['review_text']); ?></p>
-                </div>
-                <?php endforeach; ?>
+                    <?php foreach ($reviews as $review): ?>
+                        <div class="review">
+                            <div class="review-user">
+                                <img loading="lazy" width="40" height="40" class="review-user-pfp"
+                                    src="/assets/uploads/profile_pictures/<?= isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png'; ?>" alt="Фото профиля">
+                                <h3><?= isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён'; ?></h3>
+                            </div>
+                            <p class="review-text"><?= htmlspecialchars($review['review_text']); ?></p>
+                        </div>
+                    <?php endforeach; ?>
                 <?php else: ?>
-                <div class="review" style="text-align: center;">
-                    <h3>Отзывов пока нет</h3>
-                </div>
+                    <div class="review" style="text-align: center;">
+                        <h3>Отзывов пока нет</h3>
+                    </div>
                 <?php endif; ?>
 
             </div>

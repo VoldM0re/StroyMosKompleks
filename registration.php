@@ -141,8 +141,6 @@ if (isset($_SESSION['user'])) header('Location: /profile.php');
             });
         });
     </script>
-
-    </script>
 </body>
 
 </html>

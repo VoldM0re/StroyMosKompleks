@@ -3,7 +3,65 @@ session_start();
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     header('Location: /error_page.php');
     exit();
-} ?>
+}
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
+function admin_listReviews($review_status)
+{ ?>
+    <section class='manage_reviews-block'>
+        <h3 class='manage_reviews-block-title'><?= $review_status == 'pending' ? 'Отзывы на рассмотрении' : 'Опубликованные отзывы'; ?></h3>
+        <div class='reviews' id='<?= $review_status ?>-reviews'>
+            <?php global $pdo;
+            $stmt = $pdo->prepare(
+                "SELECT
+                    reviews.review_text,
+                    reviews.created_at,
+                    reviews.user_id,
+                    users.first_name,
+                    users.last_name,
+                    users.profile_image_url,
+                    users.id
+                FROM reviews
+                LEFT JOIN users ON reviews.user_id = users.id
+                WHERE reviews.review_status = :status
+                ORDER BY reviews.created_at DESC;"
+            );
+            $stmt->execute([':status' => $review_status]);
+            $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($reviews):
+                foreach ($reviews as $review):
+                    $reviewDate = isset($review['created_at']) ? (new DateTime($review['created_at']))->format('d.m.Y') : '';
+                    $userName = isset($review['first_name']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён';
+                    $userAvatar = isset($review['profile_image_url']) ? $review['profile_image_url'] : 'default_pfp.png'; ?>
+                    <div class='review-admin-block' data-review-id='<?= $review['user_id'] ?>'>
+                        <div class='review'>
+                            <div class='review-user'>
+                                <img loading='lazy' width='40' height='40' class='review-user-pfp' src='/assets/uploads/profile_pictures/<?= $userAvatar  ?>' alt='Фото профиля'>
+                                <h3><?= $userName ?></h3>
+                            </div>
+                            <p class='review-text'><?= $review['review_text'] ?></p>
+                            <small><?= $reviewDate ?></small>
+                        </div>
+                        <div class='review-admin-actions'>
+                            <?php if ($review_status == 'pending'): ?>
+                                <button class='review-action reject' id='review-action-reject' data-action='reject' data-full-text='Удалить' data-short-text='✖' title='Удалить'></button>
+                                <button class='review-action accept' id='review-action-accept' data-action='accept' data-full-text='Принять' data-short-text='✔' title='Опубликовать'></button>
+                            <?php else: ?>
+                                <button class='review-action pend' id='review-action-pend' data-action='pend' data-full-text='Снять с публикации' data-short-text='🕙︎' title='Снять с публикации'></button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class='review' id='emptyReviews' style='text-align: center;'>
+                    <h3><?= $review_status == 'pending' ? 'Новых отзывов пока нет.' : 'Опубликованных отзывов пока нет.'; ?></h3>
+                </div>
+            <?php endif ?>
+        </div>
+    </section>
+<?php } ?>
+
 <!DOCTYPE html>
 <html lang='ru'>
 
@@ -21,79 +79,10 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     <main>
         <section class='manage_reviews-wrapper container'>
             <h2>Добро пожаловать, <?= $_SESSION['user']['first_name'] ?></h2>
-            <section class='manage_reviews-block'>
-                <h3 class='manage_reviews-block-title'>Отзывы на рассмотрении</h3>
-                <div class='reviews' id='pending-reviews'>
-                    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
-                    $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.review_status = 'pending' ORDER BY reviews.created_at DESC;");
-                    $stmt->execute();
-                    $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    if ($reviews):
-                        foreach ($reviews as $review):
-                            $reviewDate = isset($review['created_at']) ? (new DateTime($review['created_at']))->format('d.m.Y') : ''; ?>
-                            <div class='review-admin-block' data-review-id='<?= $review['user_id'] ?>'>
-                                <div class='review'>
-                                    <div class='review-user'>
-                                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                                            src='/assets/uploads/profile_pictures/<?= isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png'  ?>' alt='Фото профиля'>
-                                        <h3><?= isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён' ?></h3>
-                                    </div>
-                                    <p class='review-text'><?= $review['review_text'] ?></p>
-                                    <small><?= $reviewDate ?></small>
-                                </div>
-
-                                <div class='review-admin-actions'>
-                                    <button class='review-action reject' id='review-action-reject' data-action='reject' data-full-text='Удалить' data-short-text='✖'
-                                        title='Удалить'></button>
-                                    <button class='review-action accept' id='review-action-accept' data-action='accept' data-full-text='Принять' data-short-text='✔'
-                                        title='Опубликовать'></button>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <div class='review' id='emptyReviews' style='text-align: center;'>
-                            <h3>Новых отзывов пока нет.</h3>
-                        </div>
-                    <?php endif ?>
-                </div>
-            </section>
-
-            <section class='manage_reviews-block'>
-                <h3 class='manage_reviews-block-title'>Опубликованные отзывы</h3>
-                <div class='reviews' id='accepted-reviews'>
-                    <?php
-                    $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.review_status = 'accepted' ORDER BY reviews.created_at DESC;");
-                    $stmt->execute();
-                    $acceptedReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    if ($acceptedReviews):
-                        foreach ($acceptedReviews as $review):
-                            $reviewDate = isset($review['created_at']) ? (new DateTime($review['created_at']))->format('d.m.Y') : ''; ?>
-                            <div class='review-admin-block' data-review-id='<?= $review['user_id'] ?>'>
-                                <div class='review'>
-                                    <div class='review-user'>
-                                        <img loading='lazy' width='40' height='40' class='review-user-pfp'
-                                            src='/assets/uploads/profile_pictures/<?= isset($review['user_id']) ? $review['profile_image_url'] : 'default_pfp.png'  ?>' alt='Фото профиля'>
-                                        <h3><?= isset($review['user_id']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён' ?></h3>
-                                    </div>
-                                    <p class='review-text'><?= $review['review_text'] ?></p>
-                                    <small><?= $reviewDate ?></small>
-                                </div>
-
-                                <div class='review-admin-actions'>
-                                    <button class='review-action pend' id='review-action-pend' data-action='pend' data-full-text='Снять с публикации' data-short-text='🕙︎'
-                                        title='Снять с публикации'></button>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <div class='review' id='emptyReviews' style='text-align: center;'>
-                            <h3>Опубликованных отзывов пока нет.</h3>
-                        </div>
-                    <?php endif ?>
-            </section>
-        </section>
+            <?php
+            admin_listReviews('pending');
+            admin_listReviews('accepted');
+            ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
     <script>

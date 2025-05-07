@@ -5,8 +5,8 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>СтройМосКомплекс - Промышленный альпинизм</title>
-    <meta name='description' content='Промышленный альпинизм - услуги и возможности, которые мы предлагаем'>
+    <title>СтройМосКомплекс - Дизайн и проектирование</title>
+    <meta name='description' content='Дизайн и проектирование - услуги и возможности, которые мы предлагаем'>
     <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/services.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>
@@ -17,7 +17,7 @@
     <main>
         <section class='services_cards-wrapper container'>
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/list_services.php';
-            listServices('Промышленный альпинизм', 'alpinism'); ?>
+            listServices('Дизайн и проектирование', 'design'); ?>
         </section>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>

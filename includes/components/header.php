@@ -69,9 +69,9 @@ function isActive($pageName)
                 </a>
                 <div class="expanded">
                     <a href="/uslugi/promyshlennyy-alpinizm.php" class='header__menu-link'>Промышленный альпинизм</a>
-                    <a href="/" class='header__menu-link'>Строительные работы</a>
-                    <a href="/" class='header__menu-link'>Отделочные работы</a>
-                    <a href="/" class='header__menu-link'>Дизайн и проектирование</a>
+                    <a href="/uslugi/stroitelnye-raboty.php" class='header__menu-link'>Строительные работы</a>
+                    <a href="/uslugi/otdelochnye-raboty.php" class='header__menu-link'>Отделочные работы</a>
+                    <a href="/uslugi/dizayn-i-proektirovanie.php" class='header__menu-link'>Дизайн и проектирование</a>
                 </div>
             </li>
             <li class='header__menu-item'>

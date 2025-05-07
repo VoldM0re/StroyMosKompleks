@@ -26,21 +26,21 @@
                     <img src='/assets/img/uslugi/PromAlp_mobile.webp' alt='Услуги' width='1080'>
                 </picture>
             </a>
-            <a class='service' href='#'>
+            <a class='service' href='/uslugi/stroitelnye-raboty.php'>
                 <p class='service-text'>Строительные работы</p>
                 <picture>
                     <source media='(min-width: 659px)' srcset='/assets/img/uslugi/Stroy_desktop.webp'>
                     <img src='/assets/img/uslugi/Stroy_mobile.webp' alt='Услуги' width='1080'>
                 </picture>
             </a>
-            <a class='service' href='#'>
+            <a class='service' href='/uslugi/otdelochnye-raboty.php'>
                 <p class='service-text'>Отделочные работы</p>
                 <picture>
                     <source media='(min-width: 659px)' srcset='/assets/img/uslugi/Otdelka_desktop.webp'>
                     <img src='/assets/img/uslugi/Otdelka_mobile.webp' alt='Услуги' width='1080'>
                 </picture>
             </a>
-            <a class='service' href='#'>
+            <a class='service' href='/uslugi/dizayn-i-proektirovanie.php'>
                 <p class='service-text'>Дизайн и проектирование</p>
                 <picture>
                     <source media='(min-width: 659px)' srcset='/assets/img/uslugi/Proekt_desktop.webp'>

@@ -28,31 +28,26 @@
                     users.first_name,
                     users.last_name,
                     users.profile_image_url
-                FROM
-                    reviews
-                LEFT JOIN
-                    users ON reviews.user_id = users.id
-                WHERE
-                    reviews.review_status = 'accepted'
-                ORDER BY
-                    reviews.created_at DESC;"
+                FROM reviews
+                LEFT JOIN users ON reviews.user_id = users.id
+                WHERE reviews.review_status = 'accepted'
+                ORDER BY reviews.created_at DESC;"
                 );
                 $stmt->execute();
                 $acceptedReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($acceptedReviews):
                     foreach ($acceptedReviews as $review):
-                        $hasUserId = isset($review['user_id']);
-                        $profileImageUrl = $hasUserId && $review['profile_image_url'] ? '/assets/uploads/profile_pictures/' . htmlspecialchars($review['profile_image_url']) : '/assets/uploads/profile_pictures/default_pfp.png';
-                        $userName = $hasUserId ? htmlspecialchars($review['first_name']) . ' ' . mb_substr(htmlspecialchars($review['last_name']), 0, 1, 'UTF-8') . '.' : 'Аккаунт удалён';
                         $reviewDate = isset($review['created_at']) ? (new DateTime($review['created_at']))->format('d.m.Y') : '';
-                ?>
+                        $userName = isset($review['first_name']) ? ($review['first_name'] . ' ' . mb_substr($review['last_name'], 0, 1, 'UTF-8') . '.') : 'Аккаунт удалён';
+                        $userAvatar = isset($review['profile_image_url']) ? $review['profile_image_url'] : 'default_pfp.png'; ?>
                         <div class='review'>
                             <div class='review-user'>
-                                <img loading='lazy' width='40' height='40' class='review-user-pfp' src='<?= $profileImageUrl ?>' alt='Фото профиля'>
+                                <img loading='lazy' width='40' height='40' class='review-user-pfp'
+                                    src='/assets/uploads/profile_pictures/<?= $userAvatar  ?>' alt='Фото профиля'>
                                 <h3><?= $userName ?></h3>
                             </div>
-                            <p class='review-text'><?= htmlspecialchars($review['review_text']) ?></p>
+                            <p class='review-text'><?= $review['review_text'] ?></p>
                             <small><?= $reviewDate ?></small>
                         </div>
                     <?php endforeach;

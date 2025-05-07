@@ -4,8 +4,7 @@ function listServices($title, $caregory)
 { ?>
     <h2><?= $title ?></h2>
     <div class='services_cards'>
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
-        global $pdo;
+        <?php global $pdo;
         $stmt = $pdo->prepare("SELECT * FROM `services` WHERE `category` = :category;");
         $stmt->execute([':category' => $caregory]);
         $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,7 +18,7 @@ function listServices($title, $caregory)
                     default => ''
                 }; ?>
                 <div class='service_card'>
-                    <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
+                    <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' loading='lazy' />
                     <div class='service_card-text-block'>
                         <h3 class='service_title'><?= $service['name'] ?></h3>
                         <p class='service_description'><?= $service['short_description'] ?></p>
@@ -29,7 +28,7 @@ function listServices($title, $caregory)
                             <p class='service_price'>Цена договорная</p>
                         <?php endif; ?>
                     </div>
-                    <a href='/service_page.php' class='action_button actbtn-o'>Подробнее</a>
+                    <a href='/service.php?service_id=<?= $service['id'] ?>' class='action_button actbtn-o'>Подробнее</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
