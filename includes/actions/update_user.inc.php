@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = getPost('first_name');
     $last_name = getPost('last_name');
     $patronymic = getPost('patronymic');
-    $phone = getPost('phone');
+    $phone = preg_replace('/[^\d\+]/', '', getPost('phone'));
     $address = getPost('address');
 
     $profile_image_url = $_SESSION['user']['profile_image_url'] ?? 'default_pfp.png';
