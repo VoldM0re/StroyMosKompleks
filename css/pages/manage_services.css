@@ -6,6 +6,10 @@
 @import '/css/components/message.css';
 @import '/css/components/services_cards.css';
 
+.services_cards-wrapper {
+    max-width: 100%;
+}
+
 .service_price {
     display: flex;
     gap: 10px;
