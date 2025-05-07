@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['user']['role'] == 'admin'
     $price = getPost('price');
 
     $old_image_url = getPost('old_image_url');
-    $service_image_url = null;
+
+    $result = query($pdo, "SELECT `image_url` FROM `services` WHERE id = :id;", [':id' => $id]);
+    $service_image_url = $result[0]['image_url'] ?? null;
 
     // Добавление картинки услуги
     if (isset($_FILES['service_img']) && $_FILES['service_img']['error'] === UPLOAD_ERR_OK) {
@@ -75,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['user']['role'] == 'admin'
                     ':id' => $id
                 ]
             );
-            setMessage("Услуга успешно изменена!", 'success');
+            setMessage("Услуга успешно изменена!" . $service_image_url, 'success');
             redirect('/admin/manage_services.php');
         } catch (\Throwable $th) {
             setMessage("Ошибка: $th");

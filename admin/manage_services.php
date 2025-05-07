@@ -5,7 +5,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
-function services_list($title, $caregory)
+function admin_listServices($title, $caregory)
 { ?>
     <h2 class="block-title"><?= $title ?></h2>
     <div class='services_cards'>
@@ -34,8 +34,9 @@ function services_list($title, $caregory)
                 <h3>Цена</h3>
                 <select class="price_units" name="price_units">
                     <option id='noPrice' value="">Договорная</option>
+                    <option value="noUnits">За всю работу</option>
                     <option value="m2">за м²</option>
-                    <option value="pog_m">пог. м</option>
+                    <option value="pog_m">за пог. м</option>
                 </select>
                 <p class='service_price'>от <input type="text" name="price" value="0" required>₽</p>
             </div>
@@ -52,7 +53,7 @@ function services_list($title, $caregory)
                 <form action='/includes/actions/update_service.inc.php' method='POST' class='service_card' enctype='multipart/form-data'>
                     <label>
                         <img id="service_img" class='service-img' src="/assets/uploads/services_images/<?= $service['image_url'] ?>" alt="Изображение услуги">
-                        <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg" required>
+                        <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg">
                         <input type="hidden" name="old_image_url" value="<?= $service['image_url'] ?>">
                     </label>
                     <div class='service_card-text-block'>
@@ -76,7 +77,8 @@ function services_list($title, $caregory)
                         <textarea rows="4" class='service_description' name='price_info' required placeholder="Опишите ценообразование услуги"><?= $service['price_info'] ?></textarea>
                         <h3>Цена</h3>
                         <select class="price_units" name="price_units">
-                            <option id='noPrice' value="" <?= $service['price'] == null ? 'selected' : '' ?>>Договорная</option>
+                            <option id='noPrice' value="" <?= $service['price_units'] == null ? 'selected' : '' ?>>Договорная</option>
+                            <option value="noUnits" <?= $service['price_units'] == 'noUnits' ? 'selected' : '' ?>>За всю работу</option>
                             <option value="m2" <?= $service['price_units'] == 'm2' ? 'selected' : '' ?>>за м²</option>
                             <option value="pog_m" <?= $service['price_units'] == 'pog_m' ? 'selected' : '' ?>>пог. м</option>
                         </select>
@@ -110,16 +112,23 @@ function services_list($title, $caregory)
         <section class='services_cards-wrapper container'>
             <h2>Управление услугами</h2>
             <?php
-            services_list('Промышленный альпинизм', 'alpinism');
-            services_list('Строительные работы', 'construction');
-            services_list('Отделочные работы', 'finishing');
-            services_list('Дизайн и проектирование', 'design');
+            admin_listServices('Промышленный альпинизм', 'alpinism');
+            admin_listServices('Строительные работы', 'construction');
+            admin_listServices('Отделочные работы', 'finishing');
+            admin_listServices('Дизайн и проектирование', 'design');
             ?>
         </section>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/message_handler.php'; ?>
     <script>
+        function deleteService(serviceId, imageUrl) {
+            if (confirm("Вы уверены, что хотите удалить эту услугу?")) {
+                window.location.href = `/includes/actions/delete_service.inc.php?id=${serviceId}&image_url=${imageUrl}`;
+            }
+        }
+
+        // Добавляет/удаляет поле ввода цены в рублях при выборе единиц измерения
         document.addEventListener('DOMContentLoaded', function() {
             const selects = document.querySelectorAll('.price_units');
             selects.forEach((select) => {
@@ -137,12 +146,7 @@ function services_list($title, $caregory)
             });
         });
 
-        function deleteService(serviceId, imageUrl) {
-            if (confirm("Вы уверены, что хотите удалить эту услугу?")) {
-                window.location.href = `/includes/actions/delete_service.inc.php?id=${serviceId}&image_url=${imageUrl}`;
-            }
-        }
-
+        // Предпросмотр добавления/изменения фото услуги
         document.querySelectorAll('.service_img-input').forEach((input) => {
             input.addEventListener('change', function(event) {
                 const file = event.target.files[0];
