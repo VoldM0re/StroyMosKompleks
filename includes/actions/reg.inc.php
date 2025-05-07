@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = getPost('first_name');
     $last_name = getPost('last_name');
     $email = getPost('email');
-    $phone = getPost('phone');
+    $phone = preg_replace('/[^\d\+]/', '', getPost('phone'));
     $pwd = getPost('pwd');
     $pwdVerify = getPost('pwdVerify');
 
