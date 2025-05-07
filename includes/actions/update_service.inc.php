@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['user']['role'] == 'admin'
                     ':id' => $id
                 ]
             );
-            setMessage("Услуга успешно изменена!" . $service_image_url, 'success');
+            setMessage("Услуга успешно изменена!", 'success');
             redirect('/admin/manage_services.php');
         } catch (\Throwable $th) {
             setMessage("Ошибка: $th");
