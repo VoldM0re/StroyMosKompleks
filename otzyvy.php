@@ -18,8 +18,7 @@
         <div class='reviews-wrapper container'>
             <h2>Отзывы наших клиентов</h2>
             <div class='reviews'>
-                <?php
-                require_once 'includes/db.php';
+                <?php require_once 'includes/db.php';
                 $stmt = $pdo->prepare(
                     "SELECT 
                     reviews.review_text,

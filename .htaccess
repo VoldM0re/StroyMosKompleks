@@ -3,7 +3,7 @@ ErrorDocument 403 /error_page.php
 
 Options -Indexes
 
-<FilesMatch "^(\.htaccess|\.gitattributes)$">
+<FilesMatch "^(\.htaccess|\.gitattributes|\config.php|\.gitignore)$">
     Order Allow,Deny
     Deny from all
 </FilesMatch>

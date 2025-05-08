@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) setMessage('Некорректный email');
 
     if (empty($_SESSION['message'])) {
-        $stmt = $pdo->prepare('SELECT * from `users` WHERE `email` = :email;');
+        $stmt = $pdo->prepare('SELECT * FROM `users` WHERE `email` = :email;');
         $stmt->execute([':email' => $email]);
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 

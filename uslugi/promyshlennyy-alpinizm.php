@@ -6,7 +6,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>СтройМосКомплекс - Промышленный альпинизм</title>
-    <meta name='description' content='Промышленный альпинизм - услуги и возможности, которые мы предлагаем'>
+    <meta name='description' content='Профессиональный промышленный альпинизм: мойка фасадов, ремонт, герметизация и монтаж рекламы на высоте. Качество и безопасность по доступным ценам!'>
     <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/services.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>

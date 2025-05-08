@@ -37,7 +37,11 @@ $price_units = match ($service['price_units']) {
                         <img class='service_info-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
                         <div class='service_info-main-text'>
                             <h3 class='service_info_title'><?= $service['name'] ?></h3>
-                            <p class='service_info_price'>Цена от <?= $service['price'] ?> ₽<?= $price_units ?></p>
+                            <?php if ($service['price_units'] == null): ?>
+                                <p class='service_info_price'>Цена договорная</p>
+                            <?php else: ?>
+                                <p class='service_info_price'>Цена от <?= $service['price'] ?> ₽<?= $price_units ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class='service_info_description'>

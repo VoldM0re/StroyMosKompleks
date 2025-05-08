@@ -1,26 +1,17 @@
 User-agent: *
-Allow: /
-Allow: /index.php
-Allow: /uslugi/index.php
-Allow: /portfolio.php
-Allow: /o-kompanii.php
-Allow: /chastye-voprosy.php
-Allow: /otzyvy.php
-
+Disallow: /admin/
+Disallow: /assets/
+Disallow: /css/
+Disallow: /base/
+Disallow: /components/
 Disallow: /includes/
 Disallow: /js/
-Disallow: /css/
-Disallow: /assets/
-Disallow: /.git/
-Disallow: /.gitattributes
-Disallow: /.htaccess
+
+Disallow: /config.php
+Disallow: /error_page.php
 Disallow: /login.php
 Disallow: /registration.php
-Disallow: /error_page.php
-Disallow: /*.php$
-Disallow: /*?*
-Disallow: /*&
-Disallow: /*#
-Disallow: /*.json$
-Disallow: /*.xml$
-Disallow: /*.sql$
+Disallow: /profile.php
+Disallow: /service?service_id=*
+
+Allow: /
