@@ -207,7 +207,10 @@
             </div>
             <a class='action_button actbtn-w' href='otzyvy.php'>Все отзывы</a>
         </div>
-
+        <div class="map-wrapper container">
+            <h2>Наш офис на карте</h2>
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A946d4071ccc5d03b452b5690962b39b59eabd2f5919b3a9033de4f61da6585d1&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
     <script src='js/slider.js'></script>
