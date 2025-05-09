@@ -1,8 +1,6 @@
 /* Импорт компонентов */
 @import '/css/base/base.css';
-
 @import '/css/components/header.css';
 @import '/css/components/footer.css';
 @import '/css/components/action_button.css';
-
 @import '/css/components/sign_form.css';

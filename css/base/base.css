@@ -57,7 +57,10 @@ main {
     font-size: var(--bigger-text);
 }
 
-@media (min-width: 359px) {}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
 
 @media (min-width: 479px) {
     h2 {

@@ -22,11 +22,7 @@ function listServices($title, $caregory)
                     <div class='service_card-text-block'>
                         <h3 class='service_title'><?= $service['name'] ?></h3>
                         <p class='service_description'><?= $service['short_description'] ?></p>
-                        <?php if ($service['price'] != null): ?>
-                            <p class='service_price'>от <?= $service['price'] ?> ₽<?= $price_units ?> </p>
-                        <?php else: ?>
-                            <p class='service_price'>Цена договорная</p>
-                        <?php endif; ?>
+                        <p class='service_price'><?= $service['price'] != null ? "от {$service['price']} ₽{$price_units}" : 'Цена договорная' ?></p>
                     </div>
                     <a href='/service.php?service_id=<?= $service['id'] ?>' class='action_button actbtn-o'>Подробнее</a>
                 </div>

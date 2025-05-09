@@ -106,7 +106,6 @@
         </div>
 
         <section class='services_cards-wrapper container'>
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'; ?>
             <h2>Новые предложения</h2>
             <div class='services_cards'>
                 <?php global $pdo;
@@ -127,11 +126,7 @@
                             <div class='service_card-text-block'>
                                 <h3 class='service_title'><?= $service['name'] ?></h3>
                                 <p class='service_description'><?= $service['short_description'] ?></p>
-                                <?php if ($service['price'] != null): ?>
-                                    <p class='service_price'>от <?= $service['price'] ?> ₽<?= $price_units ?> </p>
-                                <?php else: ?>
-                                    <p class='service_price'>Цена договорная</p>
-                                <?php endif; ?>
+                                <p class='service_price'><?= $service['price'] != null ? "от {$service['price']} ₽{$price_units}" : 'Цена договорная' ?></p>
                             </div>
                             <a href='/service.php?service_id=<?= $service['id'] ?>' class='action_button actbtn-o'>Подробнее</a>
                         </div>
@@ -182,11 +177,18 @@
         <div class='reviews-wrapper container'>
             <h2>Отзывы наших клиентов</h2>
             <div class='reviews'>
-                <?php
-                require_once 'includes/db.php';
-                $stmt = $pdo->prepare("SELECT reviews.review_text, reviews.created_at, reviews.user_id, users.first_name, users.last_name, users.profile_image_url FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.review_status = 'accepted' ORDER BY reviews.created_at DESC LIMIT 3;");
-                $stmt->execute();
-                $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                <?php require_once 'includes/db.php';
+                $reviews = query($pdo, "SELECT 
+                reviews.review_text,
+                reviews.created_at,
+                reviews.user_id,
+                users.first_name,
+                users.last_name,
+                users.profile_image_url
+                FROM reviews 
+                LEFT JOIN users ON reviews.user_id = users.id 
+                WHERE reviews.review_status = 'accepted' 
+                ORDER BY reviews.created_at DESC LIMIT 3;");
 
                 if ($reviews):
                     foreach ($reviews as $review):

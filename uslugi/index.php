@@ -6,9 +6,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>СтройМосКомплекс - Услуги</title>
-    <meta name='description' content='Услуги компании СтройМосКомплекс – промышленный
-        альпинизм, строительные и отделочные работы, дизайн и проектирование. Профессиональный подход к каждому
-        проекту'>
+    <meta name='description' content='Услуги компании СтройМосКомплекс – промышленный альпинизм, строительные и отделочные работы, дизайн и проектирование. Профессиональный подход к каждому проекту'>
     <meta name='robots' content='index, follow'>
     <link rel='stylesheet' href='/css/pages/uslugi.css'>
     <link rel='shortcut icon' href='/assets/svg/favicon.svg' type='image/x-icon'>

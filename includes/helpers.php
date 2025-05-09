@@ -25,9 +25,13 @@ function setMessage($text, $type = 'error')
 }
 
 // Запрос к БД
-function query($pdo, $sql, $params = [])
+function query($pdo, $sql, $params = [], $fetchMethod = 'fetchAll')
 {
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return match ($fetchMethod) {
+        'fetchAll' => $stmt->fetchAll(PDO::FETCH_ASSOC),
+        'fetch' => $stmt->fetch(PDO::FETCH_ASSOC),
+        'fetchColumn' => $stmt->fetchColumn(),
+    };
 }

@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
 function isActive($pageName)
 {
     $currentPage = basename($_SERVER['PHP_SELF']);
@@ -34,19 +35,28 @@ function isActive($pageName)
                 <a href='tel:+71234567890' class='header__contact-text'>+7 (495) 633-62-62</a>
             </div>
         </address>
+        <a href='/korzina.php' class='account__button'>
+            <div class='header_top-link-icon' id='cart-icon'>
+                <svg width="20" height="20" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path width='20' height='20' d="M1.34253 6.04498V5.03599C1.05903 5.03599 0.788618 5.15525 0.597451 5.36459C0.406284 5.57394 0.312004 5.85404 0.337682 6.13637L1.34253 6.04498ZM17.4865 6.04498L18.4913 6.13637C18.517 5.85404 18.4227 5.57394 18.2315 5.36459C18.0404 5.15525 17.7699 5.03599 17.4865 5.03599V6.04498ZM16.6439 15.3086L15.6391 15.2172L15.6391 15.2173L16.6439 15.3086ZM14.635 17.1439L14.635 18.1529L14.6354 18.1529L14.635 17.1439ZM4.19395 17.1439L4.19355 18.1529H4.19395V17.1439ZM2.18504 15.3086L3.18989 15.2173L3.18989 15.2172L2.18504 15.3086ZM4.36965 8.06297C4.36965 8.62022 4.82139 9.07196 5.37865 9.07196C5.9359 9.07196 6.38764 8.62022 6.38764 8.06297H4.36965ZM9.41463 1V-0.00899506V1ZM13.4506 5.03598L14.4596 5.03598L13.4506 5.03598ZM12.4416 8.06297C12.4416 8.62022 12.8934 9.07196 13.4506 9.07196C14.0079 9.07196 14.4596 8.62022 14.4596 8.06297H12.4416ZM1.34253 6.04498V7.05398H17.4865V6.04498V5.03599H1.34253V6.04498ZM17.4865 6.04498L16.4816 5.95359L15.6391 15.2172L16.6439 15.3086L17.6488 15.4L18.4913 6.13637L17.4865 6.04498ZM16.6439 15.3086L15.6391 15.2173C15.6163 15.4679 15.5006 15.7011 15.3148 15.8709L15.9954 16.6158L16.6759 17.3607C17.2335 16.8513 17.5805 16.152 17.6488 15.3999L16.6439 15.3086ZM15.9954 16.6158L15.3148 15.8709C15.129 16.0406 14.8864 16.1348 14.6346 16.1349L14.635 17.1439L14.6354 18.1529C15.3906 18.1526 16.1184 17.8701 16.6759 17.3607L15.9954 16.6158ZM14.635 17.1439V16.1349H4.19395V17.1439V18.1529H14.635V17.1439ZM4.19395 17.1439L4.19435 16.1349C3.94262 16.1348 3.70003 16.0406 3.51418 15.8709L2.83362 16.6158L2.15305 17.3607C2.71058 17.8701 3.43837 18.1526 4.19355 18.1529L4.19395 17.1439ZM2.83362 16.6158L3.51418 15.8709C3.32834 15.7011 3.21268 15.4679 3.18989 15.2173L2.18504 15.3086L1.18019 15.3999C1.24853 16.152 1.59553 16.8513 2.15305 17.3607L2.83362 16.6158ZM2.18504 15.3086L3.18989 15.2172L2.34738 5.95359L1.34253 6.04498L0.337682 6.13637L1.18019 15.4L2.18504 15.3086ZM5.37865 8.06297H6.38764V5.03598H5.37865H4.36965V8.06297H5.37865ZM5.37865 5.03598H6.38764C6.38764 4.23317 6.70655 3.46325 7.27422 2.89558L6.56076 2.18211L5.84729 1.46864C4.90117 2.41476 4.36965 3.69797 4.36965 5.03598H5.37865ZM6.56076 2.18211L7.27422 2.89558C7.84189 2.32791 8.61182 2.009 9.41463 2.009V1V-0.00899506C8.07662 -0.00899506 6.79341 0.522527 5.84729 1.46864L6.56076 2.18211ZM9.41463 1L9.41463 2.009C10.2174 2.009 10.9874 2.32791 11.555 2.89558L12.2685 2.18211L12.982 1.46864C12.0358 0.522527 10.7526 -0.00899506 9.41463 -0.00899506L9.41463 1ZM12.2685 2.18211L11.555 2.89558C12.1227 3.46325 12.4416 4.23317 12.4416 5.03598L13.4506 5.03598L14.4596 5.03598C14.4596 3.69797 13.9281 2.41476 12.982 1.46864L12.2685 2.18211ZM13.4506 5.03598H12.4416V8.06297H13.4506H14.4596V5.03598H13.4506Z" fill="#222222" />
+                </svg>
+                <?php if (isset($_SESSION['user'])):
+                    $stmt = $pdo->prepare("SELECT COUNT(*) FROM `cart_items` WHERE `user_id` = :user_id;");
+                    $stmt->execute([':user_id' => $_SESSION['user']['id']]);
+                    $cart_count = $stmt->fetchColumn(); ?>
+                    <div class="cart_counter <?= $cart_count > 0 ? '' : 'hidden' ?>"><?= $cart_count ?></div>
+                <?php endif; ?>
+            </div>
+            <span class='account__button-text'>Корзина</span>
+        </a>
         <a href='<?= isset($_SESSION['user']) ? '/profile.php' : '/login.php'; ?>' class='account__button'>
-            <?php
-            $profileImageUrl = '/assets/svg/profile_icon.svg';
-
+            <?php $profileImageUrl = '/assets/svg/profile_icon.svg';
             if (isset($_SESSION['user']['profile_image_url'])) {
-                if ($_SESSION['user']['profile_image_url'] === 'default_pfp.png') {
-                    $profileImageUrl = '/assets/svg/profile_icon.svg';
-                } else {
-                    $profileImageUrl = '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'];
-                }
-            }
-            ?>
-            <img src='<?= $profileImageUrl ?>' class='account__icon' alt='account icon'>
+                $profileImageUrl = $_SESSION['user']['profile_image_url'] === 'default_pfp.png'
+                    ? '/assets/svg/profile_icon.svg'
+                    : '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'];
+            } ?>
+            <img src='<?= $profileImageUrl ?>' class='header_top-link-icon account-icon' alt='account icon'>
             <span class='account__button-text'><?= $_SESSION['user']['first_name'] ?? 'Войти' ?></span>
         </a>
     </div>

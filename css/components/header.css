@@ -81,7 +81,7 @@ header {
 }
 
 .logo-text {
-    font-size: 16px;
+    font-size: clamp(0.75rem, 0.45rem + 1.5vw, 2.25rem);
 }
 
 .header__menu {
@@ -168,16 +168,38 @@ header {
     font-size: 14px;
 }
 
-.account__icon {
+.header_top-link-icon {
     width: 20px;
-    object-fit: cover;
-    border-radius: 50%;
-    aspect-ratio: 1/1;
 }
 
+.header_top-link-icon.account-icon {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#cart-icon {
+    display: flex;
+    position: relative;
+}
+
+.cart_counter {
+    display: flex;
+    position: absolute;
+    bottom: -6px;
+    left: -4px;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--white);
+    font-weight: 600;
+    font-size: clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);
+}
 
 @media (min-width: 479px) {
-
     .burger__button {
         width: 24px;
         height: 20px;
@@ -216,10 +238,6 @@ header {
 
     .logo-icon {
         width: 50px;
-    }
-
-    .logo-text {
-        font-size: 22px;
     }
 }
 
@@ -261,10 +279,6 @@ header {
         column-gap: 20px;
     }
 
-    .account__icon {
-        width: 20px;
-    }
-
     header {
         position: static;
     }
@@ -291,7 +305,6 @@ header {
 
     .header__menu-link {
         display: flex;
-        /* z-index: 2; */
         position: relative;
         column-gap: 10px;
         align-items: center;
@@ -380,12 +393,13 @@ header {
 }
 
 @media (min-width: 1023px) {
-    .logo-icon {
-        width: 70px;
+    .cart_counter {
+        bottom: -10px;
+        left: -6px;
     }
 
-    .logo-text {
-        font-size: 32px;
+    .logo-icon {
+        width: 70px;
     }
 
     .header__top {
@@ -397,7 +411,7 @@ header {
         font-size: 20px;
     }
 
-    .account__icon {
+    .header_top-link-icon {
         width: 25px;
     }
 
@@ -413,10 +427,6 @@ header {
     }
 
     .logo-icon {
-        width: 100px;
-    }
-
-    .logo-text {
-        font-size: 48px;
+        width: 80px;
     }
 }

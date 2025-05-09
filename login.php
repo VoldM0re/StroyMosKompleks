@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_GET['referer'])) $_SESSION['referer'] = $_GET['referer'];
+if (isset($_GET['referer'])) $_SESSION['referer'] = urldecode($_GET['referer']);
 if (isset($_SESSION['user'])) header('Location: /profile.php');
 ?>
 
