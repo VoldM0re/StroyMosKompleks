@@ -108,11 +108,9 @@
         <section class='services_cards-wrapper container'>
             <h2>Новые предложения</h2>
             <div class='services_cards'>
-                <?php global $pdo;
-                $stmt = $pdo->prepare("SELECT * FROM `services` ORDER BY `id` DESC LIMIT 3 ");
-                $stmt->execute();
-                $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+                <?php
+                require_once 'includes/helpers.php';
+                $services = query($pdo, "SELECT * FROM `services` ORDER BY `id` DESC LIMIT 3;");
                 if ($services):
                     foreach ($services as $service):
                         $price_units = match ($service['price_units']) {
@@ -177,17 +175,16 @@
         <div class='reviews-wrapper container'>
             <h2>Отзывы наших клиентов</h2>
             <div class='reviews'>
-                <?php require_once 'includes/db.php';
-                $reviews = query($pdo, "SELECT 
+                <?php $reviews = query($pdo, "SELECT
                 reviews.review_text,
                 reviews.created_at,
                 reviews.user_id,
                 users.first_name,
                 users.last_name,
                 users.profile_image_url
-                FROM reviews 
-                LEFT JOIN users ON reviews.user_id = users.id 
-                WHERE reviews.review_status = 'accepted' 
+                FROM reviews
+                LEFT JOIN users ON reviews.user_id = users.id
+                WHERE reviews.review_status = 'accepted'
                 ORDER BY reviews.created_at DESC LIMIT 3;");
 
                 if ($reviews):
@@ -207,7 +204,6 @@
                         <h3>Отзывов пока нет</h3>
                     </div>
                 <?php endif; ?>
-
             </div>
             <a class='action_button actbtn-w' href='otzyvy.php'>Все отзывы</a>
         </div>
