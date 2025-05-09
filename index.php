@@ -113,12 +113,7 @@
                 $services = query($pdo, "SELECT * FROM `services` ORDER BY `id` DESC LIMIT 3;");
                 if ($services):
                     foreach ($services as $service):
-                        $price_units = match ($service['price_units']) {
-                            'noUnits' => '',
-                            'm2' => '/м²',
-                            'pog_m' => '/пог. м',
-                            default => ''
-                        }; ?>
+                        $price_units = format_price_units($service['price_units']); ?>
                         <div class='service_card'>
                             <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' />
                             <div class='service_card-text-block'>

@@ -1,22 +1,15 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php';
 function listServices($title, $caregory)
 { ?>
     <h2><?= $title ?></h2>
     <div class='services_cards'>
         <?php global $pdo;
-        $stmt = $pdo->prepare("SELECT * FROM `services` WHERE `category` = :category;");
-        $stmt->execute([':category' => $caregory]);
-        $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        $services = query($pdo, "SELECT * FROM `services` WHERE `category` = :category;", [':category' => $caregory]);
         if ($services):
             foreach ($services as $service):
-                $price_units = match ($service['price_units']) {
-                    'noUnits' => '',
-                    'm2' => '/м²',
-                    'pog_m' => '/пог. м',
-                    default => ''
-                }; ?>
+                $price_units = format_price_units($service['price_units']); ?>
                 <div class='service_card'>
                     <img class='service-img' src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Изображение услуги' loading='lazy' />
                     <div class='service_card-text-block'>

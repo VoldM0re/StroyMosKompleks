@@ -8,12 +8,7 @@ if ($service_id) {
     if (!$service) redirect('/error_page.php');
 } else redirect('/error_page.php');
 
-$price_units = match ($service['price_units']) {
-    'noUnits' => '',
-    'm2' => '/м²',
-    'pog_m' => '/пог. м',
-    default => ''
-}; ?>
+$price_units = format_price_units($service['price_units']); ?>
 <!DOCTYPE html>
 <html lang='ru'>
 

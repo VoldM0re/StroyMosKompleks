@@ -38,12 +38,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php'; ?>
                     WHERE `user_id` = :user_id;", [':user_id' => $_SESSION['user']['id']]);
                     if ($cart_services):
                         foreach ($cart_services as $service):
-                            $price_units = match ($service['price_units']) {
-                                'noUnits' => '',
-                                'm2' => '/м²',
-                                'pog_m' => '/пог. м',
-                                default => ''
-                            }; ?>
+                            $price_units = format_price_units($service['price_units']); ?>
                             <div class="cart_service" data-service-id="<?= $service['id'] ?>">
                                 <a href="/service.php?service_id=<?= $service['id'] ?>" class="cart_service-img">
                                     <img src='/assets/uploads/services_images/<?= $service['image_url'] ?>' alt='Фото услуги' loading='lazy'>

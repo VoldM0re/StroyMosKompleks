@@ -35,3 +35,13 @@ function query($pdo, $sql, $params = [], $fetchMethod = 'fetchAll')
         'fetchColumn' => $stmt->fetchColumn(),
     };
 }
+
+function format_price_units($price_units)
+{
+    return match ($price_units) {
+        'noUnits' => '',
+        'm2' => '/м²',
+        'pog_m' => '/пог. м',
+        default => ''
+    };
+}
