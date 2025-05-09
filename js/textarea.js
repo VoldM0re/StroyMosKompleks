@@ -1,15 +1,17 @@
-const textarea = document.querySelector('.textarea');
-const counter = document.querySelector('.chars_counter');
+const textareas = document.querySelectorAll('.textarea');
 const maxLenght = 200
-if (textarea) {
-    window.onload = updateArea(textarea);
+if (textareas) {
+    textareas.forEach((textarea) => {
+        window.onload = updateArea(textarea);
+        console.log(1);
+    });
 }
-
 function updateArea(elem) {
     elem.style.height = "5px";
     elem.style.height = (elem.scrollHeight + 15) + "px";
 
-    const currentLength = (textarea.value).length;
+    const currentLength = (elem.value).length;
+    const counter = elem.nextElementSibling;
     counter.innerHTML = currentLength + `/${maxLenght}`;
 
     if (currentLength === maxLenght) {

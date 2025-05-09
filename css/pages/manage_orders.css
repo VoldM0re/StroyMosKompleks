@@ -1,0 +1,146 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+
+.orders-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.orders {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.order-top {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+    background: #FFF;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+}
+
+.order-top-text {
+    align-self: stretch;
+    color: var(--accent, #FF8A42);
+    font-family: Jost;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.order-main {
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.order-text {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    background: #FFF;
+}
+
+.order-text-main {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.order-avatar {
+    width: 25px;
+}
+
+.order-user {
+    align-self: stretch;
+    color: var(--black);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.order-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.order-text-title {
+    color: var(--black);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.order-text-description {
+    color: var(--black);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.order-bottom {
+    align-self: stretch;
+    color: var(--placeholder);
+    text-align: right;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+
+}
+
+.order-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.order-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    outline: none;
+    border: none;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.order-button.green {
+    background-color: var(--green);
+}
+
+.order-button.yellow {
+    background-color: #FFBC40;
+}
+
+.order-button.red {
+    background-color: var(--red);
+}

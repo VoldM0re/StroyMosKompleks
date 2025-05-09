@@ -1,0 +1,52 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+@import '/css/components/cart_items.css';
+@import '/css/components/sign_form.css';
+@import '/css/components/textarea.css';
+@import '/css/components/message.css';
+
+.confirm-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.confirm-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cart_services {
+    padding: 0;
+    border: none;
+    min-height: unset;
+}
+
+.sign__inputs {
+    width: 100%;
+}
+
+@media (min-width: 359px) {}
+
+@media (min-width: 479px) {}
+
+@media (min-width: 659px) {}
+
+@media (min-width: 767px) {
+    .confirm-block>* {
+        border: 2px solid #e6e6e6;
+        padding: 20px;
+        border-radius: var(--border-radius);
+        flex: 1 0 0;
+    }
+}
+
+@media (min-width: 1023px) {}
+
+@media (min-width: 1279px) {}

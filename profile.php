@@ -117,6 +117,9 @@ if (!isset($_SESSION['user'])) {
                             <a class='action_button actbtn-o' href='/admin/manage_services.php'>
                                 <span>Управление услугами</span>
                             </a>
+                            <a class='action_button actbtn-o' href='/admin/manage_orders.php'>
+                                <span>Управление заказами</span>
+                            </a>
                         <?php endif; ?>
 
                         <a class='logout-button' href='/includes/actions/logout.inc.php'>

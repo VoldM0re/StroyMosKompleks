@@ -11,7 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php'; ?>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>СтройМосКомплекс - УСЛУГА</title>
+    <title>СтройМосКомплекс - Корзина</title>
     <meta name='description' content='Корзина'>
     <meta name='robots' content='noindex, nofollow'>
     <link rel='stylesheet' href='/css/pages/cart.css'>
@@ -62,7 +62,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php'; ?>
                     <?php endif; ?>
                 </div>
                 <?php if ($cart_services): ?>
-                    <a id="confirmOrderButton" class="action_button actbtn-o" href="confirm_order.php">Оставить заявку</a>
+                    <a href="confirm_order.php" id="confirmOrderButton" class="action_button actbtn-o">Оставить заявку</a>
                 <?php endif; ?>
             </div>
         </section>

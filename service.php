@@ -15,7 +15,7 @@ $price_units = format_price_units($service['price_units']); ?>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>СтройМосКомплекс - УСЛУГА</title>
+    <title>СтройМосКомплекс - <?= $service['name'] ?></title>
     <meta name='description' content='<?= $service['short_description'] ?>'>
     <meta name='robots' content='noindex, nofollow'>
     <link rel='stylesheet' href='/css/pages/service.css'>

@@ -1,0 +1,119 @@
+.cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart_services {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    border-radius: 7px;
+    align-items: center;
+
+}
+
+.cart_service {
+    box-shadow: var(--shadow);
+    display: grid;
+    padding: 5px;
+    gap: 10px;
+    border-radius: var(--border-radius);
+    background: #FFF;
+    grid-template-columns: 1fr 5fr;
+
+}
+
+.cart_service-img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-width: 80px;
+    aspect-ratio: 1/1;
+}
+
+.cart_service-img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.cart_service-text {
+    display: flex;
+    padding: 8px;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 0 0;
+    justify-content: space-between;
+}
+
+.cart_service-title {
+    color: var(--accent);
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+    font-weight: 700;
+    line-height: 20px;
+    word-break: break-word;
+}
+
+.cart_service-price-block {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    align-self: stretch;
+}
+
+.cart_service-price {
+    color: var(--black);
+    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
+    font-weight: 500;
+}
+
+.cart_service-delete_button {
+    color: var(--placeholder);
+    display: flex;
+    width: 12px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+@media (min-width: 767px) {
+
+    .action_button {
+        height: min-content;
+        width: 300px;
+    }
+
+    .cart_services {
+        flex: 1 0 0;
+    }
+
+    .cart_service {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .cart_service-delete_button {
+        width: 15px;
+    }
+}
+
+@media (min-width: 1023px) {
+    .cart-block {
+        flex-direction: row;
+    }
+
+    .cart_services {
+        padding: 30px;
+        border: 2px solid #e6e6e6;
+        min-height: 50vh;
+    }
+}
