@@ -87,18 +87,21 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    align-self: stretch;
 }
 
 .order-text-title {
     color: var(--black);
     font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
     font-weight: 700;
+    align-self: stretch;
 }
 
 .order-text-description {
     color: var(--black);
     font-size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
     font-weight: 500;
+    align-self: stretch;
 }
 
 .order-bottom {
@@ -108,6 +111,7 @@
     font-size: .75rem;
     font-weight: 500;
     padding-inline: 20px;
+    align-self: stretch;
 }
 
 .order-buttons {
