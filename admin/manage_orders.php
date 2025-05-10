@@ -57,8 +57,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                                         <h4 class="order-text-title">Комментарий: </h4>
                                         <p class="order-text-description"><?= nl2br(htmlspecialchars($order['comment'])) ?></p>
                                     </div>
-                                    <div class="order-bottom"><?= htmlspecialchars($order['created_at']) ?></div>
                                 </div>
+                                <div class="order-bottom"><?= htmlspecialchars($order['created_at']) ?></div>
                                 <div class="order-buttons">
                                     <button class="order-button green <?= $order_status == 'accepted' ? 'active' : '' ?>" data-action="accept">Принят</button>
                                     <button class="order-button yellow <?= $order_status == 'pending' ? 'active' : '' ?>" data-action="pend">В обработке</button>
