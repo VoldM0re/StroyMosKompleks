@@ -59,11 +59,11 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                                     </div>
                                 </div>
                                 <div class="order-bottom"><?= htmlspecialchars($order['created_at']) ?></div>
-                                <div class="order-buttons">
-                                    <button class="order-button green <?= $order_status == 'accepted' ? 'active' : '' ?>" data-action="accept">Принят</button>
-                                    <button class="order-button yellow <?= $order_status == 'pending' ? 'active' : '' ?>" data-action="pend">В обработке</button>
-                                    <button class="order-button red <?= $order_status == 'rejected' ? 'active' : '' ?>" data-action="reject">Отклонён</button>
-                                </div>
+                            </div>
+                            <div class="order-buttons">
+                                <button class="order-button green <?= $order_status == 'accepted' ? 'active' : '' ?>" data-action="accept">Принят</button>
+                                <button class="order-button yellow <?= $order_status == 'pending' ? 'active' : '' ?>" data-action="pend">В обработке</button>
+                                <button class="order-button red <?= $order_status == 'rejected' ? 'active' : '' ?>" data-action="reject">Отклонён</button>
                             </div>
                         </div>
                     <?php endforeach; ?>
