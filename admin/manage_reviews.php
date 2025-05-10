@@ -85,79 +85,79 @@ function admin_listReviews($review_status)
             ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const reviewsContainers = document.querySelectorAll('.reviews');
-            reviewsContainers.forEach(function(reviewsContainer) {
-                reviewsContainer.addEventListener('click', function(event) {
-                    const target = event.target;
-                    if (target.classList.contains('review-action')) {
-                        const action = target.dataset.action;
-                        const reviewBlock = target.closest('.review-admin-block');
+            document.addEventListener('click', function(event) {
+                const target = event.target;
+                const actionButton = target.closest('.review-action');
 
-                        if (reviewBlock) {
-                            const reviewId = reviewBlock.dataset.reviewId;
-                            let targetContainer = '';
-                            let url = '';
-                            let confirmationMessage = '';
+                if (actionButton) {
+                    const action = actionButton.dataset.action;
+                    const reviewBlock = actionButton.closest('.review-admin-block');
+                    const reviewId = reviewBlock.dataset.reviewId;
+                    const originalContainer = reviewBlock.parentElement;
 
-                            if (action === 'accept') {
-                                targetContainer = document.querySelector('#accepted-reviews');
-                                actionButtons =
-                                    `<button class='review-action pend' id='review-action-pend' data-action='pend' data-full-text='Снять с публикации' data-short-text='🕙︎' title='Снять с публикации'></button>`;
-                                url = '/includes/actions/admin_accept_review.inc.php';
-                                confirmationMessage = 'Принять этот отзыв?';
-                            } else if (action === 'pend') {
-                                actionButtons = `
-                                    <button class='review-action reject' id='review-action-reject' data-action='reject' data-full-text='Удалить' data-short-text='✖' title='Удалить'></button>
-                                    <button class='review-action accept' id='review-action-accept' data-action='accept' data-full-text='Принять' data-short-text='✔' title='Опубликовать'></button>
-                                `;
-                                targetContainer = document.querySelector('#pending-reviews');
-                                url = '/includes/actions/admin_pend_review.inc.php';
-                                confirmationMessage = 'Снять с публикации этот отзыв?';
-                            } else if (action === 'reject') {
-                                url = '/includes/actions/admin_reject_review.inc.php';
-                                confirmationMessage = 'Удалить этот отзыв?';
-                            }
+                    let targetContainerId = null;
+                    let newActionButtonsHTML = '';
+                    let isRemoval = false;
 
-                            if (url && confirmationMessage && confirm(confirmationMessage)) {
-                                fetch(url, {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/x-www-form-urlencoded'
-                                        },
-                                        body: 'review_id=' + encodeURIComponent(reviewId)
-                                    })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        if (data.success) {
-                                            reviewBlock.remove();
-                                            if (targetContainer) {
-                                                reviewBlock.querySelector('.review-admin-actions').innerHTML = actionButtons;
-                                                const emptyReviewMessage = targetContainer.querySelector('#emptyReviews');
-                                                if (emptyReviewMessage) emptyReviewMessage.remove();
-                                                targetContainer.prepend(reviewBlock)
-                                            };
-                                            if (!reviewsContainer.querySelector('.review-admin-block')) {
-                                                const emptyText = reviewsContainer.id == 'pending-reviews' ? 'Новых отзывов пока нет.' :
-                                                    'Опубликованных отзывов пока нет.'
-                                                reviewsContainer.innerHTML = `
-                                                    <div class='review' id='emptyReviews' style='text-align: center;'>
-                                                        <h3>${emptyText}</h3>
-                                                    </div> `;
-                                            }
-                                        } else {
-                                            alert('Ошибка: ' + data.message);
-                                        }
-                                    })
-                                    .catch(error => {
-                                        console.error('Ошибка при отправке запроса:', error);
-                                        alert('Произошла ошибка при обработке отзыва.');
-                                    });
-                            }
-                        }
+                    if (action === 'accept') {
+                        targetContainerId = 'accepted-reviews';
+                        newActionButtonsHTML = `<button class='review-action pend' data-action='pend' data-full-text='Снять с публикации' data-short-text='🕙︎' title='Снять с публикации'></button>`;
+                    } else if (action === 'pend') {
+                        targetContainerId = 'pending-reviews';
+                        newActionButtonsHTML = `
+                        <button class='review-action reject' data-action='reject' data-full-text='Удалить' data-short-text='✖' title='Удалить'></button>
+                        <button class='review-action accept' data-action='accept' data-full-text='Принять' data-short-text='✔' title='Опубликовать'></button>
+                    `;
+                    } else if (action === 'reject') isRemoval = true;
+                    else {
+                        console.warn('Неизвестное действие отзыва:', action);
+                        return;
                     }
-                });
+
+                    fetch('/includes/actions/admin_update_review_status.inc.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: 'review_id=' + encodeURIComponent(reviewId) + '&action=' + encodeURIComponent(action)
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                reviewBlock.remove();
+
+                                if (!isRemoval && targetContainerId) {
+                                    const targetContainer = document.getElementById(targetContainerId);
+                                    if (targetContainer) {
+                                        const actionsContainer = reviewBlock.querySelector('.review-admin-actions');
+                                        const emptyReviewMessageTarget = targetContainer.querySelector('#emptyReviews');
+
+                                        actionsContainer.innerHTML = newActionButtonsHTML;
+                                        if (emptyReviewMessageTarget) emptyReviewMessageTarget.remove();
+                                        targetContainer.prepend(reviewBlock);
+                                    } else {
+                                        console.error('Целевой контейнер не найден:', targetContainerId);
+                                    }
+                                }
+
+                                if (originalContainer && !originalContainer.querySelector('.review-admin-block')) {
+                                    const emptyText = originalContainer.id === 'pending-reviews' ? 'Новых отзывов пока нет.' : 'Опубликованных отзывов пока нет.';
+                                    originalContainer.innerHTML = `
+                                    <div class='review' id='emptyReviews' style='text-align: center;'>
+                                        <h3>${emptyText}</h3>
+                                    </div>`;
+                                }
+                            } else {
+                                console.error('Ошибка на сервере: ' + (data.message || 'Неизвестная ошибка'));
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Ошибка:', error);
+                        });
+                }
             });
         });
     </script>

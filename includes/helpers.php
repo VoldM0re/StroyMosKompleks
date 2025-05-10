@@ -33,6 +33,8 @@ function query($pdo, $sql, $params = [], $fetchMethod = 'fetchAll')
         'fetchAll' => $stmt->fetchAll(PDO::FETCH_ASSOC),
         'fetch' => $stmt->fetch(PDO::FETCH_ASSOC),
         'fetchColumn' => $stmt->fetchColumn(),
+        'rowCount' => $stmt->rowCount(),
+        null => null,
     };
 }
 
