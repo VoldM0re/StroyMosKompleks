@@ -23,7 +23,7 @@ if (!isset($_SESSION['user'])) {
     <main>
         <section class='profile-wrapper container'>
             <h2>Ваш профиль</h2>
-            <form class="profile__card sign__form" method="post" action='includes/actions/update_user.inc.php' enctype='multipart/form-data'>
+            <form class="profile__card sign__form" method="post" action='includes/actions/user_update.inc.php' enctype='multipart/form-data'>
                 <div class="avatar_block">
                     <div class="avatar_block-buttons">
                         <label for="avatar_file">

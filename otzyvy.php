@@ -82,7 +82,7 @@
                     <?php elseif ($approvedReview): ?>
                         <p class='leave_review-text'>Вы уже оставили свой отзыв.</p>
                     <?php else: ?>
-                        <form class='leave_review-form' action='includes/actions/add_review.inc.php' method='post'>
+                        <form class='leave_review-form' action='includes/actions/review_add.inc.php' method='post'>
                             <input type='hidden' name='redirect_url' value='<?= htmlspecialchars($_SERVER['REQUEST_URI']) ?>'>
                             <div class='textarea-block'>
                                 <textarea class='textarea' oninput='updateArea(this)' name='review_text' maxlength='200' placeholder='Пишите здесь, максимум 200 символов' required

@@ -117,7 +117,7 @@ function admin_listReviews($review_status)
                         return;
                     }
 
-                    fetch('/includes/actions/admin_update_review_status.inc.php', {
+                    fetch('/includes/actions/admin/review_update_status.inc.php', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/x-www-form-urlencoded'

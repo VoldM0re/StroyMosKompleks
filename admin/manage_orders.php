@@ -86,7 +86,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                         if (orderBlock) {
                             const orderId = orderBlock.dataset.orderId;
                             const action = target.dataset.action;
-                            fetch('/includes/actions/admin_update_order_status.inc.php', {
+                            fetch('/includes/actions/admin/order_update_status.inc.php', {
                                     method: 'POST',
                                     headers: {
                                         'Content-Type': 'application/x-www-form-urlencoded'

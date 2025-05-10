@@ -70,7 +70,7 @@ $price_units = format_price_units($service['price_units']); ?>
             formData.append('service_id', serviceId);
             formData.append('action', action);
 
-            fetch('includes/actions/cart_actions.inc.php', {
+            fetch('includes/actions/cart_update.inc.php', {
                     method: 'POST',
                     body: formData
                 })

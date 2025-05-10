@@ -9,7 +9,7 @@ function admin_listServices($title, $caregory)
 { ?>
     <h2 class="block-title"><?= $title ?></h2>
     <div class='services_cards'>
-        <form action='/includes/actions/add_service.inc.php' method='POST' class='service_card new_service' enctype='multipart/form-data'>
+        <form action='/includes/actions/admin/service_add.inc.php' method='POST' class='service_card new_service' enctype='multipart/form-data'>
             <label>
                 <img id="service_img" class='service-img' src="/assets/uploads/services_images/default_service_image.jpg" alt="Изображение услуги">
                 <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg" required>
@@ -50,7 +50,7 @@ function admin_listServices($title, $caregory)
 
         if ($services):
             foreach ($services as $service): ?>
-                <form action='/includes/actions/update_service.inc.php' method='POST' class='service_card' enctype='multipart/form-data'>
+                <form action='/includes/actions/admin/service_update.inc.php' method='POST' class='service_card' enctype='multipart/form-data'>
                     <label>
                         <img id="service_img" class='service-img' src="/assets/uploads/services_images/<?= $service['image_url'] ?>" alt="Изображение услуги">
                         <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg">
@@ -124,7 +124,7 @@ function admin_listServices($title, $caregory)
     <script>
         function deleteService(serviceId, imageUrl) {
             if (confirm("Вы уверены, что хотите удалить эту услугу?")) {
-                window.location.href = `/includes/actions/delete_service.inc.php?id=${serviceId}&image_url=${imageUrl}`;
+                window.location.href = `/includes/actions/admin/service_delete.inc.php?id=${serviceId}&image_url=${imageUrl}`;
             }
         }
 

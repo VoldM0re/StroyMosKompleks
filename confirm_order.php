@@ -37,7 +37,7 @@ if (!isset($_SESSION['user'])) {
 <body>
     <?php include 'includes/components/header.php'; ?>
     <main>
-        <form class="confirm-wrapper container" method="post" action='includes/actions/confirm_order.inc.php'>
+        <form class="confirm-wrapper container" method="post" action='includes/actions/order_confirm.inc.php'>
             <h2>Подтвердите заявку</h2>
             <div class='confirm-block'>
                 <div class='sign__inputs'>

@@ -80,7 +80,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php'; ?>
                 formData.append('service_id', serviceId);
                 formData.append('action', action);
 
-                fetch('includes/actions/cart_actions.inc.php', {
+                fetch('includes/actions/cart_update.inc.php', {
                         method: 'POST',
                         body: formData
                     })

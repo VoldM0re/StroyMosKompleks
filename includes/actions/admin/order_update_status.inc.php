@@ -31,13 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['a
         exit();
     }
     try {
-        if ($action == 'reject') {
-            query($pdo, "DELETE FROM `orders` WHERE `id` = :order_id", [':order_id' => $order_id]);
-            echo json_encode(['success' => true, 'message' => "Отзыв удалён"]);
-        } else {
-            query($pdo, "UPDATE `orders` SET `status` = :status WHERE `id` = :order_id", [':status' => $status_list[$action], ':order_id' => $order_id], null);
-            echo json_encode(['success' => true, 'message' => "Статус заказа изменён"]);
-        }
+        query($pdo, "UPDATE `orders` SET `status` = :status WHERE `id` = :order_id", [':status' => $status_list[$action], ':order_id' => $order_id], null);
+        echo json_encode(['success' => true, 'message' => "Статус заказа изменён"]);
     } catch (PDOException $e) {
         echo json_encode(['success' => false, 'message' => "Ошибка в БД: $e"]);
     }
