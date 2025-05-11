@@ -20,9 +20,9 @@ if (!isset($_SESSION['user'])) {
 <body>
     <?php require_once 'includes/components/header.php'; ?>
 
-    <main>
-        <section class='profile-wrapper container'>
-            <h2>Ваш профиль</h2>
+    <main class="container">
+        <h2>Ваш профиль</h2>
+        <section class='profile-wrapper'>
             <form class="profile__card sign__form" method="post" action='includes/actions/user_update.inc.php' enctype='multipart/form-data'>
                 <div class="avatar_block">
                     <div class="avatar_block-buttons">
@@ -134,6 +134,55 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 </div>
             </form>
+            <section class="orders-wrapper">
+                <div class="orders">
+                    <h3 class="orders-block-title">Ваши заказы</h3>
+                    <?php require_once 'includes/helpers.php'; ?>
+                    <?php $orders = query($pdo, "SELECT orders.*, services.image_url, orders.service_id FROM `orders` LEFT JOIN `services` ON orders.service_id = services.id WHERE orders.user_id = :user_id ORDER BY orders.created_at DESC;", [':user_id' => $_SESSION['user']['id']]);
+                    $status_list = ['accepted' => 'Принят', 'pending' => 'В обработке', 'rejected' => 'Отклонён',];
+                    if ($orders):
+                        foreach ($orders as $order): ?>
+                            <div class="order">
+                                <a class="order-top" href="/service.php?service_id=<?= $order['service_id'] ?>">
+                                    <div class="order-img-block" class="cart_service-img">
+                                        <img class="order-img" src='/assets/uploads/services_images/<?= $order['image_url'] ?>' alt='Фото услуги' loading='lazy'>
+                                    </div>
+                                    <h3 class="order-top-text"><?= htmlspecialchars($order['service_name']) ?></h3>
+                                </a>
+                                <div class="order-main">
+                                    <div class="order-text">
+                                        <div class="order-text-block">
+                                            <h4 class="order-text-title">Заказ на имя: </h4>
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['first_name'])) ?></p> <!-- Use nl2br for address/comment -->
+                                        </div>
+                                        <div class="order-text-block">
+                                            <h4 class="order-text-title">Указанный телефон: </h4>
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['phone'])) ?></p> <!-- Use nl2br for address/comment -->
+                                        </div>
+                                        <div class="order-text-block">
+                                            <h4 class="order-text-title">Указанный адрес: </h4>
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['address'])) ?></p> <!-- Use nl2br for address/comment -->
+                                        </div>
+                                        <div class="order-text-block">
+                                            <h4 class="order-text-title">Ваш комментарий: </h4>
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['comment'])) ?></p>
+                                        </div>
+                                        <div class="order-bottom-info">
+                                            <div class="order-text-block">
+                                                <h4 class="order-text-title">Дата заказа: </h4>
+                                                <p class="order-text-description"><?= htmlspecialchars($order['created_at']) ?></p>
+                                            </div>
+                                            <p class="order-bottom-status <?= htmlspecialchars($order['status']) ?>"><?= htmlspecialchars($status_list[$order['status']]) ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <h3 class="orders-block-title">У вас пока нет заказов</h3>
+                    <?php endif; ?>
+                </div>
+            </section>
         </section>
     </main>
 
