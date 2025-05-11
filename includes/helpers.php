@@ -43,6 +43,7 @@ function format_price_units($price_units)
     return match ($price_units) {
         'noUnits' => '',
         'm2' => '/м²',
+        'm3' => '/м³',
         'pog_m' => '/пог. м',
         default => ''
     };

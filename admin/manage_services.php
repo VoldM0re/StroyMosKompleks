@@ -36,6 +36,7 @@ function admin_listServices($title, $caregory)
                     <option id='noPrice' value="">Договорная</option>
                     <option value="noUnits">За всю работу</option>
                     <option value="m2">за м²</option>
+                    <option value="m3">за м³</option>
                     <option value="pog_m">за пог. м</option>
                 </select>
                 <p class='service_price'>от <input type="text" name="price" value="0" required>₽</p>
@@ -80,6 +81,7 @@ function admin_listServices($title, $caregory)
                             <option id='noPrice' value="" <?= $service['price_units'] == null ? 'selected' : '' ?>>Договорная</option>
                             <option value="noUnits" <?= $service['price_units'] == 'noUnits' ? 'selected' : '' ?>>За всю работу</option>
                             <option value="m2" <?= $service['price_units'] == 'm2' ? 'selected' : '' ?>>за м²</option>
+                            <option value="m3" <?= $service['price_units'] == 'm3' ? 'selected' : '' ?>>за м³</option>
                             <option value="pog_m" <?= $service['price_units'] == 'pog_m' ? 'selected' : '' ?>>пог. м</option>
                         </select>
                         <p class='service_price'>от <input type="text" name="price" value="<?= $service['price'] ?>" required>₽</p>
