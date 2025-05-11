@@ -163,10 +163,12 @@ if (!isset($_SESSION['user'])) {
                                             <h4 class="order-text-title">Указанный адрес: </h4>
                                             <p class="order-text-description"><?= nl2br(htmlspecialchars($order['address'])) ?></p> <!-- Use nl2br for address/comment -->
                                         </div>
-                                        <div class="order-text-block">
-                                            <h4 class="order-text-title">Ваш комментарий: </h4>
-                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['comment'])) ?></p>
-                                        </div>
+                                        <?php if (isset($order['comment'])): ?>
+                                            <div class="order-text-block">
+                                                <h4 class="order-text-title">Ваш комментарий: </h4>
+                                                <p class="order-text-description"><?= nl2br(htmlspecialchars($order['comment'])) ?></p>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="order-bottom-info">
                                             <div class="order-text-block">
                                                 <h4 class="order-text-title">Дата заказа: </h4>

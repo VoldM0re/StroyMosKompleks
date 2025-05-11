@@ -26,7 +26,7 @@ if (!isset($_SESSION['user'])) {
             <h2>Спасибо за заказ!</h2>
             <div class="successful_order-buttons">
                 <a href="/profile.php" class="action_button actbtn-o">Узнайте статус заказа в профиле</a>
-                <a href="/" class="action_button actbtn-w">На главную</a>
+                <a href="/uslugi/" class="action_button actbtn-w">В каталог</a>
             </div>
         </section>
     </main>

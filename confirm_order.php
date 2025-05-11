@@ -84,7 +84,7 @@ if (!isset($_SESSION['user'])) {
                             </div>
                             <div class="textarea-block">
                                 <textarea class='textarea' oninput="updateArea(this)" name='comment' placeholder='Дополнительная информация'
-                                    maxlength='200' required></textarea>
+                                    maxlength='200'></textarea>
                                 <small class='chars_counter'>0/200</small>
                             </div>
                         </div>

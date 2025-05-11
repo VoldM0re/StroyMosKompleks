@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $comment = getPost('comment');
     $service_name = getPost('service_name');
 
-    if (empty($first_name) || empty($phone) || empty($address) || empty($comment) || empty($service_name)) {
+    if (empty($first_name) || empty($phone) || empty($address) || empty($service_name)) {
         setMessage("Заполните все поля!");
     }
 

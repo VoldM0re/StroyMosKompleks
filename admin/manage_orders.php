@@ -55,7 +55,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                                     </div>
                                     <div class="order-text-block">
                                         <h4 class="order-text-title">Комментарий: </h4>
-                                        <p class="order-text-description"><?= nl2br(htmlspecialchars($order['comment'])) ?></p>
+                                        <p class="order-text-description"><?= nl2br(htmlspecialchars($order['comment'] ?? 'Отсутствует')) ?></p>
                                     </div>
                                 </div>
                                 <div class="order-bottom"><?= htmlspecialchars($order['created_at']) ?></div>
