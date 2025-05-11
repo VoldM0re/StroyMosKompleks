@@ -1,0 +1,21 @@
+/* Импорт компонентов */
+@import '/css/base/base.css';
+@import '/css/components/header.css';
+@import '/css/components/footer.css';
+@import '/css/components/action_button.css';
+
+.successful_order-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.successful_order-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.successful_order-buttons>* {
+    width: 100%;
+}
