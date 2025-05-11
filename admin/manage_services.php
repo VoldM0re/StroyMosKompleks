@@ -119,11 +119,38 @@ function admin_listServices($title, $caregory)
             admin_listServices('Отделочные работы', 'finishing');
             admin_listServices('Дизайн и проектирование', 'design');
             ?>
+            <button id="scrollToNextBtn">↓</button>
         </section>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/footer.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/components/message_handler.php'; ?>
     <script>
+        const scrollBtn = document.getElementById('scrollToNextBtn');
+        const sections = document.querySelectorAll('.block-title');
+
+        scrollBtn.addEventListener('click', function() {
+            const currentScroll = window.scrollY;
+            let nextSection = null;
+
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                if (section.offsetTop > currentScroll + 1) {
+                    nextSection = section;
+                    break;
+                }
+            }
+
+            if (!nextSection && sections.length > 0) {
+                nextSection = sections[0];
+            }
+
+            if (nextSection) {
+                nextSection.scrollIntoView({
+                    behavior: 'instant'
+                });
+            }
+        });
+
         function deleteService(serviceId, imageUrl) {
             if (confirm("Вы уверены, что хотите удалить эту услугу?")) {
                 window.location.href = `/includes/actions/admin/service_delete.inc.php?id=${serviceId}&image_url=${imageUrl}`;

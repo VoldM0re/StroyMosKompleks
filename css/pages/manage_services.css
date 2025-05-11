@@ -54,3 +54,23 @@ textarea {
     display: flex;
     gap: 10px;
 }
+
+#scrollToNextBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    padding: 20px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: background-color .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#scrollToNextBtn:hover {
+    background-color: var(--black);
+}
