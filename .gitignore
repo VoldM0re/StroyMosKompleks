@@ -1,3 +1,5 @@
 config.php
 assets/uploads/profile_pictures/
 !assets/uploads/profile_pictures/default_pfp.png
+assets/uploads/services_images/
+!assets/uploads/services_images/default_service_image.jpg
