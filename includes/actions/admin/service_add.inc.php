@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../helpers.php';
-require_once '../db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION['user']['role'] == 'admin') {
     $category = getPost('category');

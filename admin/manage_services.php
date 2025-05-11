@@ -12,7 +12,7 @@ function admin_listServices($title, $caregory)
         <form action='/includes/actions/admin/service_add.inc.php' method='POST' class='service_card new_service' enctype='multipart/form-data'>
             <label>
                 <img id="service_img" class='service-img' src="/assets/uploads/services_images/default_service_image.jpg" alt="Изображение услуги">
-                <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg" required>
+                <input style="display: none;" name="service_img" class="service_img-input" type="file" accept="image/png, image/jpeg">
             </label>
 
             <div class='service_card-text-block'>

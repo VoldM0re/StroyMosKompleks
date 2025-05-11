@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../helpers.php';
-require_once '../db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SESSION['user']['role'] == 'admin') {
     $id = htmlspecialchars(trim($_GET['id']));
