@@ -16,6 +16,10 @@
     resize: none;
 }
 
+.textarea::placeholder {
+    color: var(--placeholder);
+}
+
 .chars_counter {
     position: absolute;
     right: 3%;
@@ -60,7 +64,7 @@
 
 @media (min-width: 1279px) {
     .chars_counter {
-        right: 1%;
+        right: 2%;
         bottom: 10%;
         font-size: 16px;
     }

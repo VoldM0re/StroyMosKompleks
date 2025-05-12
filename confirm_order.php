@@ -109,7 +109,6 @@ if (!isset($_SESSION['user'])) {
                     <?php endforeach; ?>
                 </div>
             </div>
-
             <button class="action_button actbtn-o">Подтвердить</button>
         </form>
     </main>

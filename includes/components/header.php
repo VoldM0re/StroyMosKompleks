@@ -28,7 +28,7 @@ function isActive($pageName)
         <address class='header__contacts'>
             <div class='header__contact-box'>
                 <img src='/assets/svg/mail.svg' alt='mail icon' class='header__contact-icon icon'>
-                <a href='mailto:somemail@mail.ru' class='header__contact-text'>somemail@mail.ru</a>
+                <a href='mailto:mail@stroymoskompleks.ru' class='header__contact-text'>mail@stroymoskompleks.ru</a>
             </div>
             <div class='header__contact-box'>
                 <img src='/assets/svg/phone.svg' alt='phone icon' class='header__contact-icon icon'>
@@ -114,7 +114,7 @@ function isActive($pageName)
                             d="M2.57886 16.072C2.02886 16.072 1.55819 15.8764 1.16686 15.485C0.775524 15.0937 0.579524 14.6227 0.578857 14.072L0.578857 2.07202C0.578857 1.52202 0.774858 1.05135 1.16686 0.660021C1.55886 0.268688 2.02952 0.0726882 2.57886 0.0720215L18.5789 0.0720215C19.1289 0.0720215 19.5999 0.268021 19.9919 0.660021C20.3839 1.05202 20.5795 1.52269 20.5789 2.07202V14.072C20.5789 14.622 20.3832 15.093 19.9919 15.485C19.6005 15.877 19.1295 16.0727 18.5789 16.072H2.57886ZM10.5789 9.07202L18.5789 4.07202V2.07202L10.5789 7.07202L2.57886 2.07202V4.07202L10.5789 9.07202Z"
                             fill="#222222" />
                     </svg>
-                    <a href='mailto:somemail@mail.ru' class='header__top-contact-text'>somemail@mail.ru</a>
+                    <a href='mailto:mail@stroymoskompleks.ru' class='header__top-contact-text'>mail@stroymoskompleks.ru</a>
                 </div>
 
                 <div class='header__top-contact-box'>

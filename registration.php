@@ -97,6 +97,12 @@ if (isset($_SESSION['user'])) header('Location: /profile.php');
                     Уже зарегистрированы?<br>
                     <a class='sign_other-link' href='login.php'>Войти в аккаунт</a>
                 </p>
+                <p class='sign_other-text'>
+                    <label class="policy_accept" for="policy">
+                        <input id="policy" type="checkbox" name="policy" required>
+                        Я соглашаюсь с <a class='sign_other-link' href='/privacy.php'>политикой</a> в отношении персональных данных
+                    </label>
+                </p>
             </form>
         </section>
     </main>
