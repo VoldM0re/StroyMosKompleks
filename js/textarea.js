@@ -3,7 +3,6 @@ const maxLenght = 200
 if (textareas) {
     textareas.forEach((textarea) => {
         window.onload = updateArea(textarea);
-        console.log(1);
     });
 }
 function updateArea(elem) {

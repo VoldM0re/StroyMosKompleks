@@ -212,7 +212,7 @@ if (!isset($_SESSION['user'])) {
 
         function deleteAvatar() {
             const pfp = document.getElementById('profile-image');
-            pfp.src = '/assets/img/avatars/default_pfp.png';
+            pfp.src = '/assets/uploads/profile_pictures/default_pfp.png';
             document.getElementById('avatar_file').value = '';
             document.getElementById('delete_avatar').value = '1';
         }

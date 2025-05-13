@@ -68,7 +68,7 @@ if (isset($_SESSION['user'])) header('Location: /profile.php');
                                 </svg>
                                 <span>Телефон</span>
                             </div>
-                            <input id='phoneInput' class='sign__textfield' type='tel' name='phone' placeholder='+71234567890' required>
+                            <input oninput="formatPhoneNumber(this)" id='phoneInput' class='sign__textfield' type='tel' name='phone' placeholder='+71234567890' required>
                         </div>
 
                         <div class='sign__textfield-block'>
