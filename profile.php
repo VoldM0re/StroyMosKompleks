@@ -29,7 +29,7 @@ if (!isset($_SESSION['user'])) {
                         <label for="avatar_file">
                             <div class="avatar">
                                 <img id='profile-image'
-                                    src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/ulpoads/default_pfp.png' ?>"
+                                    src="<?= isset($_SESSION['user']['profile_image_url']) ? '/assets/uploads/profile_pictures/' . $_SESSION['user']['profile_image_url'] : '/assets/uploads/profile_pictures/default_pfp.png' ?>"
                                     alt="Фото профиля">
                             </div>
                         </label>
