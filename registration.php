@@ -107,7 +107,11 @@ if (isset($_SESSION['user'])) header('Location: /profile.php');
         </section>
     </main>
     <?php require_once 'includes/components/footer.php'; ?>
-    <script src="/js/format_phone.js"></script>
+    <script src="/js/format_phone.js">
+        document.addEventListener('DOMContentLoaded', () => {
+            formatPhoneNumber(document.getElementById('phoneInput'));
+        });
+    </script>
 </body>
 
 </html>
