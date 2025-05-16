@@ -21,9 +21,8 @@
                 <span class='footer__contact-text'>Открыто: с 8:00 до 20:00, ПН - ПТ</span>
             </div>
         </address>
-
         <address class='footer__block'>
-            <h4>Наши контакты:</h4>
+            <h4>Есть вопрос? Свяжитесь с нами:</h4>
             <div class='footer__contact-box'>
                 <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

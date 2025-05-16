@@ -43,15 +43,15 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
                                                 : '/assets/uploads/profile_pictures/' . $order['profile_image_url'];
                                         } ?>
                                         <img class="order-avatar" src='<?= $profileImageUrl ?>' alt="Фото профиля">
-                                        <h3 class="order-user"><?= htmlspecialchars($order['first_name']) ?></h3>
+                                        <h3 class="order-user"><?= htmlspecialchars($order['first_name'] . ', #' . $order['id']) ?></h3>
                                     </div>
                                     <div class="order-text-block">
                                         <h4 class="order-text-title">Телефон: </h4>
-                                        <p class="order-text-description"><?= nl2br(htmlspecialchars($order['phone'])) ?></p> <!-- Use nl2br for address/comment -->
+                                        <p class="order-text-description"><?= nl2br(htmlspecialchars($order['phone'])) ?></p>
                                     </div>
                                     <div class="order-text-block">
                                         <h4 class="order-text-title">Адрес: </h4>
-                                        <p class="order-text-description"><?= nl2br(htmlspecialchars($order['address'])) ?></p> <!-- Use nl2br for address/comment -->
+                                        <p class="order-text-description"><?= nl2br(htmlspecialchars($order['address'])) ?></p>
                                     </div>
                                     <div class="order-text-block">
                                         <h4 class="order-text-title">Комментарий: </h4>

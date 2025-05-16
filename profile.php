@@ -152,16 +152,19 @@ if (!isset($_SESSION['user'])) {
                                 <div class="order-main">
                                     <div class="order-text">
                                         <div class="order-text-block">
+                                            <h4 class="order-text-title">Номер заказа: #<?= nl2br(htmlspecialchars($order['id'])) ?></h4>
+                                        </div>
+                                        <div class="order-text-block">
                                             <h4 class="order-text-title">Заказ на имя: </h4>
-                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['first_name'])) ?></p> <!-- Use nl2br for address/comment -->
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['first_name'])) ?></p>
                                         </div>
                                         <div class="order-text-block">
                                             <h4 class="order-text-title">Указанный телефон: </h4>
-                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['phone'])) ?></p> <!-- Use nl2br for address/comment -->
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['phone'])) ?></p>
                                         </div>
                                         <div class="order-text-block">
                                             <h4 class="order-text-title">Указанный адрес: </h4>
-                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['address'])) ?></p> <!-- Use nl2br for address/comment -->
+                                            <p class="order-text-description"><?= nl2br(htmlspecialchars($order['address'])) ?></p>
                                         </div>
                                         <?php if (isset($order['comment'])): ?>
                                             <div class="order-text-block">
