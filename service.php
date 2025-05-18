@@ -9,6 +9,7 @@ if ($service_id) {
 } else redirect('/error_page.php');
 
 $price_units = format_price_units($service['price_units']); ?>
+
 <!DOCTYPE html>
 <html lang='ru'>
 

@@ -34,7 +34,6 @@
 .list-items {
     list-style: disc;
     margin: 15px 0;
-    /* padding-left: 30px; */
     padding-left: 15px;
 }
 
@@ -91,7 +90,6 @@
 }
 
 @media (min-width: 1023px) {
-
     .privacy-content {
         margin-top: 30px;
         background: #fff;
@@ -99,5 +97,3 @@
         padding: 30px;
     }
 }
-
-@media (min-width: 1279px) {}

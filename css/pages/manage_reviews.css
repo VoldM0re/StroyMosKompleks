@@ -20,12 +20,9 @@
 
 .review-admin-block {
     display: flex;
-
     flex-direction: column;
-
     gap: 15px;
     border-radius: var(--border-radius);
-
 }
 
 .review-admin-actions {
@@ -63,7 +60,6 @@
 }
 
 @media (min-width: 1023px) {
-
     .review-admin-block {
         position: relative;
         overflow: hidden;

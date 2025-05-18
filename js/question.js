@@ -11,6 +11,5 @@ questions.forEach((question) => {
             answer.classList.add('opened');
             questionIcon.setAttribute('href', '/assets/svg/faq_sprite.svg#qQuestionMark');
         }
-
     });
 });

@@ -15,11 +15,7 @@ $cart_services = query(
         WHERE `user_id` = :user_id;",
     [':user_id' => $_SESSION['user']['id']]
 );
-if (!isset($_SESSION['user'])) {
-    echo $_SERVER['REQUEST_METHOD'];
-    redirect('/');
-} ?>
-
+if (!isset($_SESSION['user'])) redirect('/'); ?>
 
 <!DOCTYPE html>
 <html lang='ru'>
@@ -59,7 +55,7 @@ if (!isset($_SESSION['user'])) {
                                 </svg>
                                 <span>Телефон</span>
                             </div>
-                            <input id='phoneInput' class='sign__textfield' type='tel' name='phone' placeholder='+71234567890' required value="<?= htmlspecialchars($_SESSION['user']['phone']) ?? '' ?>">
+                            <input id='phoneInput' oninput="formatPhoneNumber(this)" class='sign__textfield' type='tel' name='phone' placeholder='+71234567890' required value="<?= htmlspecialchars($_SESSION['user']['phone']) ?? '' ?>">
                         </div>
 
                         <div class='sign__textfield-block'>

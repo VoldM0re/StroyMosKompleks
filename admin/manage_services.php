@@ -157,7 +157,7 @@ function admin_listServices($title, $caregory)
             }
         }
 
-        // Добавляет/удаляет поле ввода цены в рублях при выборе единиц измерения
+        // Добавление/удаление поле ввода цены в рублях при выборе единиц измерения
         document.addEventListener('DOMContentLoaded', function() {
             const selects = document.querySelectorAll('.price_units');
             selects.forEach((select) => {

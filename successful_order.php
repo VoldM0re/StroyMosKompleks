@@ -1,10 +1,8 @@
 <?php session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php';
 if (!isset($_SESSION['user'])) {
-    echo $_SERVER['REQUEST_METHOD'];
-    redirect('/');
+    header('Location: /');
+    exit();
 } ?>
-
 
 <!DOCTYPE html>
 <html lang='ru'>
@@ -31,14 +29,6 @@ if (!isset($_SESSION['user'])) {
         </section>
     </main>
     <?php include 'includes/components/footer.php'; ?>
-    <?php include 'includes/components/message_handler.php'; ?>
-    <script src="/js/textarea.js"></script>
-    <script src="/js/format_phone.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            formatPhoneNumber(document.getElementById('phoneInput'));
-        });
-    </script>
 </body>
 
 </html>

@@ -79,12 +79,10 @@ function handleSwipe() {
 
 // Предотвращаем прокрутку страницы при свайпе слайдера
 slider.addEventListener('touchmove', (event) => {
-    // Если движение горизонтальное, предотвращаем прокрутку страницы
     const touchMoveX = event.touches[0].screenX;
     const diffX = Math.abs(touchMoveX - touchStartX);
     const touchMoveY = event.touches[0].screenY;
     const diffY = Math.abs(touchMoveY - touchStartY);
-
     if (diffX > diffY) {
         event.preventDefault();
     }

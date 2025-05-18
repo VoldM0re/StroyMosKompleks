@@ -26,15 +26,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/helpers.php'; ?>
             <div class="cart-block">
                 <div class="cart_services">
                     <?php
-                    $cart_services = query($pdo, "SELECT
-                    services.id,
-                    services.name,
-                    services.short_description,
-                    services.price,
-                    services.price_units,
-                    services.image_url
-                    FROM `cart_items`
-                    LEFT JOIN `services` ON cart_items.service_id = services.id
+                    $cart_services = query($pdo, "SELECT 
+                    services.id, 
+                    services.name, 
+                    services.short_description, 
+                    services.price, 
+                    services.price_units, 
+                    services.image_url 
+                    FROM `cart_items` 
+                    LEFT JOIN `services` ON cart_items.service_id = services.id 
                     WHERE `user_id` = :user_id;", [':user_id' => $_SESSION['user']['id']]);
                     if ($cart_services):
                         foreach ($cart_services as $service):

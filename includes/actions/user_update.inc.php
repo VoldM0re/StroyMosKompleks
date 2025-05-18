@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $uploadFile = $_SERVER['DOCUMENT_ROOT'] . UPLOAD_DIR . $newFilename;
 
             if (move_uploaded_file($_FILES['avatar_file']['tmp_name'], $uploadFile)) {
-                deletePicture($_SESSION['user']['profile_image_url'] ?? ''); // Передаем текущий URL для удаления
+                deletePicture($_SESSION['user']['profile_image_url'] ?? '');
                 $profile_image_url = $newFilename;
             } else {
                 setMessage('Ошибка при загрузке файла на сервер');

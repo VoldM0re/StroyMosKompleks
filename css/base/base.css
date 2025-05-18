@@ -3,10 +3,6 @@
 @import 'typography.css';
 @import 'variables.css';
 
-/* * {
-    outline: 2px solid green;
-} */
-
 .container {
     width: 100%;
     padding-inline: 20px;
